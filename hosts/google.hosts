@@ -1,4 +1,6 @@
 # Google Host begin ...
+# 来源 https://hcfy.app/blog/2022/09/28/ggg#%E6%96%B9%E6%A1%88-b%E4%BF%AE%E6%94%B9-hosts--ip%E6%97%A0%E9%9C%80%E6%A2%AF%E5%AD%90
+# Google 翻译镜像 https://gtranslate.cdn.haah.net
 
 142.250.4.90 translate.googleapis.com
 172.253.114.90 translate.googleapis.com
@@ -59,6 +61,7 @@
 172.217.31.142 translate.googleapis.com
 216.58.220.142 translate.googleapis.com
 172.217.13.142 translate.googleapis.com
+172.253.113.90 translate.googleapis.com
 
 # update time 2022-10-27 14:33:19
 # Google Host end ...
