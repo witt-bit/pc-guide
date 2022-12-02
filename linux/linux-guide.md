@@ -191,10 +191,10 @@ sudo apt -yq install curl wget;
 * `clone`到主题目录下
 ```bash
 # ssh clone
-git clone git@github.com:romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/
+git clone git@github.com:romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # http
-git clone https://github.com/romkatv/powerlevel10k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/
+git clone https://github.com/romkatv/powerlevel10k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 * 修改环境变量
 将`~/.zshrc`文件中的`ZSH_THEME`变量值改成自己`clone`的目录的名字
@@ -206,7 +206,7 @@ git clone https://github.com/romkatv/powerlevel10k ${ZSH_CUSTOM:-~/.oh-my-zsh/cu
 
 ##### 使用方法
 * `clone`到插件目录下
-  `git clone git://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/`
+  `git clone git://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 
 * 修改环境变量
     将插件目录名添加到`~/.zshrc`文件中的`plugins`数组中
@@ -216,9 +216,9 @@ git clone https://github.com/romkatv/powerlevel10k ${ZSH_CUSTOM:-~/.oh-my-zsh/cu
 ##### 插件推荐
 ```bash
 # 语法高亮
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 # 命令建议
-git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # 历史命令提示
 git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
 ```
@@ -513,10 +513,19 @@ sudo apt-get install -yq apt-transport-https
 * 安装`sudo snap install another-redis-desktop-manager`
 * 卸载`sudo snap remove another-redis-desktop-manager`
 ### （2）.Idea
+
+JetBrains系列软件使用`snap`命令安装会出现各种各样的问题，推荐大家使用`apt`命令安装，(开源的ppa源地址)[https://github.com/JonasGroeger/jetbrains-ppa]
+
+* 处理仓库
+```bash
+# 该命令如果因网络原因出错，可多试几次
+curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | gpg --dearmor | sudo tee /usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg] http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com any main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
+sudo apt-get update
+```
+
 * 安装
 ```bash
-sudo apt-add-repository ppa:mmk2410/intellij-idea
-sudo apt-get update
 sudo apt-get install -yq intellij-idea-ultimate
 #sudo apt-get install -yq intellij-idea-community
 ```
