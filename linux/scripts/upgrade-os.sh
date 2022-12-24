@@ -119,6 +119,25 @@ _zsh(){
 	echo "oh-my-zsh upgrade finished !";
 }
 
+_clash(){
+	echo "Reinstalling clash ...";
+
+	local path="/tmp/clash-upgrade-${THIS_RANDOM}";
+	mkdir -p "$path";
+	cd "$path";
+	wget -O clash-for-windows.tar.gz https://proxy.zyun.vip/https://github.com/Fndroid/clash_for_windows_pkg/releases/download/0.20.11/Clash.for.Windows-0.20.11-x64-linux.tar.gz;
+	mkdir -p clash-for-windows;
+	tar xf clash-for-windows.tar.gz --strip-components 1 -C clash-for-windows;
+
+	echo "汉化 clash ...";
+	wget https://ghproxy.com/https://github.com/ender-zhao/Clash-for-Windows_Chinese/releases/download/CFW-V0.20.5_CN/app.asar;
+	mv app.asar clash-for-windows/resources;
+
+	sudo rm -rf /opt/clash-for-windows;
+	sudo mv clash-for-windows /opt/;
+	echo "clash reinstall finished !";
+}
+
 _os;
 _apifox;
 _todesk;
@@ -126,3 +145,4 @@ _todesk;
 _dingtalk;
 #_marktext;
 _zsh;
+_clash;
