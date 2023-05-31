@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e;
+
 # 操作系统厂商
 OS_VERDOR="$(lsb_release -si)";
 THIS_RANDOM="$RANDOM";
@@ -46,7 +48,7 @@ _apifox(){
 			local path="/tmp/apifox-upgrade-${THIS_RANDOM}";
 			mkdir -p "$path";
 			cd "$path";
-			wget -O apifox-latest.zip https://cdn.apifox.cn/download/Apifox-linux-deb-latest.zip
+			wget -q --show-progress --progress=bar:force -O apifox-latest.zip https://cdn.apifox.cn/download/Apifox-linux-deb-latest.zip
 			unzip apifox-latest.zip;
 			sudo dpkg -i *.deb;
 		;;
@@ -61,7 +63,7 @@ _todesk(){
 			local path="/tmp/todesk-upgrade-${THIS_RANDOM}";
 			mkdir -p "$path";
 			cd "$path";
-			wget -O todesk-latest.deb https://dl.todesk.com/linux/todesk-v4.3.1.0-amd64.deb
+			wget -q --show-progress --progress=bar:force -O todesk-latest.deb https://dl.todesk.com/linux/todesk-v4.3.1.0-amd64.deb
 			sudo dpkg -i *.deb;
 		;;
 	esac
@@ -74,7 +76,7 @@ _aliyundriver(){
 	mkdir -p "$path";
 	cd "$path";
 	# 被限流后，需要替换 https://wwe.lanzoui.com/b01nqc4gd
-	wget -O aliyundriver-latest.zip "https://develope0.lanzoug.com/082514bb/2022/04/15/7b2a87226ccddeeb24f7ad9f68b885c7.zip?st=wfVaymz2pE6wnXTqAnbQRg&e=1661412433&b=VO8OlgG_bVrpVh1WPUudX41KIDLdXzwS_aArYMv13QUrcA21zUAk5YNAM4VXZReQMnASJbNQYpUWYGZ1h7U2VeaFQoDnQBaFYj&fi=67583070&pid=113-142-58-158&up=2&mp=0&co=1"
+	wget -q --show-progress --progress=bar:force -O aliyundriver-latest.zip "https://develope0.lanzoug.com/082514bb/2022/04/15/7b2a87226ccddeeb24f7ad9f68b885c7.zip?st=wfVaymz2pE6wnXTqAnbQRg&e=1661412433&b=VO8OlgG_bVrpVh1WPUudX41KIDLdXzwS_aArYMv13QUrcA21zUAk5YNAM4VXZReQMnASJbNQYpUWYGZ1h7U2VeaFQoDnQBaFYj&fi=67583070&pid=113-142-58-158&up=2&mp=0&co=1"
 	unzip -qd ./ aliyundriver-latest.zip
 	sudo rm -rf /opt/aliyundriver;
 	sudo mv -f ${path}/阿里小白羊版Linux* /opt/aliyundriver;
@@ -90,7 +92,7 @@ _dingtalk(){
 			local path="/tmp/dingtalk-upgrade-${THIS_RANDOM}";
 			mkdir -p "$path";
 			cd "$path";
-			wget -O dingtalk-latest.deb https://dtapp-pub.dingtalk.com/dingtalk-desktop/xc_dingtalk_update/linux_deb/Release/com.alibabainc.dingtalk_1.4.0.20829_amd64.deb
+			wget -q --show-progress --progress=bar:force -O dingtalk-latest.deb https://dtapp-pub.dingtalk.com/dingtalk-desktop/xc_dingtalk_update/linux_deb/Release/com.alibabainc.dingtalk_1.4.0.20829_amd64.deb
 			sudo dpkg -i *.deb;
 		;;
 	esac
@@ -104,7 +106,7 @@ _marktext(){
 			local path="/tmp/marktext-upgrade-${THIS_RANDOM}";
 			mkdir -p "$path";
 			cd "$path";
-			wget -O marktext-latest.deb https://download.fastgit.org/marktext/marktext/releases/download/v0.17.1/marktext-amd64.deb
+			wget -q --show-progress --progress=bar:force -O marktext-latest.deb https://download.fastgit.org/marktext/marktext/releases/download/v0.17.1/marktext-amd64.deb
 			sudo dpkg -i *.deb;
 		;;
 	esac
@@ -125,12 +127,12 @@ _clash(){
 	local path="/tmp/clash-upgrade-${THIS_RANDOM}";
 	mkdir -p "$path";
 	cd "$path";
-	wget -O clash-for-windows.tar.gz https://proxy.zyun.vip/https://github.com/Fndroid/clash_for_windows_pkg/releases/download/0.20.11/Clash.for.Windows-0.20.11-x64-linux.tar.gz;
+	wget -q --show-progress --progress=bar:force -O clash-for-windows.tar.gz https://cors.isteed.cc/github.com/Fndroid/clash_for_windows_pkg/releases/download/0.20.21/Clash.for.Windows-0.20.21-x64-linux.tar.gz;
 	mkdir -p clash-for-windows;
 	tar xf clash-for-windows.tar.gz --strip-components 1 -C clash-for-windows;
 
 	echo "汉化 clash ...";
-	wget https://ghproxy.com/https://github.com/ender-zhao/Clash-for-Windows_Chinese/releases/download/CFW-V0.20.5_CN/app.asar;
+	wget -q --show-progress --progress=bar:force https://gh.ddlc.top/https://github.com/ender-zhao/Clash-for-Windows_Chinese/releases/download/CFW-V0.20.21_CN/app.asar;
 	mv app.asar clash-for-windows/resources;
 
 	sudo rm -rf /opt/clash-for-windows;
@@ -138,11 +140,11 @@ _clash(){
 	echo "clash reinstall finished !";
 }
 
-_os;
+# _os;
 _apifox;
-_todesk;
+# _todesk;
 # _aliyundriver;
-_dingtalk;
+# _dingtalk;
 #_marktext;
-_zsh;
-_clash;
+# _zsh;
+# _clash;

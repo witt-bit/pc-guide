@@ -722,6 +722,22 @@ sudo reboot;
 
 * 一行命令重置它`rm -rm ~/.config/sogoupinyin && sudo reboot`
 
+修复Linux环境下的输入法光标不跟随
+
+官网`https://github.com/RikudouPatrickstar/JetBrainsRuntime-for-Linux-x64`
+
+```bash
+cd /tmp;
+mkdir jebt;
+cd jebt;
+wget https://proxy.freecdn.ml/?url=https://github.com/RikudouPatrickstar/JetBrainsRuntime-for-Linux-x64/releases/download/jbr-release-17.0.6b829.5/jbr_jcef-17.0.6-linux-x64-b829.5.tar.gz -O jbr_jcef.tar.gz
+tar xf jbr_jcef.tar.gz
+mv * jbr;
+mv jbr /opt/intellij-idea-ultimate
+```
+
+
+
 ### （23）服务器文件传输
 > 往服务器上传输文件，依靠[SSH](toSSH)协议，通过`scp`命令可以很便捷的传输文件，某些时候，文件比较多，环境复杂时，需要图形化工具，`FileZilla`就是做这个事情的,支持`ssh`,`ftp`等
 
