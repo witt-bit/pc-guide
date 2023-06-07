@@ -92,7 +92,8 @@ _dingtalk(){
 			local path="/tmp/dingtalk-upgrade-${THIS_RANDOM}";
 			mkdir -p "$path";
 			cd "$path";
-			wget -q --show-progress --progress=bar:force -O dingtalk-latest.deb https://dtapp-pub.dingtalk.com/dingtalk-desktop/xc_dingtalk_update/linux_deb/Release/com.alibabainc.dingtalk_1.4.0.20829_amd64.deb
+			wget -q --show-progress --progress=bar:force -O dingtalk-latest.deb \
+			https://dtapp-pub.dingtalk.com/dingtalk-desktop/xc_dingtalk_update/linux_deb/Release/com.alibabainc.dingtalk_1.7.0.30424_amd64.deb
 			sudo dpkg -i *.deb;
 		;;
 	esac
@@ -122,29 +123,32 @@ _zsh(){
 }
 
 _clash(){
-	echo "Reinstalling clash ...";
+	echo "Upgrade clash ...";
 
+	clashVersion="0.20.24";
 	local path="/tmp/clash-upgrade-${THIS_RANDOM}";
 	mkdir -p "$path";
 	cd "$path";
-	wget -q --show-progress --progress=bar:force -O clash-for-windows.tar.gz https://cors.isteed.cc/github.com/Fndroid/clash_for_windows_pkg/releases/download/0.20.21/Clash.for.Windows-0.20.21-x64-linux.tar.gz;
+	wget -q --show-progress --progress=bar:force -O clash-for-windows.tar.gz "https://cors.isteed.cc/github.com/Fndroid/clash_for_windows_pkg/releases/download/${clashVersion}/Clash.for.Windows-${clashVersion}-x64-linux.tar.gz";
 	mkdir -p clash-for-windows;
 	tar xf clash-for-windows.tar.gz --strip-components 1 -C clash-for-windows;
 
 	echo "汉化 clash ...";
-	wget -q --show-progress --progress=bar:force https://gh.ddlc.top/https://github.com/ender-zhao/Clash-for-Windows_Chinese/releases/download/CFW-V0.20.21_CN/app.asar;
+	wget -q --show-progress --progress=bar:force "https://gh.ddlc.top/https://github.com/ender-zhao/Clash-for-Windows_Chinese/releases/download/CFW-V${clashVersion}_CN/app.asar";
 	mv app.asar clash-for-windows/resources;
+
+	echo "clash V${clashVersion} ready ."
 
 	sudo rm -rf /opt/clash-for-windows;
 	sudo mv clash-for-windows /opt/;
-	echo "clash reinstall finished !";
+	echo "clash upgrade finished !";
 }
 
-# _os;
+_os;
 _apifox;
-# _todesk;
-# _aliyundriver;
-# _dingtalk;
-#_marktext;
-# _zsh;
-# _clash;
+_todesk;
+_aliyundriver;
+_dingtalk;
+_marktext;
+_zsh;
+_clash;
