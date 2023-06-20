@@ -116,7 +116,8 @@ _marktext(){
 
 _zsh(){
 	echo "Upgrading oh-my-zsh ...";
-	command -v omz > /dev/null 2>&1 || return 1;
+	# command -v omz
+	# command -v omz > /dev/null || echo "oh-my-zsh un installed ." && return 1;
 	omz update;
 	find ${ZSH_CUSTOM:-~/.oh-my-zsh/custom} -name ".git" -type d | sed 's#/\.git$##' | xargs -I {} git -C {} pull
 	echo "oh-my-zsh upgrade finished !";
@@ -144,11 +145,11 @@ _clash(){
 	echo "clash upgrade finished !";
 }
 
-_os;
-_apifox;
-_todesk;
-_aliyundriver;
-_dingtalk;
-_marktext;
+# _os;
+# _apifox;
+# _todesk;
+# _aliyundriver;
+# _dingtalk;
+# _marktext;
 _zsh;
-_clash;
+# _clash;
