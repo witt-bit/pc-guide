@@ -128,9 +128,31 @@ yay -S --noconfirm another-redis-desktop-manager visual-studio-code-bin wps-offi
 
 #### 4.`Java`环境
 
-安装`jdk`:`sudo pacman -S jdk8-openjdk`
+##### (1).安装`JDK`
+* 基本命令
 
-安装`intellij-idea-ultimate-edition`:`yay -S intellij-idea-ultimate-edition --noconfirm`
+`sudo pacman -S jdk版本-openjdk openjdk版本-doc openjdk版本-src`
+
+* 释义
+
+`jdk版本-openjdk` JDK本身
+`openjdk版本-doc` JDK的`Java Doc`
+`openjdk版本-src` JDK的源码
+
+* 案例
+
+`sudo pacman -S jdk11-openjdk openjdk11-doc openjdk11-src`
+
+* 多版本共存切换
+
+> `ArchLinux`使用一条命令直接切换`Java`版本，包括`Java`中的所有可执行程序
+
+命令`sudo archlinux-java set java-版本-openjdk`
+
+例如`sudo archlinux-java set java-17-openjdk`
+
+##### (2).安装`intellij-idea-ultimate-edition`
+`yay -S intellij-idea-ultimate-edition --noconfirm`
 
 #### 5.安装微信
 

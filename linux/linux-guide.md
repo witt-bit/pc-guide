@@ -505,7 +505,49 @@ sudo apt-get install -yq apt-transport-https
 * `ctrl + B => ;`上一个和当前窗口循环
 * `exit`结束当前会话
 
-## 7.其他软件安装
+## 7.`JDK`安装
+
+> `Ubuntu`安装Linux非常简单
+
+### (1).安装
+* 基本命令
+
+`sudo apt install openjdk-版本-jdk openjdk-版本-source openjdk-版本-doc`
+
+* 释义
+
+> `openjdk-版本-jdk` 安装`JDK`本身
+> `openjdk-版本-source`安装`JDK`的源代码
+> `openjdk-版本-doc`安装`JDK`的`JavaDoc`
+
+* 案例
+
+`JDK17`的安装命令如下
+`sudo apt install openjdk-17-jdk openjdk-17-source openjdk-17-doc`
+
+### (2).卸载
+
+* 基本命令
+
+`sudo apt remove openjdk-版本-jdk openjdk-版本-source openjdk-版本-doc`
+
+* 案例
+
+`JDK17`的卸载命令如下
+`sudo apt remove openjdk-17-jdk openjdk-17-source openjdk-17-doc`
+
+### (3).多版本切换
+
+> `Linux`下安装多个版本的`JDK`后，支持共存,但是不要自己去环境变量中配置任何环境变量!!!
+
+> `Linux`不需要配置环境变量，设置默认JDK之后，会将`Java`可执行程序自动软连接到系统`Path`下
+
+* 切换命令
+
+切换`java`命令: `sudo update-alternatives --config java`
+切换`Javac`命令: `sudo update-alternatives --config javac`
+
+## 8.其他软件安装
 
 > 优麒麟的软件商店`https://www.ubuntukylin.com/applications/`
 
