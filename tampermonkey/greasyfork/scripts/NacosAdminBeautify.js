@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Nacos配置内容区域全屏
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.2.1
 // @description  修改nacos的编辑器区域大小
 // @author       witt
 // @match        http://*/nacos/*
@@ -23,7 +23,6 @@
             width: 130px;
         }
 
-        // 1.1.3设置
 		#container[style="clear: both; height: 300px;"] {
 			height: 850px !important;
 		}
