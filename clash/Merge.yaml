@@ -1,0 +1,11 @@
+# Merge Template for clash verge
+# The `Merge` format used to enhance profile
+dns:
+  fake-ip-filter:
+    - ping.archlinux.org
+
+
+prepend-rules: [
+  'DOMAIN,translate.googleapis.com,🌏 国外网站',
+  'DOMAIN,ping.archlinux.org,DIRECT'
+]
