@@ -168,7 +168,8 @@ yay -S --noconfirm visual-studio-code-bin wps-office ttf-wps-fonts foxitreader
 
 ~~`yay -S --noconfirm com.qq.weixin.spark`~~<br/>
 ~~`yay -S --noconfirm deepin-wine-wechat`~~<br/>
-~~`yay -S --noconfirm wechat_app`~~<br/>官方原生Linux版微信 ：`yay -S wechat-universal-bwrap`
+~~`yay -S --noconfirm wechat_app`~~<br/>
+官方原生Linux版微信 ：`yay -S wechat-universal-bwrap`
 
 #### 6.`github`访问问题
 
@@ -232,6 +233,7 @@ sudo pacman -Syu --noconfirm sublime-text
 #### 13.终端
 `sudo pacman -S guake`
 
+主题: `molokai`
 
 #### 14.随用随记
 `yay -S heynote-git`
