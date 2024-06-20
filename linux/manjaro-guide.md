@@ -12,6 +12,7 @@
 
 2.安装
 
+`yay -S ventoy`
 
 
 ## 二、常用软件安装
@@ -43,13 +44,11 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
 ### (二)、输入法设置
 
-#### 1.`fcitx4`输入法
+#### ~~1.`fcitx4`输入法~~
 
 处于这个段位的输入法有：`搜狗输入法`、`谷歌输入法`、`讯飞输入法`等
 
 * `fcitx4`已停止维护
-
-
 
 #### 2.`fcitx5`输入法设置
 
@@ -83,13 +82,13 @@ XMODIFIERS=@im=fcitx
 
 打开系统设置:`个性化`-->`语言和区域设置`-->`输入法`-->`添加输入法`
 
-### （三）、常用软件安装
+### (三)、常用软件安装
 
 #### 1.软件
 
 ```shell
 # 安装vim
-sudo pacman -S --noconfirm vim 
+sudo pacman -S --noconfirm vim
 # 安装网络基础工具 ifconfig命令等
 sudo pacman -S --noconfirm net-tools
 
@@ -114,17 +113,26 @@ sudo pacman -S --noconfirm net-tools
 #### 3.基本软件安装
 
 ```shell
-# 安装谷歌浏览器、sublime-text、switchhosts、中文版带窗口的clash、ulauncher、apifox、免费版的typora、linux版钉钉
-yay -S --noconfirm google-chrome sublime-text switchhosts-appimage clash-for-windows-chinese-git ulauncher apifox linuxqq typora-free dingtalk-bin
+# 安装谷歌浏览器、sublime-text、switchhosts、apifox、免费版的typora、linux版钉钉
+yay -S --noconfirm google-chrome sublime-text switchhosts-appimage apifox linuxqq typora-free dingtalk-bin
 
-# 安装 dbeaver、guake、peek、截图软件flameshot
-sudo pacman -S --noconfirm dbeaver guake peek flameshot
+# 安装 dbeaver
+sudo pacman -S --noconfirm dbeaver
 
 # 安装redis工具another-redis-desktop-manager、vscode、wps、wps字体文件、福昕阅读器
-yay -S --noconfirm another-redis-desktop-manager visual-studio-code-bin wps-office ttf-wps-fonts foxitreader 
+yay -S --noconfirm visual-studio-code-bin wps-office ttf-wps-fonts foxitreader
 ```
+#### 4.应用程序启动器
 
+`yay -S ulauncher`
 
+#### 4.截图软件
+
+`sudo pacman -S --noconfirm flameshot`
+
+【推荐】 `yay -S snipaste`
+
+录制gif图 `sudo pacman -S peek`
 
 #### 4.`Java`环境
 
@@ -158,9 +166,9 @@ yay -S --noconfirm another-redis-desktop-manager visual-studio-code-bin wps-offi
 
 目前微信的版本比较的多，哪个能用用哪个，安装下一个之前，务必卸载当前安装的
 
-`yay -S --noconfirm com.qq.weixin.spark`
-`yay -S --noconfirm deepin-wine-wechat`
-`yay -S --noconfirm wechat_app`
+~~`yay -S --noconfirm com.qq.weixin.spark`~~<br/>
+~~`yay -S --noconfirm deepin-wine-wechat`~~<br/>
+~~`yay -S --noconfirm wechat_app`~~<br/>官方原生Linux版微信 ：`yay -S wechat-universal-bwrap`
 
 #### 6.`github`访问问题
 
@@ -180,15 +188,22 @@ yay -S --noconfirm another-redis-desktop-manager visual-studio-code-bin wps-offi
 
 #### 8.`clash`安装
 
-正常安装命令:`yay -S clash-for-windows-chinese-git`
+~~已停更：`yay -S clash-for-windows-chinese-git`~~
+
+`yay -S clash-verge-rev-bin`
 
 但是下载`clash`本身,就需要从github下载，比较慢，可以先用镜像下载一个clash,连接到外网后，再次用命令安装clash,完成后，删除现在的clash即可，后续就可以一条命令更新clash了
 
-clash镜像`https://cors.isteed.cc/github.com/Fndroid/clash_for_windows_pkg/releases/download/0.20.24/Clash.for.Windows-0.20.24-x64-linux.tar.gz`
+clash v1.6.6版本镜像1 ：
+
+`https://ghproxy.cc/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v1.6.6/clash-verge_1.6.6_amd64.deb`
+
+clash v1.6.6版本镜像2 ：
+`https://ghproxy.cc/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v1.6.6/clash-verge_1.6.6_arm64.deb`
 
 #### 9.`sublime text`安装
 
-正常安装`sublime-text`:`yay -S sublime-text`
+正常安装`sublime-text`: `yay -S sublime-text`
 
 官方安装:
 
@@ -203,8 +218,24 @@ echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable
 sudo pacman -Syu --noconfirm sublime-text
 ```
 
-
-
 #### 10.忽略源文件的校验
 
 手动编译安装:`makepkg -si --skipchecksums`
+
+#### 11.软件包管理器
+
+`yay -S octopi`
+
+#### 12.剪贴板管理工具
+`sudo pacman -S copyq`
+
+#### 13.终端
+`sudo pacman -S guake`
+
+
+#### 14.随用随记
+`yay -S heynote-git`
+
+#### 15.`redis`桌面客户端
+`yay -S -noconfirm another-redis-desktop-manager`<br/>
+`yay -S tiny-rdm-git`
