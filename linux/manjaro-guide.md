@@ -40,7 +40,7 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
 更新`GPG`签名
 
-`sudo pacman -S archlinuxcn-keyring`
+`sudo pacman -Sy archlinuxcn-keyring && sudo pacman -Su`
 
 ### (二)、输入法设置
 
@@ -113,20 +113,23 @@ sudo pacman -S --noconfirm net-tools
 #### 3.基本软件安装
 
 ```shell
+# 中文字体支持，安装后设置中选择noto-cjk
+sudo pacman -S noto-fonts-cjk noto-fonts-extra
+
 # 安装谷歌浏览器、sublime-text、switchhosts、apifox、免费版的typora、linux版钉钉
 yay -S --noconfirm google-chrome sublime-text switchhosts-appimage apifox linuxqq typora-free dingtalk-bin
 
 # 安装 dbeaver
 sudo pacman -S --noconfirm dbeaver
 
-# 安装redis工具another-redis-desktop-manager、vscode、wps、wps字体文件、福昕阅读器
-yay -S --noconfirm visual-studio-code-bin wps-office ttf-wps-fonts foxitreader
+# 安装redis工具another-redis-desktop-manager、vscode、福昕阅读器
+yay -S --noconfirm visual-studio-code-bin foxitreader
 ```
 #### 4.应用程序启动器
 
 `yay -S ulauncher`
 
-#### 4.截图软件
+#### 5.截图软件
 
 `sudo pacman -S --noconfirm flameshot`
 
@@ -134,7 +137,15 @@ yay -S --noconfirm visual-studio-code-bin wps-office ttf-wps-fonts foxitreader
 
 录制gif图 `sudo pacman -S peek`
 
-#### 4.`Java`环境
+#### 6.`Office`办公软件
+
+安装`Wps`
+* `ibtiff5`是`Wps PDF`支持库
+*  `xx-cn-xx`是中文语言包
+
+`yay -S wps-office-cn ttf-wps-fonts wps-office-fonts ibtiff5 ttf-ms-fonts wps-office-mime-cn wps-office-mui-zh-cn`
+
+#### 7.`Java`环境
 
 ##### (1).安装`JDK`
 * 基本命令
@@ -160,9 +171,12 @@ yay -S --noconfirm visual-studio-code-bin wps-office ttf-wps-fonts foxitreader
 例如`sudo archlinux-java set java-17-openjdk`
 
 ##### (2).安装`intellij-idea-ultimate-edition`
-`yay -S intellij-idea-ultimate-edition --noconfirm`
 
-#### 5.安装微信
+* `intellij-idea-ultimate-edition-jre`对字体虚化的处理支持
+
+`yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre --noconfirm`
+
+#### 8.安装微信
 
 目前微信的版本比较的多，哪个能用用哪个，安装下一个之前，务必卸载当前安装的
 
@@ -171,7 +185,7 @@ yay -S --noconfirm visual-studio-code-bin wps-office ttf-wps-fonts foxitreader
 ~~`yay -S --noconfirm wechat_app`~~<br/>
 官方原生Linux版微信 ：`yay -S wechat-universal-bwrap`
 
-#### 6.`github`访问问题
+#### 9.`github`访问问题
 
 国内`github`访问很慢，即使使用`VPN`,依然不能访问，是因为现在好多地址使用了`github`地址都是使用镜像了，通过`VPN`,反而镜像也不能访问了。
 
@@ -179,7 +193,7 @@ yay -S --noconfirm visual-studio-code-bin wps-office ttf-wps-fonts foxitreader
 
 安装好switchhosts后，添加一个远程hosts,填写以下地址:`https://cdn.jsdelivr.net/gh/521xueweihan/GitHub520@main/hosts`
 
-#### 7.`ohmyzsh`安装
+#### 10.`ohmyzsh`安装
 
 `ohmyzsh`就是使用的github镜像，通过上一节的switchhosts设置后，就能正常安装了。
 
@@ -187,7 +201,7 @@ yay -S --noconfirm visual-studio-code-bin wps-office ttf-wps-fonts foxitreader
 
 推荐主题: `powerlevel10k/powerlevel10k`
 
-#### 8.`clash`安装
+#### 11.`clash`安装
 
 ~~已停更：`yay -S clash-for-windows-chinese-git`~~
 
@@ -202,7 +216,7 @@ clash v1.6.6版本镜像1 ：
 clash v1.6.6版本镜像2 ：
 `https://ghproxy.cc/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v1.6.6/clash-verge_1.6.6_arm64.deb`
 
-#### 9.`sublime text`安装
+#### 12.`sublime text`安装
 
 正常安装`sublime-text`: `yay -S sublime-text`
 
@@ -219,25 +233,52 @@ echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable
 sudo pacman -Syu --noconfirm sublime-text
 ```
 
-#### 10.忽略源文件的校验
+#### 13.忽略源文件的校验
 
 手动编译安装:`makepkg -si --skipchecksums`
 
-#### 11.软件包管理器
+#### 14.软件包管理器
 
 `yay -S octopi`
 
-#### 12.剪贴板管理工具
+#### 15.剪贴板管理工具
 `sudo pacman -S copyq`
 
-#### 13.终端
+#### 16.终端
 `sudo pacman -S guake`
 
 主题: `molokai`
 
-#### 14.随用随记
+#### 17.随用随记
 `yay -S heynote-git`
 
-#### 15.`redis`桌面客户端
+#### 18.`redis`桌面客户端
 `yay -S -noconfirm another-redis-desktop-manager`<br/>
 `yay -S tiny-rdm-git`
+
+#### 19.`SublimeText`和`DBeaver`等软件没有全局菜单
+`sudo pacman -S appmenu-gtk-module`
+
+#### 20.`Apple`光标
+`yay -S apple_cursor`
+
+#### 21.网卡连接网络使用随机`Mac`地址
+在`/etc/NetworkManager/conf.d/`新建任意名称的`.conf`文件,复制以下内容
+例如`wifi_rand_mac.conf`
+
+> 后面的注释项按需开启
+
+```txt
+[device-mac-randomization]
+# 扫描 wifi 时随机化 MAC
+wifi.scan-rand-mac-address=yes 		# no
+ 
+[connection-mac-randomization]
+# 每次通过有线连接时随机化 MAC
+ethernet.cloned-mac-address=random	# stable
+# 每次通过无线连接时随机化 MAC
+wifi.cloned-mac-address=random		# stable
+```
+
+* 重启网络管理器
+`sudo systemctl restart NetworkManager`

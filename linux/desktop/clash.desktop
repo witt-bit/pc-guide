@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Clash for Windows
-Comment=Linux上的Windows版Clash
-Exec=/opt/clash-for-windows/cfw
-Icon=/home/swift/Pictures/icons/clash.png
-Terminal=false
-Type=Application
-Categories=Development;
-StartupNotify=true
