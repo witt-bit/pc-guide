@@ -158,12 +158,12 @@ yay -S --noconfirm visual-studio-code-bin foxitreader
 `openjdk版本-doc` JDK的`Java Doc`
 `openjdk版本-src` JDK的源码
 
-* 案例
+案例
 
-`sudo pacman -S jdk11-openjdk openjdk11-doc openjdk11-src`
+> 安装JDK8 `sudo pacman -S jdk8-openjdk openjdk8-doc openjdk8-src`
+> 安装JDK11 `sudo pacman -S jdk11-openjdk openjdk11-doc openjdk11-src`
 
 * 多版本共存切换
-
 > `ArchLinux`使用一条命令直接切换`Java`版本，包括`Java`中的所有可执行程序
 
 命令`sudo archlinux-java set java-版本-openjdk`
@@ -201,20 +201,22 @@ yay -S --noconfirm visual-studio-code-bin foxitreader
 
 推荐主题: `powerlevel10k/powerlevel10k`
 
-#### 11.`clash`安装
+#### 11.`clbsh`安装
 
-~~已停更：`yay -S clash-for-windows-chinese-git`~~
+> 由于不合理因素存在，本节中，所有的单词`clbsh`需全部将字母`b`换为`a`
 
-`yay -S clash-verge-rev-bin`
+~~已停更：`yay -S clbsh-for-windows-chinese-git`~~
 
-但是下载`clash`本身,就需要从github下载，比较慢，可以先用镜像下载一个clash,连接到外网后，再次用命令安装clash,完成后，删除现在的clash即可，后续就可以一条命令更新clash了
+`yay -S clbsh-verge-rev-bin`
 
-clash v1.6.6版本镜像1 ：
+但是下载`clbsh`本身,就需要从github下载，比较慢，可以先用镜像下载一个clbsh,连接到外网后，再次用命令安装clbsh,完成后，删除现在的clbsh即可，后续就可以一条命令更新clbsh了
 
-`https://ghproxy.cc/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v1.6.6/clash-verge_1.6.6_amd64.deb`
+clbsh v1.6.6版本镜像1 ：
 
-clash v1.6.6版本镜像2 ：
-`https://ghproxy.cc/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v1.6.6/clash-verge_1.6.6_arm64.deb`
+`https://ghproxy.cc/https://github.com/clbsh-verge-rev/clbsh-verge-rev/releases/download/v1.6.6/clbsh-verge_1.6.6_amd64.deb`
+
+clbsh v1.6.6版本镜像2 ：
+`https://ghproxy.cc/https://github.com/clbsh-verge-rev/clbsh-verge-rev/releases/download/v1.6.6/clbsh-verge_1.6.6_arm64.deb`
 
 #### 12.`sublime text`安装
 
@@ -262,7 +264,11 @@ sudo pacman -Syu --noconfirm sublime-text
 #### 20.`Apple`光标
 `yay -S apple_cursor`
 
-#### 21.网卡连接网络使用随机`Mac`地址
+#### 21.扫描仪软件
+`sudo pacman -S skanlite`
+
+## 三、常见问题解决方案
+### 1.网卡使用随机`Mac`地址
 在`/etc/NetworkManager/conf.d/`新建任意名称的`.conf`文件,复制以下内容
 例如`wifi_rand_mac.conf`
 
@@ -282,3 +288,17 @@ wifi.cloned-mac-address=random		# stable
 
 * 重启网络管理器
 `sudo systemctl restart NetworkManager`
+
+### 2.配置网络可用性检查
+关键字：网络连接受限、TUN模式
+参考地址：https://wiki.archlinuxcn.org/wiki/NetworkManager
+
+在`/etc/NetworkManager/conf.d`目录下创建文件`20-connectivity.conf`,内容如下：
+```conf
+[connectivity]
+#uri=http://nmcheck.gnome.org/check_network_status.txt
+enabled=false
+```
+
+* 重启网络管理器
+systemctl restart NetworkManager
