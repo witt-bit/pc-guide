@@ -267,6 +267,9 @@ sudo pacman -Syu --noconfirm sublime-text
 #### 21.扫描仪软件
 `sudo pacman -S skanlite`
 
+#### 22.多线程下载器`Axel`
+`yay -S axel`
+
 ## 三、常见问题解决方案
 ### 1.网卡使用随机`Mac`地址
 在`/etc/NetworkManager/conf.d/`新建任意名称的`.conf`文件,复制以下内容
@@ -287,10 +290,12 @@ wifi.cloned-mac-address=random		# stable
 ```
 
 * 重启网络管理器
+
 `sudo systemctl restart NetworkManager`
 
 ### 2.配置网络可用性检查
 关键字：网络连接受限、TUN模式
+
 参考地址：https://wiki.archlinuxcn.org/wiki/NetworkManager
 
 在`/etc/NetworkManager/conf.d`目录下创建文件`20-connectivity.conf`,内容如下：
@@ -301,4 +306,15 @@ enabled=false
 ```
 
 * 重启网络管理器
-systemctl restart NetworkManager
+
+`systemctl restart NetworkManager`
+
+
+### 3.`pacman`或`AUR`贡献
+
+* 安装贡献包: `sudo pacman -Syu pacman-contrib`
+* 清除AUR软件包构建: `makepkg -cCf`
+* 创建`.SRCINFO`文件: `makepkg --printsrcinfo > .SRCINFO`
+* AUR包模拟安装: `makepkg -si`
+* 更新AUR包中的checksums:  `updpkgsums`或`makepkg -f -g`
+* 跳过checksums: 更改为`SKIP`或`makepkg --skipchecksums -si`
