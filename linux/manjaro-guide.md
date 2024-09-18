@@ -1,7 +1,5 @@
 # `Manjaro`指南
 
-
-
 ## 一、安装
 
 1.创建U盘`ISO`镜像
@@ -13,7 +11,6 @@
 2.安装
 
 `yay -S ventoy`
-
 
 ## 二、常用软件安装
 
@@ -31,7 +28,7 @@
 
 使用`vi`命令在 `/etc/pacman.conf`文件末尾添加一下两行:
 
-```
+```conf
 [archlinuxcn]
 SigLevel = Optional TrustedOnly
 # 清华大学的软件源
@@ -56,8 +53,7 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
 * `fcitx5`新输入法框架，不受谷歌，搜狗的支持
 
-##### (1)安装命令:
-
+##### (1)安装命令
 
 ```shell
 sudo pacman -Syy fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx5-chinese-addons fcitx5-material-color kcm-fcitx5 fcitx5-lua
@@ -76,6 +72,7 @@ GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
 ```
+
 重启电脑
 
 ##### (3)配置输入法
@@ -91,7 +88,6 @@ XMODIFIERS=@im=fcitx
 sudo pacman -S --noconfirm vim
 # 安装网络基础工具 ifconfig命令等
 sudo pacman -S --noconfirm net-tools
-
 ```
 
 #### 2.`AUR`软件仓库支持
@@ -116,6 +112,9 @@ sudo pacman -S --noconfirm net-tools
 # 中文字体支持，安装后设置中选择noto-cjk
 sudo pacman -S noto-fonts-cjk noto-fonts-extra
 
+# 等宽中文 更纱黑体
+yay -S ttf-sarasa-gothic-sc
+
 # 安装谷歌浏览器、sublime-text、switchhosts、apifox、免费版的typora、linux版钉钉
 yay -S --noconfirm google-chrome sublime-text switchhosts-appimage apifox linuxqq typora-free dingtalk-bin
 
@@ -125,6 +124,7 @@ sudo pacman -S --noconfirm dbeaver
 # 安装redis工具another-redis-desktop-manager、vscode、福昕阅读器
 yay -S --noconfirm visual-studio-code-bin foxitreader
 ```
+
 #### 4.应用程序启动器
 
 `yay -S ulauncher`
@@ -140,14 +140,16 @@ yay -S --noconfirm visual-studio-code-bin foxitreader
 #### 6.`Office`办公软件
 
 安装`Wps`
+
 * `ibtiff5`是`Wps PDF`支持库
-*  `xx-cn-xx`是中文语言包
+* `xx-cn-xx`是中文语言包
 
 `yay -S wps-office-cn ttf-wps-fonts wps-office-fonts ibtiff5 ttf-ms-fonts wps-office-mime-cn wps-office-mui-zh-cn`
 
 #### 7.`Java`环境
 
 ##### (1).安装`JDK`
+
 * 基本命令
 
 `sudo pacman -S jdk版本-openjdk openjdk版本-doc openjdk版本-src`
@@ -160,10 +162,11 @@ yay -S --noconfirm visual-studio-code-bin foxitreader
 
 案例
 
-> 安装JDK8 `sudo pacman -S jdk8-openjdk openjdk8-doc openjdk8-src`
+> 安装JDK8 `sudo pacman -S jdk8-openjdk openjdk8-doc openjdk8-src`<br/>
 > 安装JDK11 `sudo pacman -S jdk11-openjdk openjdk11-doc openjdk11-src`
 
 * 多版本共存切换
+
 > `ArchLinux`使用一条命令直接切换`Java`版本，包括`Java`中的所有可执行程序
 
 命令`sudo archlinux-java set java-版本-openjdk`
@@ -182,7 +185,8 @@ yay -S --noconfirm visual-studio-code-bin foxitreader
 
 ~~`yay -S --noconfirm com.qq.weixin.spark`~~<br/>
 ~~`yay -S --noconfirm deepin-wine-wechat`~~<br/>
-~~`yay -S --noconfirm wechat_app`~~<br/>
+~~`yay -S --noconfirm wechat_app`~~
+
 官方原生Linux版微信 ：`yay -S wechat-universal-bwrap`
 
 #### 9.`github`访问问题
@@ -244,34 +248,66 @@ sudo pacman -Syu --noconfirm sublime-text
 `yay -S octopi`
 
 #### 15.剪贴板管理工具
+
 `sudo pacman -S copyq`
 
 #### 16.终端
+
 `sudo pacman -S guake`
 
 主题: `molokai`
 
 #### 17.随用随记
+
 `yay -S heynote-git`
 
 #### 18.`redis`桌面客户端
-`yay -S -noconfirm another-redis-desktop-manager`<br/>
+
+`yay -S -noconfirm another-redis-desktop-manager`
+
 `yay -S tiny-rdm-git`
 
 #### 19.`SublimeText`和`DBeaver`等软件没有全局菜单
+
 `sudo pacman -S appmenu-gtk-module`
 
 #### 20.`Apple`光标
+
 `yay -S apple_cursor`
 
 #### 21.扫描仪软件
+
 `sudo pacman -S skanlite`
 
 #### 22.多线程下载器`Axel`
+
 `yay -S axel`
 
-## 三、常见问题解决方案
+#### 23.窗口装饰元素推荐
+
+##### (1) `Utterly Round Dark for Plasma 6`
+
+> 商店地址: <https://store.kde.org/p/2132512>
+>
+> 源码地址: <https://github.com/HimDek/Utterly-Round-Plasma-Style/tree/master/aurorae/dark/translucent>
+
+##### (2) `Utterly Round Dark Solid for Plasma 6`
+
+> 商店地址: <https://store.kde.org/p/2132516>
+>
+> 源码地址: <https://github.com/HimDek/Utterly-Round-Plasma-Style/tree/master/aurorae/dark/solid>
+## 三、预装软件卸载
+
+### 1.卸载`nano`
+
+```shell
+sudo pacman -Rcns nano nano-syntax-highlighting
+```
+
+## 四、常见问题解决方案
+
 ### 1.网卡使用随机`Mac`地址
+
 在`/etc/NetworkManager/conf.d/`新建任意名称的`.conf`文件,复制以下内容
 例如`wifi_rand_mac.conf`
 
@@ -280,13 +316,13 @@ sudo pacman -Syu --noconfirm sublime-text
 ```txt
 [device-mac-randomization]
 # 扫描 wifi 时随机化 MAC
-wifi.scan-rand-mac-address=yes 		# no
+wifi.scan-rand-mac-address=yes   # no
  
 [connection-mac-randomization]
 # 每次通过有线连接时随机化 MAC
-ethernet.cloned-mac-address=random	# stable
+ethernet.cloned-mac-address=random # stable
 # 每次通过无线连接时随机化 MAC
-wifi.cloned-mac-address=random		# stable
+wifi.cloned-mac-address=random  # stable
 ```
 
 * 重启网络管理器
@@ -294,11 +330,13 @@ wifi.cloned-mac-address=random		# stable
 `sudo systemctl restart NetworkManager`
 
 ### 2.配置网络可用性检查
+
 关键字：网络连接受限、TUN模式
 
-参考地址：https://wiki.archlinuxcn.org/wiki/NetworkManager
+参考地址：<https://wiki.archlinuxcn.org/wiki/NetworkManager>
 
 在`/etc/NetworkManager/conf.d`目录下创建文件`20-connectivity.conf`,内容如下：
+
 ```conf
 [connectivity]
 #uri=http://nmcheck.gnome.org/check_network_status.txt
@@ -308,7 +346,6 @@ enabled=false
 * 重启网络管理器
 
 `systemctl restart NetworkManager`
-
 
 ### 3.`pacman`或`AUR`贡献
 
