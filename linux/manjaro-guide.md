@@ -355,3 +355,28 @@ enabled=false
 * AUR包模拟安装: `makepkg -si`
 * 更新AUR包中的checksums:  `updpkgsums`或`makepkg -f -g`
 * 跳过checksums: 更改为`SKIP`或`makepkg --skipchecksums -si`
+
+
+### 4.证书安装
+
+> 支持安装`.cer`和`.pem`格式证书文件
+
+安装证书命令文档`update-ca-trust -h`
+
+安装
+
+> 以`charles`证书为例
+
+```shell
+# 创建证书目录
+sudo mkdir /usr/share/ca-certificates/trust-source/charles
+
+# 将证书源文件🔗到证书安装目录
+sudo ln -sf ~/.charles/ca/charles-proxy-ssl-proxying-certificate.cer /usr/share/ca-certificates/trust-source/charles/root.cer
+
+# 安装证书
+sudo update-ca-trust extract
+
+# [可选] 验证证书文件是否正确
+openssl verify -CAfile /etc/ssl/certs/ca-certificates.crt /usr/share/ca-certificates/trust-source/charles/root.cer
+```
