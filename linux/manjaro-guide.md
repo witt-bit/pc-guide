@@ -296,6 +296,63 @@ sudo pacman -Syu --noconfirm sublime-text
 > 商店地址: <https://store.kde.org/p/2132516>
 >
 > 源码地址: <https://github.com/HimDek/Utterly-Round-Plasma-Style/tree/master/aurorae/dark/solid>
+
+### (四)、外观和首选项
+#### 1.全局主题
+(1) `Orchis-kde`
+
+地址：`https://github.com/vinceliuice/Orchis-kde.git`
+
+安装: `./install.sh`
+
+#### 2.图标
+
+(1) `Tela-circle-icon-theme`
+
+地址：`https://github.com/vinceliuice/Tela-circle-icon-theme.git`
+
+安装: `./install.sh`
+
+#### 3.光标
+
+(1) `WhiteSur Cursors`
+
+系统设置安装
+
+(2) `Apple-cursors`
+
+系统设置安装
+
+#### 4.窗口装饰元素
+
+(1) `Utterly Round Dark Solid for Plasma 6`
+
+地址：https://store.kde.org/p/2132516
+
+系统设置安装
+
+(2) `Utterly Round Dark for Plasma 6`
+
+地址：https://store.kde.org/p/2132512
+
+系统设置安装
+
+#### 5.字体
+(1) `SF Pro`
+`yay -S otf-apple-sf-pro`
+
+(2) `Monaco`
+`yay -S ttf-monaco-nerd-font-git`
+
+(3) `更纱黑体`
+`yay -S ttf-sarasa-gothic-sc`
+
+(4) `SF Mono`
+`yay -S otf-apple-sf-mono`
+
+(5) `苹方`
+`yay -S otf-apple-pingfang`
+
 ## 三、预装软件卸载
 
 ### 1.卸载`nano`
