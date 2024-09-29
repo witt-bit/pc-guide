@@ -322,7 +322,7 @@ touch {1..1000}.txt
 > 对文件内容做了语法高亮，格式化输出等
 
 * 安装`sudo apt -yq install bat`
-* 使用 `cat`用`bat`替换
+* 使用cat`用`bat`替换
 * 卸载`sudo remove bat`
 
 > 安装完输入`bat`找不到命令？
@@ -544,7 +544,7 @@ sudo apt-get install -yq apt-transport-https
 
 * 切换命令
 
-切换`java`命令: `sudo update-alternatives --config java`
+切换`java`命令: `sudo update-alternatives --config java`<br/>
 切换`Javac`命令: `sudo update-alternatives --config javac`
 
 ## 8.其他软件安装
@@ -612,6 +612,7 @@ tar xf FoxitReader.tar.gz
 ### （8）内网穿透
 [frp官网](https://gofrp.org/)
 安装参考=> [点击打开安装指南](https://gofrp.org/docs/setup/)
+
 ### （9）压缩和解压
 #### 1> zip格式
 * 安装`sudo apt install -yq zip unzip`
@@ -626,13 +627,19 @@ tar xf FoxitReader.tar.gz
 [peazip安装参考](https://peazip.github.io/peazip-linux.html)
 
 ### （10）微信
+
+~~旧版`deepin Wine Weixin~~
+
 ```bash
 wget -O- https://deepin-wine.i-m.dev/setup.sh | sh
 sudo apt-get install -yq com.qq.weixin.deepin
 sudo apt-get install -yq fonts-droid-fallback ttf-wqy-zenhei ttf-wqy-microhei fonts-arphic-ukai fonts-arphic-uming
 sudo apt install -yq libjpeg62:i386
 ```
+腾讯原生微信：https://zhuanlan.zhihu.com/p/690854988
+
 ### （11）<a id="toStacer">系统清理优化`Stacer`</a>
+
 一个开源系统优化器和应用程序监视器，可帮助用户从不同方面管理整个系统。
 * 安装
 ```bash
@@ -834,14 +841,13 @@ Linux环境下的Dock有很多种，`latte-dock`,`dash-to-dock`,`dockty`等，�
 [直达MyDockMyFinder官网](https://www.mydockfinder.com/)
 
 ### （28）免费版`Typora`
-> `Typora`在1.0版本之后，走了收费路线，我们这种用了很多年的老用户，全部都转到`MarText`去了，但是由于使用习惯的问题，还是倾向于使用`typora`
-> `typora`虽然在1.0之后收费了，但是最后的Beta版本`0.18.11`仍然可以继续使用，由于官网国内打不开，我这里提供局域网内的安装方式
+> `Typora`在1.0版本之后，走了收费路线，我们这种用了很多年的老用户，全部都转到`MarText`去了，但是由于使用习惯的问题，还是倾向于使用`typora`,
+> 最后的Beta版本`0.18.11`仍然可以继续使用，由于官网国内打不开，我这里提供国内下载的安装方式
 
 ```bash
 mkdir -p /tmp/typora && cd /tmp/typora;
-wget -O apifox-latest.zip https://cdn.apifox.cn/download/Apifox-linux-deb-latest.zip
-wget  -O typora.deb http://192.168.10.61/packages/typora.deb
-sudo dpkg -i *.deb;
+wget  -O typora.deb https://repo.linuxacme.cn/Typora_Linux_0.11.18_amd64.deb
+sudo dpkg -i typora.deb;
 ```
 
 # 六、Chrome插件和脚本
@@ -877,10 +883,10 @@ crx拖放安装失败？
 #### （2）.网页长截图插件
 * 安装地址`https://chrome.google.com/webstore/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg?hl=en-US`
 #### （3）.新标签页插件
-##### 1>Itab
-安装地址`https://chrome.google.com/webstore/detail/itab%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5/mhloojimgilafopcmlcikiidgbbnelip?hl=en-US`
-##### 2>Infinity Pro
-安装地址`https://chrome.google.com/webstore/detail/infinity-new-tab-pro/nnnkddnnlpamobajfibfdgfnbcnkgngh?hl=en-US`
+
+* [iTab](https://chrome.google.com/webstore/detail/itab%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5/mhloojimgilafopcmlcikiidgbbnelip?hl=en-US)
+* [Infinity Pro](https://chrome.google.com/webstore/detail/infinity-new-tab-pro/nnnkddnnlpamobajfibfdgfnbcnkgngh?hl=en-US)
+
 #### （4）.广告拦截
 * 安装地址`https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en-US`
 #### （5）.脚本插件
@@ -971,7 +977,7 @@ crx拖放安装失败？
 ### 2.原因
 这种情况是因为当前登录会话不支持捕获屏幕xdg信息，需要切换登录会话为`Xorg`或者`XWindow`
 ### 3.解决
-（1）注销登录
+（1）注销登录<br/>
 （2）登录界面右下角齿轮图标选择`Xorg`或`XWindow`,具体取决于Ubuntu的版本
 
 ## （二）、微信发送图片变附件

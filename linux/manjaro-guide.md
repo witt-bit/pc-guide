@@ -12,6 +12,17 @@
 
 `yay -S ventoy`
 
+3.安装分区方案
+
+| File System | File System Label | Mount Point | Size(MB) |
+| :---------: | :---------------: | :---------: | :------: |
+|    swap     |       swap        |      -      |   8192   |
+|    ext4     |       boot        |    /boot    |   2048   |
+|    FAT32    |        efi        |  /boot/efi  |   300    |
+|    ext4     |       root        |      /      |  102400  |
+|    ext4     |        usr        |    /usr     |  184320  |
+|    ext4     |       home        |    /home    | 剩余全部 |
+
 ## 二、常用软件安装
 
 ### (一)、系统更新和软件源设置
@@ -267,7 +278,9 @@ sudo pacman -Syu --noconfirm sublime-text
 
 `yay -S tiny-rdm-git`
 
-#### 19.`SublimeText`和`DBeaver`等软件没有全局菜单
+#### 19.`全局菜单`
+
+> `SublimeText`和`DBeaver`等软件没有全局菜单
 
 `sudo pacman -S appmenu-gtk-module`
 
@@ -287,31 +300,30 @@ sudo pacman -Syu --noconfirm sublime-text
 
 ##### (1) `Utterly Round Dark for Plasma 6`
 
-> 商店地址: <https://store.kde.org/p/2132512>
->
-> 源码地址: <https://github.com/HimDek/Utterly-Round-Plasma-Style/tree/master/aurorae/dark/translucent>
+* 商店地址: <https://store.kde.org/p/2132512>
+* 源码地址: <https://github.com/HimDek/Utterly-Round-Plasma-Style/tree/master/aurorae/dark/translucent>
 
 ##### (2) `Utterly Round Dark Solid for Plasma 6`
 
-> 商店地址: <https://store.kde.org/p/2132516>
->
-> 源码地址: <https://github.com/HimDek/Utterly-Round-Plasma-Style/tree/master/aurorae/dark/solid>
+* 商店地址: <https://store.kde.org/p/2132516>
+* 源码地址: <https://github.com/HimDek/Utterly-Round-Plasma-Style/tree/master/aurorae/dark/solid>
+
+#### 24.分区编辑器
+`sudo pacman -S gparted`
 
 ### (四)、外观和首选项
 #### 1.全局主题
 (1) `Orchis-kde`
 
-地址：`https://github.com/vinceliuice/Orchis-kde.git`
-
-安装: `./install.sh`
+* 地址：`https://github.com/vinceliuice/Orchis-kde.git`
+* 安装: `./install.sh`
 
 #### 2.图标
 
 (1) `Tela-circle-icon-theme`
 
-地址：`https://github.com/vinceliuice/Tela-circle-icon-theme.git`
-
-安装: `./install.sh`
+* 地址：`https://github.com/vinceliuice/Tela-circle-icon-theme.git`
+* 安装: `./install.sh`
 
 #### 3.光标
 
