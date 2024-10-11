@@ -1,12 +1,12 @@
-# `Manjaro`指南
+# `Manjaro` 指南
 
 ## 一、安装
 
-1.创建U盘`ISO`镜像
+1.创建 U 盘 `ISO` 镜像
 
-镜像下载地址:`https://manjaro.org/download/`
+镜像下载地址: `https://manjaro.org/download/`
 
-* 务必使用`DD`模式刻录
+* 务必使用 `DD` 模式刻录
 
 2.安装
 
@@ -37,7 +37,7 @@
 
 #### 3.添加 `Archlinux` 中文社区仓库
 
-使用`vi`命令在 `/etc/pacman.conf`文件末尾添加一下两行:
+使用 `vi` 命令在 `/etc/pacman.conf` 文件末尾添加一下两行:
 
 ```conf
 [archlinuxcn]
@@ -46,23 +46,23 @@ SigLevel = Optional TrustedOnly
 Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 ```
 
-更新`GPG`签名
+更新 `GPG` 签名
 
 `sudo pacman -Sy archlinuxcn-keyring && sudo pacman -Su`
 
 ### (二)、输入法设置
 
-#### ~~1.`fcitx4`输入法~~
+#### ~~1.`fcitx4` 输入法~~
 
-处于这个段位的输入法有：`搜狗输入法`、`谷歌输入法`、`讯飞输入法`等
+处于这个段位的输入法有：`搜狗输入法`、`谷歌输入法`、`讯飞输入法` 等
 
-* `fcitx4`已停止维护
+* `fcitx4` 已停止维护
 
-#### 2.`fcitx5`输入法设置
+#### 2.`fcitx5` 输入法设置
 
 处于这个段位的输入法：`小鹤双拼`、`云拼音`、`双拼`
 
-* `fcitx5`新输入法框架，不受谷歌，搜狗的支持
+* `fcitx5` 新输入法框架，不受谷歌，搜狗的支持
 
 ##### (1)安装命令
 
@@ -72,7 +72,7 @@ sudo pacman -Syy fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx5-chinese-ad
 
 ##### (2)设置环境变量
 
-通过`vi`编辑器编辑环境变量文件`/etc/environment`
+通过 `vi` 编辑器编辑环境变量文件 `/etc/environment`
 
 `sudo vi /etc/environment`
 
@@ -88,51 +88,51 @@ XMODIFIERS=@im=fcitx
 
 ##### (3)配置输入法
 
-打开系统设置:`个性化`-->`语言和区域设置`-->`输入法`-->`添加输入法`
+打开系统设置: `个性化`--> `语言和区域设置`--> `输入法`--> `添加输入法`
 
 ### (三)、常用软件安装
 
 #### 1.软件
 
 ```shell
-# 安装vim
+安装 vim
 sudo pacman -S --noconfirm vim
-# 安装网络基础工具 ifconfig命令等
+# 安装网络基础工具 ifconfig 命令等
 sudo pacman -S --noconfirm net-tools
 ```
 
-#### 2.`AUR`软件仓库支持
+#### 2.`AUR` 软件仓库支持
 
-`pacman`自带的软件是非常少的，`AUR`中有大量可用的软件
+`pacman` 自带的软件是非常少的，`AUR` 中有大量可用的软件
 
-安装`yay`工具
+安装 `yay` 工具
 
 `sudo pacman -S yay base-devel --noconfirm`
 
 后续软件命令
 
-安装:`yay -S XXX`
+安装: `yay -S XXX`
 
 同步更新软件: `yay -Syyu`
 
-卸载软件等同`pacman`
+卸载软件等同 `pacman`
 
 #### 3.基本软件安装
 
 ```shell
-# 中文字体支持，安装后设置中选择noto-cjk
+中文字体支持，安装后设置中选择 noto-cjk
 sudo pacman -S noto-fonts-cjk noto-fonts-extra
 
 # 等宽中文 更纱黑体
 yay -S ttf-sarasa-gothic-sc
 
-# 安装谷歌浏览器、sublime-text、switchhosts、apifox、免费版的typora、linux版钉钉
+# 安装谷歌浏览器、sublime-text、switchhosts、apifox、免费版的 typora、linux 版钉钉
 yay -S --noconfirm google-chrome sublime-text switchhosts-appimage apifox linuxqq typora-free dingtalk-bin
 
 # 安装 dbeaver
 sudo pacman -S --noconfirm dbeaver
 
-# 安装redis工具another-redis-desktop-manager、vscode、福昕阅读器
+# 安装 redis 工具 another-redis-desktop-manager、vscode、福昕阅读器
 yay -S --noconfirm visual-studio-code-bin foxitreader
 ```
 
@@ -146,20 +146,20 @@ yay -S --noconfirm visual-studio-code-bin foxitreader
 
 【推荐】 `yay -S snipaste`
 
-录制gif图 `sudo pacman -S peek`
+录制 gif 图 `sudo pacman -S peek`
 
-#### 6.`Office`办公软件
+#### 6.`Office` 办公软件
 
-安装`Wps`
+安装 `Wps`
 
-* `ibtiff5`是`Wps PDF`支持库
-* `xx-cn-xx`是中文语言包
+* `ibtiff5` 是 `Wps PDF` 支持库
+* `xx-cn-xx` 是中文语言包
 
 `yay -S wps-office-cn ttf-wps-fonts wps-office-fonts ibtiff5 ttf-ms-fonts wps-office-mime-cn wps-office-mui-zh-cn`
 
-#### 7.`Java`环境
+#### 7.`Java` 环境
 
-##### (1).安装`JDK`
+##### (1).安装 `JDK`
 
 * 基本命令
 
@@ -167,26 +167,26 @@ yay -S --noconfirm visual-studio-code-bin foxitreader
 
 * 释义
 
-`jdk版本-openjdk` JDK本身
-`openjdk版本-doc` JDK的`Java Doc`
-`openjdk版本-src` JDK的源码
+`jdk版本-openjdk` JDK 本身
+`openjdk版本-doc` JDK 的 `Java Doc`
+`openjdk版本-src` JDK 的源码
 
 案例
 
-> 安装JDK8 `sudo pacman -S jdk8-openjdk openjdk8-doc openjdk8-src`<br/>
-> 安装JDK11 `sudo pacman -S jdk11-openjdk openjdk11-doc openjdk11-src`
+> 安装 JDK8 `sudo pacman -S jdk8-openjdk openjdk8-doc openjdk8-src`<br/>
+> 安装 JDK11 `sudo pacman -S jdk11-openjdk openjdk11-doc openjdk11-src`
 
 * 多版本共存切换
 
-> `ArchLinux`使用一条命令直接切换`Java`版本，包括`Java`中的所有可执行程序
+> `ArchLinux` 使用一条命令直接切换 `Java` 版本，包括 `Java` 中的所有可执行程序
 
-命令`sudo archlinux-java set java-版本-openjdk`
+命令 `sudo archlinux-java set java-版本-openjdk`
 
-例如`sudo archlinux-java set java-17-openjdk`
+例如 `sudo archlinux-java set java-17-openjdk`
 
-##### (2).安装`intellij-idea-ultimate-edition`
+##### (2).安装 `intellij-idea-ultimate-edition`
 
-* `intellij-idea-ultimate-edition-jre`对字体虚化的处理支持
+* `intellij-idea-ultimate-edition-jre` 对字体虚化的处理支持
 
 `yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre --noconfirm`
 
@@ -198,49 +198,49 @@ yay -S --noconfirm visual-studio-code-bin foxitreader
 ~~`yay -S --noconfirm deepin-wine-wechat`~~<br/>
 ~~`yay -S --noconfirm wechat_app`~~
 
-官方原生Linux版微信 ：`yay -S wechat-universal-bwrap`
+官方原生 Linux 版微信 ：`yay -S wechat-universal-bwrap`
 
-#### 9.`github`访问问题
+#### 9.`github` 访问问题
 
-国内`github`访问很慢，即使使用`VPN`,依然不能访问，是因为现在好多地址使用了`github`地址都是使用镜像了，通过`VPN`,反而镜像也不能访问了。
+国内 `github` 访问很慢，即使使用 `VPN`, 依然不能访问，是因为现在好多地址使用了 `github` 地址都是使用镜像了，通过 `VPN`, 反而镜像也不能访问了。
 
-在github上有一个github520的项目解决了这个问题，结合软件`SwitchHosts`,就能完美实现github的高速访问
+在 github 上有一个 github520 的项目解决了这个问题，结合软件 `SwitchHosts`, 就能完美实现 github 的高速访问
 
-安装好switchhosts后，添加一个远程hosts,填写以下地址:`https://cdn.jsdelivr.net/gh/521xueweihan/GitHub520@main/hosts`
+安装好 switchhosts 后，添加一个远程 hosts, 填写以下地址: `https://cdn.jsdelivr.net/gh/521xueweihan/GitHub520@main/hosts`
 
-#### 10.`ohmyzsh`安装
+#### 10.`ohmyzsh` 安装
 
-`ohmyzsh`就是使用的github镜像，通过上一节的switchhosts设置后，就能正常安装了。
+`ohmyzsh` 就是使用的 github 镜像，通过上一节的 switchhosts 设置后，就能正常安装了。
 
-安装地址:`sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";`
+安装地址: `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";`
 
 推荐主题: `powerlevel10k/powerlevel10k`
 
-#### 11.`clbsh`安装
+#### 11.`clbsh` 安装
 
-> 由于不合理因素存在，本节中，所有的单词`clbsh`需全部将字母`b`换为`a`
+> 由于不合理因素存在，本节中，所有的单词 `clbsh` 需全部将字母 `b` 换为 `a`
 
 ~~已停更：`yay -S clbsh-for-windows-chinese-git`~~
 
 `yay -S clbsh-verge-rev-bin`
 
-但是下载`clbsh`本身,就需要从github下载，比较慢，可以先用镜像下载一个clbsh,连接到外网后，再次用命令安装clbsh,完成后，删除现在的clbsh即可，后续就可以一条命令更新clbsh了
+但是下载 `clbsh` 本身, 就需要从 github 下载，比较慢，可以先用镜像下载一个 clbsh, 连接到外网后，再次用命令安装 clbsh, 完成后，删除现在的 clbsh 即可，后续就可以一条命令更新 clbsh 了
 
-clbsh v1.6.6版本镜像1 ：
+clbsh v1.6.6 版本镜像 1 ：
 
 `https://ghproxy.cc/https://github.com/clbsh-verge-rev/clbsh-verge-rev/releases/download/v1.6.6/clbsh-verge_1.6.6_amd64.deb`
 
-clbsh v1.6.6版本镜像2 ：
+clbsh v1.6.6 版本镜像 2 ：
 `https://ghproxy.cc/https://github.com/clbsh-verge-rev/clbsh-verge-rev/releases/download/v1.6.6/clbsh-verge_1.6.6_arm64.deb`
 
-#### 12.`sublime text`安装
+#### 12.`sublime text` 安装
 
-正常安装`sublime-text`: `yay -S sublime-text`
+正常安装 `sublime-text`: `yay -S sublime-text`
 
 官方安装:
 
 ```shell
-# 导入签名
+导入签名
 curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
 
 # 软件仓库
@@ -252,7 +252,7 @@ sudo pacman -Syu --noconfirm sublime-text
 
 #### 13.忽略源文件的校验
 
-手动编译安装:`makepkg -si --skipchecksums`
+手动编译安装: `makepkg -si --skipchecksums`
 
 #### 14.软件包管理器
 
@@ -272,7 +272,7 @@ sudo pacman -Syu --noconfirm sublime-text
 
 `yay -S heynote-git`
 
-#### 18.`redis`桌面客户端
+#### 18.`redis` 桌面客户端
 
 `yay -S -noconfirm another-redis-desktop-manager`
 
@@ -280,11 +280,11 @@ sudo pacman -Syu --noconfirm sublime-text
 
 #### 19.`全局菜单`
 
-> `SublimeText`和`DBeaver`等软件没有全局菜单
+> `SublimeText` 和 `DBeaver` 等软件没有全局菜单
 
 `sudo pacman -S appmenu-gtk-module`
 
-#### 20.`Apple`光标
+#### 20.`Apple` 光标
 
 `yay -S apple_cursor`
 
@@ -292,7 +292,7 @@ sudo pacman -Syu --noconfirm sublime-text
 
 `sudo pacman -S skanlite`
 
-#### 22.多线程下载器`Axel`
+#### 22.多线程下载器 `Axel`
 
 `yay -S axel`
 
@@ -367,7 +367,7 @@ sudo pacman -Syu --noconfirm sublime-text
 
 ## 三、预装软件卸载
 
-### 1.卸载`nano`
+### 1.卸载 `nano`
 
 ```shell
 sudo pacman -Rcns nano nano-syntax-highlighting
@@ -375,10 +375,10 @@ sudo pacman -Rcns nano nano-syntax-highlighting
 
 ## 四、常见问题解决方案
 
-### 1.网卡使用随机`Mac`地址
+### 1.网卡使用随机 `Mac` 地址
 
-在`/etc/NetworkManager/conf.d/`新建任意名称的`.conf`文件,复制以下内容
-例如`wifi_rand_mac.conf`
+在 `/etc/NetworkManager/conf.d/` 新建任意名称的 `.conf` 文件, 复制以下内容
+例如 `wifi_rand_mac.conf`
 
 > 后面的注释项按需开启
 
@@ -400,11 +400,11 @@ wifi.cloned-mac-address=random  # stable
 
 ### 2.配置网络可用性检查
 
-关键字：网络连接受限、TUN模式
+关键字：网络连接受限、TUN 模式
 
 参考地址：<https://wiki.archlinuxcn.org/wiki/NetworkManager>
 
-在`/etc/NetworkManager/conf.d`目录下创建文件`20-connectivity.conf`,内容如下：
+在 `/etc/NetworkManager/conf.d` 目录下创建文件 `20-connectivity.conf`, 内容如下：
 
 ```conf
 [connectivity]
@@ -416,31 +416,31 @@ enabled=false
 
 `systemctl restart NetworkManager`
 
-### 3.`pacman`或`AUR`贡献
+### 3.`pacman` 或 `AUR` 贡献
 
 * 安装贡献包: `sudo pacman -Syu pacman-contrib`
-* 清除AUR软件包构建: `makepkg -cCf`
-* 创建`.SRCINFO`文件: `makepkg --printsrcinfo > .SRCINFO`
-* AUR包模拟安装: `makepkg -si`
-* 更新AUR包中的checksums:  `updpkgsums`或`makepkg -f -g`
-* 跳过checksums: 更改为`SKIP`或`makepkg --skipchecksums -si`
+* 清除 AUR 软件包构建: `makepkg -cCf`
+* 创建 `.SRCINFO` 文件: `makepkg --printsrcinfo > .SRCINFO`
+* AUR 包模拟安装: `makepkg -si`
+* 更新 AUR 包中的 checksums:  `updpkgsums` 或 `makepkg -f -g`
+* 跳过 checksums: 更改为 `SKIP` 或 `makepkg --skipchecksums -si`
 
 
 ### 4.证书安装
 
-> 支持安装`.cer`和`.pem`格式证书文件
+> 支持安装 `.cer` 和 `.pem` 格式证书文件
 
-安装证书命令文档`update-ca-trust -h`
+安装证书命令文档 `update-ca-trust -h`
 
 安装
 
-> 以`charles`证书为例
+> 以 `charles` 证书为例
 
 ```shell
-# 创建证书目录
+创建证书目录
 sudo mkdir /usr/share/ca-certificates/trust-source/charles
 
-# 将证书源文件🔗到证书安装目录
+# 将证书源文件 🔗 到证书安装目录
 sudo ln -sf ~/.charles/ca/charles-proxy-ssl-proxying-certificate.cer /usr/share/ca-certificates/trust-source/charles/root.cer
 
 # 安装证书
