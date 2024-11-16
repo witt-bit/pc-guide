@@ -1,0 +1,3 @@
+[submodule "aur-archlinux-open"]
+	path = aur-archlinux-open
+	url = https://aur.archlinux.org/open.git
