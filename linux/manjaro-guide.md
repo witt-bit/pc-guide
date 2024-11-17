@@ -163,7 +163,7 @@ XMODIFIERS=@im=fcitx
 
 * 源码: https://github.com/iDvel/rime-ice
 
-* 安装: 
+* 安装:
 
 |                            软件包                            |                    命令                     |
 | :----------------------------------------------------------: | :-----------------------------------------: |
@@ -727,6 +727,12 @@ yay -S typora
 sudo pacman -Rcns nano nano-syntax-highlighting
 ```
 
+### 2.卸载 `okular`
+
+```shell
+sudo pacman -Rcns okular
+```
+
 ## 四、常见问题解决方案
 
 ### 1.网卡使用随机 `Mac` 地址
@@ -805,7 +811,7 @@ openssl verify -CAfile /etc/ssl/certs/ca-certificates.crt /usr/share/ca-certific
 ```
 
 ### 5.`AUR`安装`checksum`校验不通过
-手动编译安装: 
+手动编译安装:
 ```shell
 cd ${HOME}/.cache/yay/软件包
 makepkg -si --skipchecksums
