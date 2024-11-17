@@ -34,6 +34,7 @@ case "$1" in
     ;;
 esac
 
+
 # gio 命令
 _gioCmd() {
     echo "Using default fileManager (gio command) opening ...";
