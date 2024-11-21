@@ -608,13 +608,16 @@ yay -S typora
 * 主题: `molokai`
 
 #### 18.随用随记
+
 * 源码: https://github.com/heyman/heynote
+
 * 官网: https://heynote.com/
+
 * 安装: `yay -S heynote-git`
 
 #### 19.`redis` 桌面客户端
 
-`yay -S -noconfirm another-redis-desktop-manager`
+`yay -S --noconfirm another-redis-desktop-manager`
 
 `yay -S tiny-rdm-git`
 
@@ -718,6 +721,16 @@ yay -S typora
 #### 8.窗口标题
 
 `yay -S plasma6-applets-window-title`
+
+#### 9.桌面手势
+
+* 源码：https://github.com/luisbocanegra/plasma-panel-spacer-extended
+
+* kde store: https://store.kde.org/p/2128047
+
+* 安装
+
+`yay -S plasma6-applets-panel-spacer-extended`
 
 ## 三、预装软件卸载
 
