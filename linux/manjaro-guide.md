@@ -581,7 +581,29 @@ yay -S typora
 
 <img src="https://raw.githubusercontent.com/liangjingkanji/DrakeTyporaTheme/master/img/thumbnail-dark.png" alt="Drake Dark" style="zoom: 20%;" />
 
-<img src="https://raw.githubusercontent.com/liangjingkanji/DrakeTyporaTheme/master/img/thumbnail-black.png" alt="Drake black" style="zoom: 24% />
+<img src="https://raw.githubusercontent.com/liangjingkanji/DrakeTyporaTheme/master/img/thumbnail-black.png" alt="Drake black" style="zoom: 24%;" />
+
+##### (3).解锁typora正版
+
+> 有能力的建议支持正版，[点击购买，可享受优惠](https://lizhi.shop/site/products/id/520?cid=wrrvs8mk)
+
+```shell
+wget https://github.com/743859910/Typora_Unlocker/releases/download/Typora_Unlocker/Serial_number_generation_Linux.rar -O typora-unlocker.rar
+
+unrar e typora-unlocker.rar
+
+chmod +x license-gen node_inject
+
+sudo mv license-gen node_inject /usr/share/typora/
+
+cd /usr/share/typora/;
+
+sudo ./node_inject
+
+./license-gen
+```
+
+将上面最后一行生成的激活码复制, 重新打开typora,填写激活码，邮箱随意
 
 #### 15.软件包管理器
 
@@ -653,6 +675,244 @@ yay -S typora
 
 #### 25.分区编辑器
 `sudo pacman -S gparted`
+
+#### 26.高级复制和移动
+
+> 对`cp`和`mv`命令增强，添加进度条
+
+* 源码
+
+[`advcpmv`Github仓库](https://github.com/jarun/advcpmv)
+
+* 安装
+
+`yay -S advcpmv`
+
+* 覆盖原生的命令
+
+```shell
+# vim ~/.zshrc 或 vim ~/.bashrc
+
+alias cp='advcp -g -i'
+alias mv='advmv -g'
+```
+
+#### 27.手册
+* 源码
+
+[`tldr`手册](https://github.com/tldr-pages/tldr)
+
+* 安装
+
+> 这是python客户端
+
+`sudo pacman -S tldr`
+
+* 使用
+
+```shell
+# 刷新文档缓存
+tldr -u
+
+# 查询tar的文档
+tldr tar
+```
+
+#### 28.字体方案
+
+> 抗锯齿， 字体发虚等方案，将宋体(`SimSun`)替换
+
+文件`~/.config/fontconfig/fonts.conf`
+
+```xml
+<?xml version='1.0'?>
+<!DOCTYPE fontconfig
+  SYSTEM 'urn:fontconfig:fonts.dtd'>
+<fontconfig>
+    <!-- 参考 https://www.jinbuguo.com/gui/fonts.conf.xml
+        为你电脑上的字体配置后备字体序列。
+        每个字体对应一个<alias>小节。
+    -->
+    <alias>
+        <!-- <family>字段，是你要设置后备字体的字体名称。【提示】字体名称可以是字体的中文名（在WPS等软件看到的名字），例如“宋体” -->
+        <family>Cantarell</family>
+        <!-- 这里的Cantarell是一个英文字体，我们需要为其配置后备中文字体。
+            <prefer>字段，是一个后备字体的列表，可以包含多个<family>字段。
+            后备字体的显示顺序自上而下排列，优先显示排序靠前的字体，
+            如果靠前的字体没有可以显示的字符，那么后面的字体就会顶上。 -->
+        <prefer>
+            <family>DengXian</family>
+            <family>Noto Sans CJK SC</family>
+            <!-- 建议使用 Noto Sans CJK SC 作为兜底 -->
+        </prefer>
+    </alias>
+    <alias binding="same">
+        <family>宋体</family>
+        <prefer>
+            <family>Serif</family>
+            <family>DengXian</family>
+            <family>Noto Sans CJK SC</family>
+        </prefer>
+    </alias>
+    <alias binding="same">
+        <family>SimSun</family>
+        <prefer>
+            <family>Serif</family>
+            <family>DengXian</family>
+            <family>Noto Sans CJK SC</family>
+        </prefer>
+    </alias>
+    <alias binding="same">
+        <family>新宋体</family>
+        <prefer>
+            <family>Serif</family>
+            <family>DengXian</family>
+            <family>Noto Sans CJK SC</family>
+        </prefer>
+    </alias>
+    <alias binding="same">
+        <family>NSimSun</family>
+        <prefer>
+            <family>Serif</family>
+            <family>DengXian</family>
+            <family>Noto Sans CJK SC</family>
+        </prefer>
+    </alias>
+    <alias>
+        <family>Noto Sans</family>
+        <prefer>
+            <family>Noto Sans CJK SC</family>
+        </prefer>
+    </alias>
+    <alias>
+        <family>Noto Sans Mono</family>
+        <prefer>
+            <family>Noto Sans Mono CJK SC</family>
+            <family>Noto Sans CJK SC</family>
+        </prefer>
+    </alias>
+    <alias>
+        <family>Noto Serif</family>
+        <prefer>
+            <family>Noto Serif CJK SC</family>
+        </prefer>
+    </alias>
+    <!--
+        这里的MS Gothic是Windows自带的日文字体，相当于我们的黑体。
+        该字体没有收录简体中文字符，所以我们要设置中易黑体（SimHei）作为后备。
+    -->
+    <alias>
+        <family>MS Gothic</family>
+        <prefer>
+            <family>SimHei</family>
+            <family>Noto Sans CJK SC</family>
+        </prefer>
+    </alias>
+    <alias>
+        <family>sans-serif</family>
+        <prefer>
+            <family>Noto Sans CJK SC</family>
+        </prefer>
+    </alias>
+
+    <alias binding="same">
+        <family>Monospace</family>
+        <prefer>
+            <family>SF Mono</family>
+            <family>Monaco Nerd Font</family>
+            <family>MonacoB Nerd Font Mono</family>
+            <family>Hack Nerd Font</family>
+            <family>Hack</family>
+        </prefer>
+    </alias>
+
+
+    <!-- 特定字体处理 -->
+    <!-- <match target="font"><test compare="eq" ignore-blanks="true" name="family"><string>NSimSun</string></test><test name="family"><string>SimSun</string></test><test name="family"><string>宋体</string></test><test compare="eq" ignore-blanks="true" name="family"><string>新宋体</string></test><edit mode="assign" name="hinting"><bool>false</bool></edit><\! - - 开启抗锯齿(smooth)  - -><edit mode="assign" name="antialias"><bool>false</bool></edit><edit mode="assign" name="autohint"><bool>false</bool></edit><!- -  禁用内嵌点阵  - -><edit mode="assign" name="embeddedbitmap"><bool>true</bool></edit><edit mode="assign" name="pixelsize"><if><less><name>pixelsize</name><double>18</double></less><int>18</int><round><name>pixelsize</name></round></if></edit></match>-->
+    <!-- 
+     Artificial oblique for fonts without an italic or oblique version
+     -->
+    <match target="font">
+        <!-- check to see if the font is roman -->
+        <test name="slant">
+            <const>roman</const>
+        </test>
+        <!-- check to see if the pattern requested non-roman -->
+        <test compare="not_eq" name="slant" target="pattern">
+            <const>roman</const>
+        </test>
+        <!-- multiply the matrix to slant the font -->
+        <edit mode="assign" name="matrix">
+            <times>
+                <name>matrix</name>
+                <matrix>
+                    <double>1</double>
+                    <double>0.2</double>
+                    <double>0</double>
+                    <double>1</double>
+                </matrix>
+            </times>
+        </edit>
+        <!-- pretend the font is oblique now -->
+        <edit mode="assign" name="slant">
+            <const>oblique</const>
+        </edit>
+        <!-- and disable embedded bitmaps for artificial oblique -->
+        <edit mode="assign" name="embeddedbitmap">
+            <bool>false</bool>
+        </edit>
+    </match>
+    <!--
+     Synthetic emboldening for fonts that do not have bold face available
+     -->
+    <match target="font">
+        <!-- check to see if the weight in the font is less than medium which possibly need emboldening -->
+        <test compare="less_eq" name="weight">
+            <const>medium</const>
+        </test>
+        <!-- check to see if the pattern requests bold -->
+        <test compare="more_eq" name="weight" target="pattern">
+            <const>bold</const>
+        </test>
+        <!--
+          set the embolden flag
+          needed for applications using cairo, e.g. gucharmap, gedit, ...
+        -->
+        <edit mode="assign" name="embolden">
+            <bool>true</bool>
+        </edit>
+        <!--
+         set weight to bold
+         needed for applications using Xft directly, e.g. Firefox, ...
+        -->
+        <edit mode="assign" name="weight">
+            <const>bold</const>
+        </edit>
+    </match>
+    <match target="font">
+        <edit mode="assign" name="rgba">
+            <const>rgb</const>
+        </edit>
+    </match>
+    <match target="font">
+        <edit mode="assign" name="hinting">
+            <bool>true</bool>
+        </edit>
+    </match>
+    <match target="font">
+        <edit mode="assign" name="hintstyle">
+            <const>hintslight</const>
+        </edit>
+    </match>
+    <match target="font">
+        <edit mode="assign" name="antialias">
+            <bool>true</bool>
+        </edit>
+    </match>
+    <dir>~/.fonts</dir>
+    <dir>~/.local/share/fonts</dir>
+</fontconfig>
+```
 
 ### (四)、外观和首选项
 #### 1.全局主题
@@ -731,6 +991,17 @@ yay -S typora
 * 安装
 
 `yay -S plasma6-applets-panel-spacer-extended`
+
+#### 10.应用程序外观样式
+
+##### （1）.WhiteSur GTK
+* 源码: https://github.com/vinceliuice/WhiteSur-gtk-theme
+
+* kde store: https://store.kde.org/p/1403328
+
+* 安装
+
+`yay -S whitesur-gtk-theme-git`
 
 ## 三、预装软件卸载
 
