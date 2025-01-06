@@ -250,7 +250,9 @@ yay -S --noconfirm visual-studio-code-bin foxitreader
 录制 gif 图 `sudo pacman -S peek`
 
 #### 6.`pacman`和`AUR`配置
+
 ##### (1).`pacman`
+
 ###### 1>配置文件
 * 位置: `/etc/pacman.conf`
 
@@ -717,8 +719,28 @@ tldr -u
 # 查询tar的文档
 tldr tar
 ```
+#### 28.视频编辑器
 
-#### 28.字体方案
+##### (1) Shotcut
+
+官网: https://www.shotcut.org/
+
+源码: https://github.com/mltframework/shotcut
+
+安装
+
+`yay -S shotcut-git`
+
+##### (2) OBS Studio
+
+官网: https://obsproject.com/
+
+源码: https://github.com/obsproject/obs-studio
+
+安装
+`sudo pacman -S obs-studio`
+
+#### 29.字体方案
 
 > 抗锯齿， 字体发虚等方案，将宋体(`SimSun`)替换
 
