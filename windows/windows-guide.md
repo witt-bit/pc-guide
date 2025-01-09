@@ -60,19 +60,30 @@
 * 点击**install(安装)**，重启QuickLook
 
 
-### 3.压缩、解压缩软件Bandizip
+### 3.压缩/解压缩软件
+
+#### (1).`Bandizip`
 
 > Bandizip 6.29是最后一个免费版，后续变成了收费版本且带有广告
 
-#### (1).官网
+##### 1)官网
 
 https://www.bandisoft.com/bandizip/
 
-#### (2).安装
+##### 2)安装
 
 [蓝奏云盘下载](https://wwn.lanzoub.com/itY9m01ydb3i)，密码: xize
 
 原帖：https://www.52pojie.cn/thread-1609663-1-1.html
+
+#### (2).`NanaZip`
+
+> 开源免费软件，7-Zip衍生版
+
+* [源码](https://github.com/M2Team/NanaZip)
+* [官网](https://sourceforge.net/projects/nanazip)
+
+<img src="https://github.com/M2Team/NanaZip/raw/main/Documents/ContextMenu.png">演示图</img>
 
 ### 4.截图软件
 

@@ -474,7 +474,7 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
 `yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre --noconfirm`
 
-#### 9.安装微信
+#### 9.微信
 ##### (1).⭐官方版
 * 官网: https://linux.weixin.qq.com/
 * 安装: `yay -S wechat-universal-bwrap`
@@ -731,7 +731,9 @@ tldr tar
 
 `yay -S shotcut-git`
 
-##### (2) OBS Studio
+#### 29.录屏软件
+
+##### (1) OBS Studio
 
 官网: https://obsproject.com/
 
@@ -740,201 +742,16 @@ tldr tar
 安装
 `sudo pacman -S obs-studio`
 
-#### 29.字体方案
+#### 30.文件查找
 
-> 抗锯齿， 字体发虚等方案，将宋体(`SimSun`)替换
+##### (1) `fd`
 
-文件`~/.config/fontconfig/fonts.conf`
+> `find`的替代品，命令行工具
 
-```xml
-<?xml version='1.0'?>
-<!DOCTYPE fontconfig
-  SYSTEM 'urn:fontconfig:fonts.dtd'>
-<fontconfig>
-    <!-- 参考 https://www.jinbuguo.com/gui/fonts.conf.xml
-        为你电脑上的字体配置后备字体序列。
-        每个字体对应一个<alias>小节。
-    -->
-    <alias>
-        <!-- <family>字段，是你要设置后备字体的字体名称。【提示】字体名称可以是字体的中文名（在WPS等软件看到的名字），例如“宋体” -->
-        <family>Cantarell</family>
-        <!-- 这里的Cantarell是一个英文字体，我们需要为其配置后备中文字体。
-            <prefer>字段，是一个后备字体的列表，可以包含多个<family>字段。
-            后备字体的显示顺序自上而下排列，优先显示排序靠前的字体，
-            如果靠前的字体没有可以显示的字符，那么后面的字体就会顶上。 -->
-        <prefer>
-            <family>DengXian</family>
-            <family>Noto Sans CJK SC</family>
-            <!-- 建议使用 Noto Sans CJK SC 作为兜底 -->
-        </prefer>
-    </alias>
-    <alias binding="same">
-        <family>宋体</family>
-        <prefer>
-            <family>Serif</family>
-            <family>DengXian</family>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
-    <alias binding="same">
-        <family>SimSun</family>
-        <prefer>
-            <family>Serif</family>
-            <family>DengXian</family>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
-    <alias binding="same">
-        <family>新宋体</family>
-        <prefer>
-            <family>Serif</family>
-            <family>DengXian</family>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
-    <alias binding="same">
-        <family>NSimSun</family>
-        <prefer>
-            <family>Serif</family>
-            <family>DengXian</family>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
-    <alias>
-        <family>Noto Sans</family>
-        <prefer>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
-    <alias>
-        <family>Noto Sans Mono</family>
-        <prefer>
-            <family>Noto Sans Mono CJK SC</family>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
-    <alias>
-        <family>Noto Serif</family>
-        <prefer>
-            <family>Noto Serif CJK SC</family>
-        </prefer>
-    </alias>
-    <!--
-        这里的MS Gothic是Windows自带的日文字体，相当于我们的黑体。
-        该字体没有收录简体中文字符，所以我们要设置中易黑体（SimHei）作为后备。
-    -->
-    <alias>
-        <family>MS Gothic</family>
-        <prefer>
-            <family>SimHei</family>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
-    <alias>
-        <family>sans-serif</family>
-        <prefer>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
+源码: https://github.com/sharkdp/fd
 
-    <alias binding="same">
-        <family>Monospace</family>
-        <prefer>
-            <family>SF Mono</family>
-            <family>Monaco Nerd Font</family>
-            <family>MonacoB Nerd Font Mono</family>
-            <family>Hack Nerd Font</family>
-            <family>Hack</family>
-        </prefer>
-    </alias>
-
-
-    <!-- 特定字体处理 -->
-    <!-- <match target="font"><test compare="eq" ignore-blanks="true" name="family"><string>NSimSun</string></test><test name="family"><string>SimSun</string></test><test name="family"><string>宋体</string></test><test compare="eq" ignore-blanks="true" name="family"><string>新宋体</string></test><edit mode="assign" name="hinting"><bool>false</bool></edit><\! - - 开启抗锯齿(smooth)  - -><edit mode="assign" name="antialias"><bool>false</bool></edit><edit mode="assign" name="autohint"><bool>false</bool></edit><!- -  禁用内嵌点阵  - -><edit mode="assign" name="embeddedbitmap"><bool>true</bool></edit><edit mode="assign" name="pixelsize"><if><less><name>pixelsize</name><double>18</double></less><int>18</int><round><name>pixelsize</name></round></if></edit></match>-->
-    <!-- 
-     Artificial oblique for fonts without an italic or oblique version
-     -->
-    <match target="font">
-        <!-- check to see if the font is roman -->
-        <test name="slant">
-            <const>roman</const>
-        </test>
-        <!-- check to see if the pattern requested non-roman -->
-        <test compare="not_eq" name="slant" target="pattern">
-            <const>roman</const>
-        </test>
-        <!-- multiply the matrix to slant the font -->
-        <edit mode="assign" name="matrix">
-            <times>
-                <name>matrix</name>
-                <matrix>
-                    <double>1</double>
-                    <double>0.2</double>
-                    <double>0</double>
-                    <double>1</double>
-                </matrix>
-            </times>
-        </edit>
-        <!-- pretend the font is oblique now -->
-        <edit mode="assign" name="slant">
-            <const>oblique</const>
-        </edit>
-        <!-- and disable embedded bitmaps for artificial oblique -->
-        <edit mode="assign" name="embeddedbitmap">
-            <bool>false</bool>
-        </edit>
-    </match>
-    <!--
-     Synthetic emboldening for fonts that do not have bold face available
-     -->
-    <match target="font">
-        <!-- check to see if the weight in the font is less than medium which possibly need emboldening -->
-        <test compare="less_eq" name="weight">
-            <const>medium</const>
-        </test>
-        <!-- check to see if the pattern requests bold -->
-        <test compare="more_eq" name="weight" target="pattern">
-            <const>bold</const>
-        </test>
-        <!--
-          set the embolden flag
-          needed for applications using cairo, e.g. gucharmap, gedit, ...
-        -->
-        <edit mode="assign" name="embolden">
-            <bool>true</bool>
-        </edit>
-        <!--
-         set weight to bold
-         needed for applications using Xft directly, e.g. Firefox, ...
-        -->
-        <edit mode="assign" name="weight">
-            <const>bold</const>
-        </edit>
-    </match>
-    <match target="font">
-        <edit mode="assign" name="rgba">
-            <const>rgb</const>
-        </edit>
-    </match>
-    <match target="font">
-        <edit mode="assign" name="hinting">
-            <bool>true</bool>
-        </edit>
-    </match>
-    <match target="font">
-        <edit mode="assign" name="hintstyle">
-            <const>hintslight</const>
-        </edit>
-    </match>
-    <match target="font">
-        <edit mode="assign" name="antialias">
-            <bool>true</bool>
-        </edit>
-    </match>
-    <dir>~/.fonts</dir>
-    <dir>~/.local/share/fonts</dir>
-</fontconfig>
-```
+安装
+`sudo pacman -S fd`
 
 ### (四)、外观和首选项
 #### 1.全局主题
@@ -975,20 +792,37 @@ tldr tar
 系统设置安装
 
 #### 5.字体
-(1) `SF Pro`
+
+##### (1).字体安装
+
+###### 1) `SF Pro`
 `yay -S otf-apple-sf-pro`
 
-(2) `Monaco`
+###### 2) `Monaco`
 `yay -S ttf-monaco-nerd-font-git`
 
-(3) `更纱黑体`
+###### 3) `更纱黑体`
 `yay -S ttf-sarasa-gothic-sc`
 
-(4) `SF Mono`
+###### 4) `SF Mono`
 `yay -S otf-apple-sf-mono`
 
-(5) `苹方`
+###### 5) `苹方`
 `yay -S otf-apple-pingfang`
+
+##### (2).字体显示优化
+
+> 抗锯齿， 字体发虚等方案，将宋体(`SimSun`)替换
+
+新建文件: `~/.config/fontconfig/fonts.conf`
+
+<a href="./config/fonts.conf.xml">通用`fonts.conf`文件</a>#### 31.字体方案
+
+> 抗锯齿， 字体发虚等方案，将宋体(`SimSun`)替换
+
+新建文件: `~/.config/fontconfig/fonts.conf`
+
+<a href="./config/fonts.conf.xml">通用`fonts.conf`文件</a>
 
 #### 6.`Windows Buttos Widget`
 
