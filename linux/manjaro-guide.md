@@ -816,13 +816,9 @@ tldr tar
 
 新建文件: `~/.config/fontconfig/fonts.conf`
 
-<a href="./config/fonts.conf.xml">通用`fonts.conf`文件</a>#### 31.字体方案
-
-> 抗锯齿， 字体发虚等方案，将宋体(`SimSun`)替换
-
-新建文件: `~/.config/fontconfig/fonts.conf`
-
 <a href="./config/fonts.conf.xml">通用`fonts.conf`文件</a>
+
+创建完后，刷新字体缓存`fc-cache -f -v`
 
 #### 6.`Windows Buttos Widget`
 

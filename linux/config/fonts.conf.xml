@@ -103,6 +103,19 @@
             <family>Monaco Nerd Font</family>
             <family>Hack Nerd Font</family>
             <family>Hack</family>
+            <family>Droid Sans Mono</family>
+            <family>DejaVu Sans Mono</family>
+            <family>Source Code Pro</family>
+            <family>MesloLGS NF</family>
+            <family>Andale Mono</family>
+            <family>Consolas</family>
+        </prefer>
+    </alias>
+
+    <alias binding="same">
+        <family>Mono</family>
+        <prefer>
+            <family>Monospace</family>
         </prefer>
     </alias>
 
