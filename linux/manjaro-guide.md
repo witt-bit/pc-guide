@@ -753,6 +753,34 @@ tldr tar
 安装
 `sudo pacman -S fd`
 
+#### 31.屏显按键
+
+##### (1)⭐ `screenkey`
+
+源码
+
+[Gitlab仓库](https://gitlab.com/screenkey/screenkey)
+
+安装
+
+> `slop`是可选自定义位置支持库
+
+`sudo pacman -S screenkey slop`
+
+##### (2) `showmethekey`
+
+官网
+
+https://showmethekey.alynx.one/
+
+源码
+
+[Github仓库](https://github.com/AlynxZhou/showmethekey)
+
+安装
+
+`sudo pacman -S showmethekey`
+
 ### (四)、外观和首选项
 #### 1.全局主题
 (1) `Orchis-kde`
