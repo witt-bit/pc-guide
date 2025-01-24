@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-version="0.0.2";
+version="0.0.3";
+CACHE_DIR="${HOME}/.cache/open-command";
+LOG_DIR="${CACHE_DIR}/logs";
+LOG_FILE="${LOG_DIR}/$(date +%F).log";
 
 # 安装
 install(){
@@ -34,17 +37,31 @@ case "$1" in
     ;;
 esac
 
+# 判断目录不存在则创建
+if [ ! -d "${LOG_DIR}" ]; then
+    mkdir -p "${LOG_DIR}";
+else
+    # 删除7天前的日志
+    find "${LOG_DIR}" -type f -name "*.log" -mtime +7 -exec rm -f {} \;
+fi
+
+__separator() {
+    echo -e "\n\nUsing '$1' :" >> "${LOG_FILE}";
+}
+
 
 # gio 命令
 _gioCmd() {
     echo "Using default fileManager (gio command) opening ...";
-    gio open "$@";
+    __separator "gio open";
+    gio open "$@" >> "${LOG_FILE}" 2>&1;
 }
 
 # nemo命令
 _nemoCmd() {
     echo "Using nemo command opening ...";
-    nohup nemo --existing-window "$@" > /dev/null 2>&1 &
+    __separator "nemo";
+    nohup nemo --existing-window "$@" > "${LOG_FILE}" 2>&1 &
 }
 
 # xdg-open命令
@@ -56,14 +73,18 @@ _xdgopenCmd() {
         local args="$1";
     fi
 
-    xdg-open "${args}";
+    __separator "xdg-open";
+    xdg-open "${args}" > "${LOG_FILE}" 2>&1 &
 }
 
 _open(){
     local command="$1";
     shift;
     echo "Using ${command} opening ...";
-    if nohup "$command" "$@" > /dev/null 2>&1 & then
+
+    __separator "${command}";
+
+    if nohup "$command" "$@" > "${LOG_FILE}" 2>&1 & then
         return 0;
     else
         return 1;
