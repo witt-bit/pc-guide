@@ -1,0 +1,29 @@
+services:
+  windows:
+    image: dockurr/windows
+    container_name: windows-11-pro
+    environment:
+      # 选择Windows版本
+      VERSION: "11"
+      # 设置为中文版Windows
+      LANGUAGE: "Chinese"
+    devices:
+      # KVM设备映射
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      # Web访问端口
+      - 8006:8006
+      # RDP端口
+      - 3389:3389/tcp
+      - 3389:3389/udp
+    volumes:
+      # Windows 镜像将创建在您的本地驱动器上，而不是在容器内。下次运行它时，它将检测到安装并启动它
+      - /usr/share/windows/windows-11-pro:/storage
+    # "优雅退出"的时间窗口
+    stop_grace_period: 2m
+networks:
+  vlan:
+    # 使用NAT网络
+    external: true
