@@ -833,12 +833,61 @@ https://showmethekey.alynx.one/
 `yay -S ttf-sarasa-gothic-sc`
 
 ###### 4) `SF Mono`
-`yay -S otf-apple-sf-mono`
+
+```shell
+# 原版
+yay -S otf-apple-sf-mono
+
+# nerd-fonts 版
+yay -S nerd-fonts-sf-mono
+
+# 连体 + nerd-fonts
+yay -S nerd-fonts-sf-mono-ligatures
+```
+
+地址： https://github.com/epk/SF-Mono-Nerd-Font
+
 
 ###### 5) `苹方`
 `yay -S otf-apple-pingfang`
 
+###### 6) `bront fonts`
+
+地址： https://github.com/chrismwendt/bront
+
+###### 7) `Hasklig`
+
+地址： https://github.com/i-tu/Hasklig
+
+`yay -S otf-hasklig`
+
+###### 8) `Office-Code-Pro`
+
+地址： https://github.com/nathco/Office-Code-Pro
+
+`yay -S office-code-pro`
+
+###### 9) `Meslo Font`
+
+地址： https://github.com/andreberg/Meslo-Font
+
+`yay -S ttf-meslo`
+
+###### 10) `inter`
+
+地址： https://github.com/rsms/inter/
+
+```shell
+# 原版
+sudo pacman -S inter-font
+
+# nerd-fonts版本
+yay -S nerd-fonts-inter
+```
+
 ##### (2).字体显示优化
+
+###### 1) `fontconfig`优化
 
 > 抗锯齿， 字体发虚等方案，将宋体(`SimSun`)替换
 
@@ -847,6 +896,10 @@ https://showmethekey.alynx.one/
 <a href="./config/fonts.conf.xml">通用`fonts.conf`文件</a>
 
 创建完后，刷新字体缓存`fc-cache -f -v`
+
+###### 2) `font-manager`
+
+`sudo pacman -S font-manager`
 
 #### 6.`Windows Buttos Widget`
 
