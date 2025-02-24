@@ -740,6 +740,7 @@ tldr tar
 源码: https://github.com/obsproject/obs-studio
 
 安装
+
 `sudo pacman -S obs-studio`
 
 #### 30.文件查找
@@ -905,7 +906,36 @@ yay -S nerd-fonts-inter
 
 > 在面板显示窗口红绿灯按钮的小组件
 
-`yay -S plasma6-applets-window-buttons`
+~~`yay -S plasma6-applets-window-buttons`~~
+
+> 在桌面下载小组件Window Buttons Applet 6 Prebuilt
+
+![image-20250224181202570](manjaro-guide.assets/image-20250224181202570.png)
+
+* 安装
+```shell
+
+# Qt6 版本
+sudo mkdir -p /usr/lib/qt6/qml/org/kde/appletdecoration/
+
+sudo cp -r ~/.local/share/plasma/plasmoids/org.kde.windowbuttons/lib/* /usr/lib/qt6/qml/org/kde/appletdecoration/
+
+# Qt5 版本
+sudo mkdir -p /usr/lib/qt/qml/org/kde/appletdecoration/
+
+sudo cp -r ~/.local/share/plasma/plasmoids/org.kde.windowbuttons/lib/* /usr/lib/qt/qml/org/kde/appletdecoration/
+```
+
+
+* 卸载
+```shell
+# Qt6版本
+sudo rm -r /usr/lib/qt6/qml/org/kde/appletdecoration/
+
+
+# Qt5版本
+sudo rm -r /usr/lib/qt/qml/org/kde/appletdecoration/
+```
 
 #### 7.最大化窗口隐藏标题栏
 
