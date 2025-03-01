@@ -235,6 +235,21 @@ sudo pacman -S --noconfirm dbeaver
 
 # 安装 redis 工具 vscode、福昕阅读器
 yay -S --noconfirm visual-studio-code-bin foxitreader
+
+# du命令的替代品
+sudo pacman -S ncdu gdu
+
+# top的替代品
+sudo pacman -S htop
+
+# ls的替代品
+sudo pacman -S exa
+
+# df的替代品
+sudo pacman -S duf
+
+# vim的替代品
+sudo pacman -S neovim
 ```
 
 #### 4.应用程序启动器
