@@ -12,119 +12,328 @@
             2.字体发虚
             3.宋体(`SimSun`)替换，原生宋体点阵问题
             4.强制设置Monospace字体，安装Windows字体后，该字体后备被改为宋体
+            /etc/fonts/conf.d/40-nonlatin.conf
+            /etc/fonts/conf.d/65-nonlatin.conf
     -->
-    <alias>
-        <!-- <family>字段，是你要设置后备字体的字体名称。【提示】字体名称可以是字体的中文名（在WPS等软件看到的名字），例如“宋体” -->
-        <family>Cantarell</family>
-        <!-- 这里的Cantarell是一个英文字体，我们需要为其配置后备中文字体。
-            <prefer>字段，是一个后备字体的列表，可以包含多个<family>字段。
-            后备字体的显示顺序自上而下排列，优先显示排序靠前的字体，
-            如果靠前的字体没有可以显示的字符，那么后面的字体就会顶上。 -->
-        <prefer>
-            <family>DengXian</family>
-            <family>Noto Sans CJK SC</family>
-            <!-- 建议使用 Noto Sans CJK SC 作为兜底 -->
-        </prefer>
-    </alias>
-    <alias binding="same">
-        <family>宋体</family>
-        <prefer>
-            <family>Serif</family>
-            <family>DengXian</family>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
-    <alias binding="same">
-        <family>SimSun</family>
-        <prefer>
-            <family>Serif</family>
-            <family>DengXian</family>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
-    <alias binding="same">
-        <family>新宋体</family>
-        <prefer>
-            <family>Serif</family>
-            <family>DengXian</family>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
-    <alias binding="same">
-        <family>NSimSun</family>
-        <prefer>
-            <family>Serif</family>
-            <family>DengXian</family>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
-    <alias>
-        <family>Noto Sans</family>
-        <prefer>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
-    <alias>
-        <family>Noto Sans Mono</family>
-        <prefer>
-            <family>Noto Sans Mono CJK SC</family>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
-    <alias>
-        <family>Noto Serif</family>
-        <prefer>
-            <family>Noto Serif CJK SC</family>
-        </prefer>
-    </alias>
-    <!--
-        这里的MS Gothic是Windows自带的日文字体，相当于我们的黑体。
-        该字体没有收录简体中文字符，所以我们要设置中易黑体（SimHei）作为后备。
-    -->
-    <alias>
-        <family>MS Gothic</family>
-        <prefer>
-            <family>SimHei</family>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
-    <alias>
-        <family>sans-serif</family>
-        <prefer>
-            <family>Noto Sans CJK SC</family>
-        </prefer>
-    </alias>
 
-    <alias binding="same">
-        <family>Monospace</family>
-        <prefer>
+
+
+    <alias binding="strong">
+		<family>serif</family>
+		<prefer>
+        	<family>Hiragino Mincho ProN</family> <!-- han (ja) - macOS -->
+
+
+            <family>Artsounk</family> <!-- armenian -->
+			<family>BPG UTF8 M</family> <!-- georgian -->
+			<family>Kinnari</family> <!-- thai -->
+			<family>Norasi</family> <!-- thai -->
+			<family>Frank Ruehl</family> <!-- hebrew -->
+			<family>Dror</family>  <!-- hebrew -->
+			<family>JG LaoTimes</family>  <!-- lao -->
+			<family>Saysettha Unicode</family>  <!-- lao -->
+			<family>Pigiarniq</family> <!-- canadian syllabics -->
+			<family>B Davat</family> <!-- arabic (fa) -->
+			<family>B Compset</family>  <!-- arabic (fa) -->
+			<family>Kacst-Qr</family> <!-- arabic (ar) -->
+			<family>Urdu Nastaliq Unicode</family> <!-- arabic (ur) -->
+			<family>Raghindi</family> <!-- devanagari -->
+			<family>Mukti Narrow</family> <!-- bengali -->
+			<family>malayalam</family> <!-- malayalam -->
+			<family>Sampige</family> <!-- kannada -->
+			<family>padmaa</family> <!-- gujarati -->
+			<family>Hapax Berbère</family> <!-- tifinagh -->
+			<family>MS Mincho</family> <!-- han (ja) -->
+			<!-- <family>SimSun</family>  han (zh-cn,zh-tw) -->
+			<family>PMingLiu</family> <!-- han (zh-tw) -->
+			<family>WenQuanYi Zen Hei</family> <!-- han (zh-cn,zh-tw) -->
+			<family>WenQuanYi Bitmap Song</family> <!-- han (zh-cn,zh-tw) -->
+			<family>AR PL ShanHeiSun Uni</family> <!-- han (ja,zh-cn,zh-tw) -->
+			<family>AR PL New Sung</family> <!-- han (zh-cn,zh-tw) -->
+			<family>ZYSong18030</family> <!-- han (zh-cn,zh-tw) -->
+			<family>HanyiSong</family> <!-- han (zh-cn,zh-tw) -->
+			<family>MgOpen Canonica</family>
+			<family>Sazanami Mincho</family>
+			<family>IPAMonaMincho</family>
+			<family>IPAMincho</family>
+			<family>Kochi Mincho</family>
+			<family>AR PL SungtiL GB</family>
+			<family>AR PL Mingti2L Big5</family>
+ 			<family>AR PL Zenkai Uni</family>
+			<family>ＭＳ 明朝</family>
+ 			<family>ZYSong18030</family>
+			<family>NanumMyeongjo</family> <!-- hangul (ko) -->
+			<family>UnBatang</family> <!-- hangul (ko) -->
+			<family>Baekmuk Batang</family> <!-- hangul (ko) -->
+			<family>AppleMyungjo</family> <!-- hangul (ko) - macOS -->
+ 			<family>KacstQura</family>
+ 			<family>Frank Ruehl CLM</family>
+			<family>Lohit Bengali</family>
+ 			<family>Lohit Gujarati</family>
+ 			<family>Lohit Hindi</family>
+			<family>Lohit Marathi</family>
+			<family>Lohit Maithili</family>
+			<family>Lohit Kashmiri</family>
+			<family>Lohit Konkani</family>
+			<family>Lohit Nepali</family>
+			<family>Lohit Sindhi</family>
+ 			<family>Lohit Punjabi</family>
+ 			<family>Lohit Tamil</family>
+			<family>Rachana</family>
+			<family>Lohit Malayalam</family>
+ 			<family>Lohit Kannada</family>
+ 			<family>Lohit Telugu</family>
+ 			<family>Lohit Oriya</family>
+ 			<family>LKLUG</family>
+
+            <family>FreeSerif</family>
+
+			<family>Noto Serif</family>
+			<family>DejaVu Serif</family>
+			<family>Times New Roman</family>
+			<family>Thorndale AMT</family>
+			<family>Luxi Serif</family>
+			<family>Nimbus Roman No9 L</family>
+			<family>Nimbus Roman</family>
+			<family>Times</family>
+
+            <family>Songti SC</family> <!-- han (zh-cn) - macOS -->
+			<family>Songti TC</family> <!-- han (zh-tw) - macOS -->
+			<family>SimSong</family> <!-- han (zh-cn) - macOS -->
+		</prefer>
+	</alias>
+
+	<alias binding="strong">
+		<family>sans-serif</family>
+		<prefer>
+        	<family>Hiragino Sans</family> <!-- han (ja) - macOS -->
+			<family>PingFang SC</family> <!-- han (zh-cn) - macOS -->
+			<!--<family>PingFang TC</family> <!~~ han (zh-tw) - macOS ~~>
+			<family>PingFang HK</family> <!~~ han (zh-hk) - macOS ~~>-->
+			<family>Hiragino Sans CNS</family> <!-- han (zh-cn) - macOS -->
+			<family>Hiragino Sans GB</family> <!-- han (zh-tw) - macOS -->
+
+            <family>Nachlieli</family> <!-- hebrew -->
+			<family>Lucida Sans Unicode</family>
+			<family>Yudit Unicode</family>
+			<family>Kerkis</family> <!-- greek -->
+			<family>ArmNet Helvetica</family> <!-- armenian -->
+			<family>Artsounk</family> <!-- armenian -->
+			<family>BPG UTF8 M</family> <!-- georgian -->
+			<family>Waree</family> <!-- thai -->
+			<family>Loma</family> <!-- thai -->
+			<family>Garuda</family> <!-- thai -->
+			<family>Umpush</family> <!-- thai -->
+			<family>Saysettha Unicode</family> <!-- lao? -->
+			<family>JG Lao Old Arial</family> <!-- lao -->
+			<family>GF Zemen Unicode</family> <!-- ethiopic -->
+			<family>Pigiarniq</family> <!-- canadian syllabics -->
+			<family>B Davat</family> <!-- arabic (fa) -->
+			<family>B Compset</family> <!-- arabic (fa) -->
+			<family>Kacst-Qr</family> <!-- arabic (ar) -->
+			<family>Urdu Nastaliq Unicode</family> <!-- arabic (ur) -->
+			<family>Raghindi</family> <!-- devanagari -->
+			<family>Mukti Narrow</family> <!-- bengali -->
+			<family>malayalam</family> <!-- malayalam -->
+			<family>Sampige</family> <!-- kannada -->
+			<family>padmaa</family> <!-- gujarati -->
+			<family>Hapax Berbère</family> <!-- tifinagh -->
+			<family>MS Gothic</family> <!-- han (ja) -->
+			<family>UmePlus P Gothic</family> <!-- han (ja) -->
+			<family>Microsoft YaHei</family> <!-- han (zh-cn,zh-tw) -->
+			<family>Microsoft JhengHei</family> <!-- han (zh-tw) -->
+			<family>WenQuanYi Zen Hei</family> <!-- han (zh-cn,zh-tw) -->
+			<family>WenQuanYi Bitmap Song</family> <!-- han (zh-cn,zh-tw) -->
+			<family>AR PL ShanHeiSun Uni</family> <!--han (ja,zh-cn,zh-tw) -->
+			<family>AR PL New Sung</family> <!-- han (zh-cn,zh-tw) -->
+
+			<family>MgOpen Modata</family>
+			<family>VL Gothic</family>
+			<family>IPAMonaGothic</family>
+			<family>IPAGothic</family>
+			<family>Sazanami Gothic</family>
+			<family>Kochi Gothic</family>
+			<family>AR PL KaitiM GB</family>
+			<family>AR PL KaitiM Big5</family>
+ 			<family>AR PL ShanHeiSun Uni</family>
+ 			<family>AR PL SungtiL GB</family>
+ 			<family>AR PL Mingti2L Big5</family>
+			<family>ＭＳ ゴシック</family>
+			<family>ZYSong18030</family> <!-- han (zh-cn,zh-tw) -->
+			<family>TSCu_Paranar</family> <!-- tamil -->
+			<family>NanumGothic</family> <!-- hangul (ko) -->
+			<family>UnDotum</family> <!-- hangul (ko) -->
+			<family>Baekmuk Dotum</family> <!-- hangul (ko) -->
+ 			<family>Baekmuk Gulim</family> <!-- hangul (ko) -->
+			<family>Apple SD Gothic Neo</family> <!-- hangul (ko) - macOS -->
+ 			<family>KacstQura</family>
+			<family>Lohit Bengali</family>
+ 			<family>Lohit Gujarati</family>
+ 			<family>Lohit Hindi</family>
+			<family>Lohit Marathi</family>
+			<family>Lohit Maithili</family>
+			<family>Lohit Kashmiri</family>
+			<family>Lohit Konkani</family>
+			<family>Lohit Nepali</family>
+			<family>Lohit Sindhi</family>
+ 			<family>Lohit Punjabi</family>
+ 			<family>Lohit Tamil</family>
+			<family>Meera</family>
+ 			<family>Lohit Malayalam</family>
+ 			<family>Lohit Kannada</family>
+ 			<family>Lohit Telugu</family>
+ 			<family>Lohit Oriya</family>
+ 			<family>LKLUG</family>
+
+			<family>Noto Sans</family>
+			<family>DejaVu Sans</family>
+			<family>Droid Sans</family>
+            <family>Verdana</family>
+			<family>Arial</family>
+			<family>Albany AMT</family>
+			<family>Luxi Sans</family>
+			<family>Nimbus Sans L</family>
+			<family>Nimbus Sans</family>
+			<family>Helvetica</family>
+			<family>Lucida Sans Unicode</family>
+			<family>BPG Glaho International</family> <!-- lat,cyr,arab,geor -->
+			<family>Tahoma</family> <!-- lat,cyr,greek,heb,arab,thai -->
+		</prefer>
+	</alias>
+
+    <alias binding="strong">
+		<family>monospace</family>
+		<prefer>
+            <family>DejaVu Sans Mono</family>
+
+            <!-- SF Mono -->
+            <family>Liga SFMonoNerdFont</family>
             <family>SF Mono</family>
-            <family>MonacoB Nerd Font Mono</family>
+
+            <family>Source Code Pro</family>
+
+            <!-- monaco -->
             <family>Monaco Nerd Font</family>
+            <family>MonacoB Nerd Font Mono</family>
+            <family>Monaco</family>
+
+            <!-- hack -->
             <family>Hack Nerd Font</family>
             <family>Hack</family>
+
             <family>Droid Sans Mono</family>
-            <family>DejaVu Sans Mono</family>
-            <family>Source Code Pro</family>
             <family>MesloLGS NF</family>
+
+            <family>Ubuntu Mono</family>
+            <family>Roboto Mono</family>
             <family>Andale Mono</family>
             <family>Consolas</family>
-        </prefer>
-    </alias>
+            <family>Menlo</family>
+			<family>Miriam Mono</family> <!-- hebrew -->
+			<family>VL Gothic</family>
+			<family>IPAMonaGothic</family>
+			<family>IPAGothic</family>
+			<family>Sazanami Gothic</family>
+			<family>Kochi Gothic</family>
+			<family>AR PL KaitiM GB</family>
+			<family>MS Gothic</family> <!-- han (ja) -->
+			<family>UmePlus Gothic</family> <!-- han (ja) -->
+			<family>MingLiu</family> <!-- han (zh-tw) -->
+			<family>AR PL ShanHeiSun Uni</family> <!-- han (ja,zh-cn,zh-tw) -->
+			<family>AR PL New Sung Mono</family> <!-- han (zh-cn,zh-tw) -->
+			<family>HanyiSong</family> <!-- han (zh-cn) -->
+			<family>AR PL SungtiL GB</family>
+			<family>AR PL Mingti2L Big5</family>
+			<family>ZYSong18030</family> <!-- han (zh-cn,zh-tw) -->
+			<family>NanumGothicCoding</family> <!-- hangul (ko) -->
+			<family>NanumGothic</family> <!-- hangul (ko) -->
+			<family>UnDotum</family> <!-- hangul (ko) -->
+			<family>Baekmuk Dotum</family> <!-- hangul (ko) -->
+			<family>Baekmuk Gulim</family> <!-- hangul (ko) -->
+			<family>TlwgTypo</family> <!-- thai -->
+			<family>TlwgTypist</family> <!-- thai -->
+			<family>TlwgTypewriter</family> <!-- thai -->
+			<family>TlwgMono</family> <!-- thai -->
+			<family>Hasida</family> <!-- hebrew -->
+			<family>GF Zemen Unicode</family> <!-- ethiopic -->
+			<family>Hapax Berbère</family> <!-- tifinagh -->
+			<family>Lohit Bengali</family>
+			<family>Lohit Gujarati</family>
+			<family>Lohit Hindi</family>
+			<family>Lohit Marathi</family>
+			<family>Lohit Maithili</family>
+			<family>Lohit Kashmiri</family>
+			<family>Lohit Konkani</family>
+			<family>Lohit Nepali</family>
+			<family>Lohit Sindhi</family>
+			<family>Lohit Punjabi</family>
+			<family>Lohit Tamil</family>
+			<family>Meera</family>
+			<family>Lohit Malayalam</family>
+			<family>Lohit Kannada</family>
+			<family>Lohit Telugu</family>
+			<family>Lohit Oriya</family>
+			<family>LKLUG</family>
+		</prefer>
+	</alias>
 
-    <alias binding="same">
-        <family>Mono</family>
+    <alias binding="strong">
+        <family>system-ui</family>
         <prefer>
-            <family>Monospace</family>
+            <family>PingFang UI SC</family>
+            <family>Segoe UI</family>
+            <family>Noto Sans Arabic UI</family><!-- ar -->
+            <family>Noto Sans Bengali UI</family><!-- bn -->
+            <family>Noto Sans Devanagari UI</family><!-- hi, mai, mr -->
+            <family>Noto Sans Gujarati UI</family><!-- gu -->
+            <family>Noto Sans Gurmukhi UI</family><!-- pa -->
+            <family>Noto Sans Kannada UI</family><!-- kn -->
+            <family>Noto Sans Khmer UI</family><!-- km -->
+            <family>Noto Sans Lao UI</family><!-- lo -->
+            <family>Noto Sans Malayalam UI</family><!-- ml -->
+            <family>Noto Sans Myanmar UI</family><!-- my -->
+            <family>Noto Sans Oriya UI</family><!-- or -->
+            <family>Noto Sans Sinhala UI</family><!-- si -->
+            <family>Noto Sans Tamil UI</family><!-- ta -->
+            <family>Noto Sans Telugu UI</family><!-- te -->
+            <family>Noto Sans Thai UI</family><!-- th -->
+            <family>Leelawadee UI</family><!-- bug, th, jv, km, lo -->
+            <family>Nirmala UI</family><!-- Indic -->
+            <family>Yu Gothic UI</family><!-- han (ja) -->
+            <family>Meiryo UI</family><!-- han (ja) -->
+            <family>MS UI Gothic</family><!-- han (ja) -->
+            <family>Khmer UI</family><!-- km -->
+            <family>Lao UI</family><!-- lo -->
+            <family>Microsoft YaHei UI</family><!-- han (zh-cn) -->
+            <family>Microsoft JhengHei UI</family><!-- han (zh-tw) -->
         </prefer>
     </alias>
 
+    <match>
+        <test compare="contains" name="lang">
+            <string>zh_CN</string>
+        </test>
+        <edit mode="prepend" name="family">
+            <!-- 更改下一行即可, 以下同理 -->
+            <string>PingFang SC</string>
+        </edit>
+    </match>
 
-    <!-- 特定字体处理 -->
-    <!-- <match target="font"><test compare="eq" ignore-blanks="true" name="family"><string>NSimSun</string></test><test name="family"><string>SimSun</string></test><test name="family"><string>宋体</string></test><test compare="eq" ignore-blanks="true" name="family"><string>新宋体</string></test><edit mode="assign" name="hinting"><bool>false</bool></edit><\! - - 开启抗锯齿(smooth)  - -><edit mode="assign" name="antialias"><bool>false</bool></edit><edit mode="assign" name="autohint"><bool>false</bool></edit><!- -  禁用内嵌点阵  - -><edit mode="assign" name="embeddedbitmap"><bool>true</bool></edit><edit mode="assign" name="pixelsize"><if><less><name>pixelsize</name><double>18</double></less><int>18</int><round><name>pixelsize</name></round></if></edit></match>-->
     <!--
-     Artificial oblique for fonts without an italic or oblique version
-     -->
+        禁用特定字体的Hinting功能。
+        下面的代码就是让Fontconfig匹配特定的字体，然后修改参数以禁用它们的Hinting功能。
+    -->
+    <match target="font">
+        <test name="family" compare="eq" ignore-blanks="true">
+            <!-- <string>节点，在这里指定字体的名字。例如中易宋体就是SimSun -->
+            <!-- 【提示】字体名称可以是字体的中文名（在WPS等软件看到的名字），例如“宋体” -->
+            <string>宋体</string>
+        </test>
+        <edit name="hinting" mode="assign">
+            <bool>false</bool>
+        </edit>
+    </match>
+
     <match target="font">
         <!-- check to see if the font is roman -->
         <test name="slant">
@@ -151,9 +360,9 @@
             <const>oblique</const>
         </edit>
         <!-- and disable embedded bitmaps for artificial oblique -->
-        <edit mode="assign" name="embeddedbitmap">
+        <!-- <edit mode="assign" name="embeddedbitmap">
             <bool>false</bool>
-        </edit>
+        </edit> -->
     </match>
     <!--
      Synthetic emboldening for fonts that do not have bold face available
@@ -186,10 +395,16 @@
         <edit mode="assign" name="rgba">
             <const>rgb</const>
         </edit>
+        <edit name="lcdfilter">
+            <const>lcddefault</const>
+        </edit>
     </match>
     <match target="font">
         <edit mode="assign" name="hinting">
             <bool>true</bool>
+        </edit>
+        <edit name="autohint">
+            <bool>false</bool>
         </edit>
     </match>
     <match target="font">

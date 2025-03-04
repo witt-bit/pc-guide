@@ -66,6 +66,9 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
 ##### (1).基本配置使用
 > 所有通过`fcitx5`支持的输入法,都是这个配置步骤
+> 
+> 安装`manjaro-asian-input-support`
+> fcitx5: `yay -S fcitx5-input-support`
 
 ###### 1)安装命令
 
@@ -604,16 +607,18 @@ yay -S typora
 
 > 有能力的建议支持正版，[点击购买，可享受优惠](https://lizhi.shop/site/products/id/520?cid=wrrvs8mk)
 
-```shell
-wget https://github.com/743859910/Typora_Unlocker/releases/download/Typora_Unlocker/Serial_number_generation_Linux.rar -O typora-unlocker.rar
+> 蓝奏云：https://www.lanzouy.com/b00rnjxib
+> 如链接打不开，可将lanzouy中的y用26个英文字母中的任意一个替换即可。
+> 密码：1234
 
+```shell
 unrar e typora-unlocker.rar
 
 chmod +x license-gen node_inject
 
 sudo mv license-gen node_inject /usr/share/typora/
 
-cd /usr/share/typora/;
+cd /usr/share/typora/
 
 sudo ./node_inject
 
