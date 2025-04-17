@@ -66,7 +66,7 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
 ##### (1).基本配置使用
 > 所有通过`fcitx5`支持的输入法,都是这个配置步骤
-> 
+>
 > 安装`manjaro-asian-input-support`
 > fcitx5: `yay -S fcitx5-input-support`
 
@@ -202,7 +202,7 @@ patch:
 安装 vim
 sudo pacman -S --noconfirm vim
 # 安装网络基础工具 ifconfig 命令等
-sudo pacman -S --noconfirm net-tools
+sudo pacman -S --noconfirm net-tools git-zsh-completion libappindicator-gtk3 gvfs
 ```
 
 #### 2.`AUR` 软件仓库支持
@@ -224,7 +224,7 @@ sudo pacman -S --noconfirm net-tools
 #### 3.基本软件安装
 
 ```shell
-中文字体支持，安装后设置中选择 noto-cjk
+# 中文字体支持，安装后设置中选择 noto-cjk
 sudo pacman -S noto-fonts-cjk noto-fonts-extra
 
 # 等宽中文 更纱黑体
@@ -232,9 +232,6 @@ yay -S ttf-sarasa-gothic-sc
 
 # 安装谷歌浏览器、sublime-text、switchhosts、apifox、linux 版钉钉
 yay -S --noconfirm google-chrome sublime-text switchhosts-appimage apifox linuxqq dingtalk-bin
-
-# 安装 dbeaver
-sudo pacman -S --noconfirm dbeaver
 
 # 安装 redis 工具 vscode、福昕阅读器
 yay -S --noconfirm visual-studio-code-bin foxitreader
@@ -261,11 +258,15 @@ sudo pacman -S neovim
 
 #### 5.截图软件
 
+> 录制 gif 图 `sudo pacman -S peek`
+
+##### (1).`flameshot`
+
 `sudo pacman -S --noconfirm flameshot`
 
-⭐`yay -S snipaste`
+##### (1).⭐`snipaste`
 
-录制 gif 图 `sudo pacman -S peek`
+`yay -S snipaste`
 
 #### 6.`pacman`和`AUR`配置
 
@@ -486,13 +487,28 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
 例如 `sudo archlinux-java set java-17-openjdk`
 
-##### (2).安装 `intellij-idea-ultimate-edition`
+##### (2).安装 `IntelliJ IDEA`
+
+###### (1).安装 `IntelliJ IDEA Ultimate Edition`
 
 * `intellij-idea-ultimate-edition-jre` 对字体虚化的处理支持
 
 `yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre --noconfirm`
 
-#### 9.微信
+###### (2).安装 `IntelliJ IDEA Ultimate Edition``
+
+`yay -S intellij-idea-community-edition-bin`
+
+#### 9.数据库客户端
+
+##### (1).⭐DBeaver
+* 官网: https://dbeaver.io/
+* 安装: `sudo pacman -S dbeaver`
+
+> * 自动设置Java环境给DBeaver`yay -S dbeaver-jvm-hook`
+> * DBeaver连接查找工具`yay -S dbeaver-connection-search`
+
+#### 10.微信
 ##### (1).⭐官方版
 * 官网: https://linux.weixin.qq.com/
 * 安装: `yay -S wechat-universal-bwrap`
@@ -504,7 +520,7 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 ~~`yay -S --noconfirm deepin-wine-wechat`~~<br/>
 ~~`yay -S --noconfirm wechat_app`~~
 
-#### 10.`github` 访问问题
+#### 11.`github` 访问问题
 
 国内 `github` 访问很慢，即使使用 `VPN`, 依然不能访问，是因为现在好多地址使用了 `github` 地址都是使用镜像了，通过 `VPN`, 反而镜像也不能访问了。
 
@@ -809,12 +825,20 @@ https://showmethekey.alynx.one/
 * 地址：`https://github.com/vinceliuice/Orchis-kde.git`
 * 安装: `./install.sh`
 
+(1) `whitesur-kde-theme`
+
+* 安装: `yay -S whitesur-kde-theme`
+
 #### 2.图标
 
 (1) `Tela-circle-icon-theme`
 
 * 地址：`https://github.com/vinceliuice/Tela-circle-icon-theme.git`
 * 安装: `./install.sh`
+
+(2) `whitesur-icon-theme`
+
+* 安装: `yay -S whitesur-icon-theme-git`
 
 #### 3.光标
 
@@ -825,6 +849,10 @@ https://showmethekey.alynx.one/
 (2) `Apple-cursors`
 
 系统设置安装
+
+(3) `whitesur-cursor-theme`
+
+* 安装: `yay -S whitesur-cursor-theme-git`
 
 #### 4.窗口装饰元素
 
@@ -848,7 +876,13 @@ https://showmethekey.alynx.one/
 `yay -S otf-apple-sf-pro`
 
 ###### 2) `Monaco`
+
+普通
 `yay -S ttf-monaco-nerd-font-git`
+
+连体
+`yay -S ligamonaco-nerd-font-git`
+
 
 ###### 3) `更纱黑体`
 `yay -S ttf-sarasa-gothic-sc`
@@ -1000,6 +1034,17 @@ sudo pacman -Rcns nano nano-syntax-highlighting
 sudo pacman -Rcns okular
 ```
 
+### 3.卸载 `yakuake`
+
+```shell
+sudo pacman -Rcns yakuake
+```
+### 4.卸载 `kate`
+
+```shell
+sudo pacman -Rcns kate
+```
+
 ## 四、常见问题解决方案
 
 ### 1.网卡使用随机 `Mac` 地址
@@ -1082,4 +1127,68 @@ openssl verify -CAfile /etc/ssl/certs/ca-certificates.crt /usr/share/ca-certific
 ```shell
 cd ${HOME}/.cache/yay/软件包
 makepkg -si --skipchecksums
+```
+
+### 5.swap扩容
+```shell
+# 新增 24GB Swap 文件（根据需求调整大小）
+sudo fallocate -l 24G /.swap
+# 设置权限
+sudo chmod 600 /.swap
+# 格式化为 Swap
+sudo mkswap /.swap
+
+# 临时激活
+sudo swapon /.swap
+# 应显示原有分区和新 Swap 文件
+swapon --show
+# 查看总 Swap 空间是否增加
+free -h
+```
+
+编辑`/etc/fstab`文件，持久化配置
+```shell
+# 查询交换分区的分区名
+swapon --show
+
+# 查看分区的UUID
+sudo blkid /dev/xxx
+```
+加入内容
+
+> `pri`值越高，优先级越高，建议优先使用分区
+
+```conf
+UUID=UUID none           swap    defaults,pri=20  0 0
+/.swap                                    none           swap    defaults,pri=10  0 0
+```
+
+启用持久化配置
+```shell
+# 关闭所有 Swap (需等待释放占用)
+sudo swapoff -a
+
+# 根据 /etc/fstab 重新激活
+sudo swapon -a
+# 应显示分区和文件均已加载
+swapon --show
+```
+### 6.调整swap使用倾向
+
+> swap大小 + 物理内存大小整体是100，`swappiness`的值代表了物理内容的占用百分比, `/proc/sys/vm/swappiness`文件是默认倾向比
+
+编辑`/etc/sysctl.d/99-swappiness.conf`文件，加入
+```shell
+# 物理内容占用达80%开始转移到交换文件
+vm.swappiness=80
+```
+
+* 验证
+
+```shell
+# 应用修改
+sudo sysctl --system
+
+# 查看当前使用值
+cat /proc/sys/vm/swappiness
 ```

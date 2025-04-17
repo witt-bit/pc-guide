@@ -309,6 +309,20 @@
         </prefer>
     </alias>
 
+	<alias binding="same">
+		<family>PingFangSC-Regular</family>
+		<accept>
+			<family>PingFang SC</family>
+		</accept>
+	</alias>
+
+	<alias>
+		<family>PingFangSC</family>
+		<default>
+			<family>PingFang SC</family>
+		</default>
+	</alias>
+
     <match>
         <test compare="contains" name="lang">
             <string>zh_CN</string>
@@ -327,8 +341,26 @@
         <test name="family" compare="eq" ignore-blanks="true">
             <!-- <string>节点，在这里指定字体的名字。例如中易宋体就是SimSun -->
             <!-- 【提示】字体名称可以是字体的中文名（在WPS等软件看到的名字），例如“宋体” -->
-            <string>宋体</string>
+            <string>SimSun</string>
         </test>
+
+      <!--  <test name="size" compare="less">
+			<double>15</double> <!~~ 17.5px * 0.75 = 13.125pt ~~>
+		</test>-->
+
+		<!-- 通过缩放系数放大字体 -->
+	<!--	<edit name="matrix" mode="assign">
+		<times>
+		  <name>matrix</name> <!~~ 保留原始矩阵 ~~>
+		  <matrix>
+		    <double>1.333</double>
+		    <double>0</double> <!~~ X轴缩放系数：17.5/13.125 ≈ 1.333 ~~>
+		    <double>0</double>
+		    <double>1.333</double> <!~~ Y轴缩放系数 ~~>
+		  </matrix>
+		</times>
+		</edit>-->
+
         <edit name="hinting" mode="assign">
             <bool>false</bool>
         </edit>
