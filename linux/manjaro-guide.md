@@ -495,7 +495,7 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
 `yay -S intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre --noconfirm`
 
-###### (2).安装 `IntelliJ IDEA Ultimate Edition``
+###### (2).安装 `IntelliJ IDEA Community Edition``
 
 `yay -S intellij-idea-community-edition-bin`
 
