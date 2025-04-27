@@ -8,7 +8,7 @@
 
 | [Linux(Ubuntu)指导手册](linux/linux-guide.md) | [Manjaro指导手册](linux/manjaro-guide.md) |
 | --------------------------------------------- | ----------------------------------------- |
-| [Windows指导手册](windows/windows-guide.md) | - |
+| [Windows指导手册](windows/windows-guide.md) | [跨平台软件手册](cross-platform-software.md) |
 
 ## 软件包
 

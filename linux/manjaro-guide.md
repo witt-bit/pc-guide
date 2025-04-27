@@ -275,109 +275,7 @@ sudo pacman -S neovim
 ###### 1>配置文件
 * 位置: `/etc/pacman.conf`
 
-```conf
-#
-# /etc/pacman.conf
-#
-# See the pacman.conf(5) manpage for option and repository directives
-
-#
-# GENERAL OPTIONS
-#
-[options]
-# The following paths are commented out with their default values listed.
-# If you wish to use different paths, uncomment and update the paths.
-#RootDir     = /
-#DBPath      = /var/lib/pacman/
-CacheDir = /var/cache/pacman/pkg/
-#LogFile     = /var/log/pacman.log
-#GPGDir      = /etc/pacman.d/gnupg/
-#HookDir     = /etc/pacman.d/hooks/
-HoldPkg      = pacman glibc manjaro-system
-#XferCommand = /usr/bin/curl -L -C - -f -o %o %u
-#XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
-#CleanMethod = KeepInstalled
-#UseDelta    = 0.7
-Architecture = auto
-
-#IgnorePkg   =
-#IgnorePkg   =
-#IgnoreGroup =
-
-#NoUpgrade   =
-#NoExtract   =
-
-# Misc options
-#UseSyslog
-# 开启彩色输出
-Color
-#NoProgressBar
-# We cannot check disk space from within a chroot environment
-CheckSpace
-#VerbosePkgLists
-# 多线程下载
-ParallelDownloads = 5
-
-# By default, pacman accepts packages signed by keys that its local keyring
-# trusts (see pacman-key and its man page), as well as unsigned packages.
-SigLevel    = Required DatabaseOptional
-LocalFileSigLevel = Optional
-#RemoteFileSigLevel = Required
-
-# NOTE: You must run `pacman-key --init` before first using pacman; the local
-# keyring can then be populated with the keys of all official Manjaro Linux
-# packagers with `pacman-key --populate archlinux manjaro`.
-
-#
-# REPOSITORIES
-#   - can be defined here or included from another file
-#   - pacman will search repositories in the order defined here
-#   - local/custom mirrors can be added here or in separate files
-#   - repositories listed first will take precedence when packages
-#     have identical names, regardless of version number
-#   - URLs will have $repo replaced by the name of the current repo
-#   - URLs will have $arch replaced by the name of the architecture
-#
-# Repository entries are of the format:
-#       [repo-name]
-#       Server = ServerName
-#       Include = IncludePath
-#
-# The header [repo-name] is crucial - it must be present and
-# uncommented to enable the repo.
-#
-
-# The testing repositories are disabled by default. To enable, uncomment the
-# repo name header and Include lines. You can add preferred servers immediately
-# after the header, and they will be used before the default mirrors.
-
-[core]
-SigLevel = PackageRequired
-Include = /etc/pacman.d/mirrorlist
-
-[extra]
-SigLevel = PackageRequired
-Include = /etc/pacman.d/mirrorlist
-
-# If you want to run 32 bit applications on your x86_64 system,
-# enable the multilib repositories as required here.
-
-[multilib]
-SigLevel = PackageRequired
-Include = /etc/pacman.d/mirrorlist
-
-# An example of a custom package repository.  See the pacman manpage for
-# tips on creating your own repositories.
-#[custom]
-#SigLevel = Optional TrustAll
-#Server = file:///home/custompkgs
-
-[archlinuxcn]
-SigLevel = Optional TrustedOnly
-# 清华大学的软件源
-Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
-
-```
+<a href="./config/pacman.conf.ini">通用`pacman.conf`文件</a>
 
 ###### 2>自动清理软件包目录
 > 默认软件包保存在`/var/cache/pacman/pkg/`,`pacman`不会自动清理它，会造成目录越来越大
@@ -390,58 +288,9 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 ##### (2).`yay`
 ###### 1>配置文件
 * 位置: `~/.config/yay/config.json`
-```conf
-{
-	"aururl": "https://aur.archlinux.org",
-	"aurrpcurl": "https://aur.archlinux.org/rpc?",
-	"buildDir": "/home/witt/.cache/yay",
-	"editor": "",
-	"editorflags": "",
-	"makepkgbin": "makepkg",
-	"makepkgconf": "",
-	"pacmanbin": "pacman",
-	"pacmanconf": "/etc/pacman.conf",
-	"redownload": "no",
-	"answerclean": "",
-	"answerdiff": "",
-	"answeredit": "",
-	"answerupgrade": "",
-	"gitbin": "git",
-	"gpgbin": "gpg",
-	"gpgflags": "",
-	"mflags": "",
-	"sortby": "votes",
-	"searchby": "name-desc",
-	"gitflags": "",
-	"removemake": "ask",
-	"sudobin": "sudo",
-	"sudoflags": "",
-	"version": "12.4.2",
-	"requestsplitn": 150,
-	"completionrefreshtime": 7,
-	"maxconcurrentdownloads": 1,
-	"bottomup": true,
-	"sudoloop": false,
-	"timeupdate": false,
-	"devel": true,
-	"cleanAfter": false,
-	"keepSrc": false,
-	"provides": true,
-	"pgpfetch": true,
-	"cleanmenu": true,
-	"diffmenu": true,
-	"editmenu": false,
-	"combinedupgrade": true,
-	"useask": false,
-	"batchinstall": true,
-	"singlelineresults": false,
-	"separatesources": true,
-	"debug": false,
-	"rpc": true,
-	"doubleconfirm": true,
-	"rebuild": "no"
-}
-```
+
+<a href="./config/yay-config.json">通用`config.json`文件</a>
+
 ###### 2>自动清理软件包目录
 > 默认软件包保存在`~/.cache/yay`,`yay`不会自动清理它，会造成目录越来越大
 > 有作者参考`paccache`,制作了`yaycache`
@@ -873,6 +722,7 @@ https://showmethekey.alynx.one/
 ##### (1).字体安装
 
 ###### 1) `SF Pro`
+
 `yay -S otf-apple-sf-pro`
 
 ###### 2) `Monaco`
