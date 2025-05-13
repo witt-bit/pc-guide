@@ -194,6 +194,12 @@ patch:
       - { when: has_menu, accept: period, send: Page_Down }
 ```
 
+##### (4).输入法词库
+###### 1) 自建拼音词库
+* 源码: https://github.com/wuhgit/CustomPinyinDictionary
+
+* 安装: `yay -S fcitx5-pinyin-custom-pinyin-dictionary`
+
 ### (三)、常用软件安装
 
 #### 1.软件
