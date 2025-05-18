@@ -1048,3 +1048,21 @@ sudo sysctl --system
 # 查看当前使用值
 cat /proc/sys/vm/swappiness
 ```
+
+### 7.`libxml2.so.2`错误
+
+#### (1).说明
+命令行错误:
+```shell
+$ foxitreader
+/usr/lib/foxitreader/FoxitReader: error while loading shared libraries: libxml2.so.2: cannot open shared object file: No such file or directory
+```
+
+> 2025.2 版本升级后出现该问题
+
+#### (2).解决方案
+
+`yay -S libxml2-legacy`
+
+#### (3).参考资料
+[manjaro 社区](https://forum.manjaro.org/t/arm-unstable-update-2025-05-05-linux-firefox-libreoffice-thunderbird-vlc/177643/7)
