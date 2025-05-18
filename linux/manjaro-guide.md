@@ -200,6 +200,11 @@ patch:
 
 * 安装: `yay -S fcitx5-pinyin-custom-pinyin-dictionary`
 
+###### 2) ⭐搜狗词库
+* 源码: https://github.com/maoyaotang12/sougouscel
+
+* 安装: `yay -S fcitx5-pinyin-sougou-dict`
+
 ### (三)、常用软件安装
 
 #### 1.软件
