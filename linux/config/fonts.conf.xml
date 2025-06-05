@@ -1,6 +1,5 @@
-<?xml version='1.0'?>
-<!DOCTYPE fontconfig
-  SYSTEM 'urn:fontconfig:fonts.dtd'>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
 <fontconfig>
 
     <!-- 参考 https://www.jinbuguo.com/gui/fonts.conf.xml
@@ -323,33 +322,51 @@
 		</default>
 	</alias>
 
+	<match target="pattern">
+		<test name="family" compare="eq">
+			<string>PingFangSC-Regular</string>
+		</test>
+		<edit name="family" mode="assign" binding="strong">
+			<string>PingFang SC</string>
+		</edit>
+	</match>
+
+	<match target="pattern">
+		<test name="family" compare="eq">
+			<string>PingFangSC</string>
+		</test>
+		<edit name="family" mode="assign" binding="strong">
+			<string>PingFang SC</string>
+		</edit>
+	</match>
+
     <match>
         <test compare="contains" name="lang">
             <string>zh_CN</string>
         </test>
         <edit mode="prepend" name="family">
-            <!-- 更改下一行即可, 以下同理 -->
+			<!-- 更改下一行即可, 以下同理 -->
             <string>PingFang SC</string>
         </edit>
     </match>
 
-    <!--
+	<!--
         禁用特定字体的Hinting功能。
         下面的代码就是让Fontconfig匹配特定的字体，然后修改参数以禁用它们的Hinting功能。
     -->
     <match target="font">
         <test name="family" compare="eq" ignore-blanks="true">
-            <!-- <string>节点，在这里指定字体的名字。例如中易宋体就是SimSun -->
-            <!-- 【提示】字体名称可以是字体的中文名（在WPS等软件看到的名字），例如“宋体” -->
+			<!-- <string>节点，在这里指定字体的名字。例如中易宋体就是SimSun -->
+			<!-- 【提示】字体名称可以是字体的中文名（在WPS等软件看到的名字），例如“宋体” -->
             <string>SimSun</string>
         </test>
 
-      <!--  <test name="size" compare="less">
+		<!--  <test name="size" compare="less">
 			<double>15</double> <!~~ 17.5px * 0.75 = 13.125pt ~~>
 		</test>-->
 
 		<!-- 通过缩放系数放大字体 -->
-	<!--	<edit name="matrix" mode="assign">
+		<!--	<edit name="matrix" mode="assign">
 		<times>
 		  <name>matrix</name> <!~~ 保留原始矩阵 ~~>
 		  <matrix>
@@ -362,20 +379,20 @@
 		</edit>-->
 
         <edit name="hinting" mode="assign">
-            <bool>false</bool>
+            <bool>true</bool>
         </edit>
     </match>
 
     <match target="font">
-        <!-- check to see if the font is roman -->
+		<!-- check to see if the font is roman -->
         <test name="slant">
             <const>roman</const>
         </test>
-        <!-- check to see if the pattern requested non-roman -->
+		<!-- check to see if the pattern requested non-roman -->
         <test compare="not_eq" name="slant" target="pattern">
             <const>roman</const>
         </test>
-        <!-- multiply the matrix to slant the font -->
+		<!-- multiply the matrix to slant the font -->
         <edit mode="assign" name="matrix">
             <times>
                 <name>matrix</name>
@@ -387,35 +404,35 @@
                 </matrix>
             </times>
         </edit>
-        <!-- pretend the font is oblique now -->
+		<!-- pretend the font is oblique now -->
         <edit mode="assign" name="slant">
             <const>oblique</const>
         </edit>
-        <!-- and disable embedded bitmaps for artificial oblique -->
-        <!-- <edit mode="assign" name="embeddedbitmap">
+		<!-- and disable embedded bitmaps for artificial oblique -->
+		<!-- <edit mode="assign" name="embeddedbitmap">
             <bool>false</bool>
         </edit> -->
     </match>
-    <!--
+	<!--
      Synthetic emboldening for fonts that do not have bold face available
      -->
     <match target="font">
-        <!-- check to see if the weight in the font is less than medium which possibly need emboldening -->
+		<!-- check to see if the weight in the font is less than medium which possibly need emboldening -->
         <test compare="less_eq" name="weight">
             <const>medium</const>
         </test>
-        <!-- check to see if the pattern requests bold -->
+		<!-- check to see if the pattern requests bold -->
         <test compare="more_eq" name="weight" target="pattern">
             <const>bold</const>
         </test>
-        <!--
+		<!--
           set the embolden flag
           needed for applications using cairo, e.g. gucharmap, gedit, ...
         -->
         <edit mode="assign" name="embolden">
             <bool>true</bool>
         </edit>
-        <!--
+		<!--
          set weight to bold
          needed for applications using Xft directly, e.g. Firefox, ...
         -->
