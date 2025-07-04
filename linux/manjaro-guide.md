@@ -347,7 +347,17 @@ sudo pacman -S neovim
 
 例如 `sudo archlinux-java set java-17-openjdk`
 
-##### (2).安装 `IntelliJ IDEA`
+##### (2).安装 `maven`
+
+1) 安装 `maven`
+
+`sudo pacman -S maven`
+
+2) 安装 `mvnd`
+
+`yay -S mvnd`
+
+##### (3).安装 `IntelliJ IDEA`
 
 ###### (1).安装 `IntelliJ IDEA Ultimate Edition`
 
@@ -365,8 +375,18 @@ sudo pacman -S neovim
 * 官网: https://dbeaver.io/
 * 安装: `sudo pacman -S dbeaver`
 
-> * 自动设置Java环境给DBeaver`yay -S dbeaver-jvm-hook`
-> * DBeaver连接查找工具`yay -S dbeaver-connection-search`
+1) 本地化jvm工具
+
+> `/usr/share/dbeaver/dbeaver.ini`中的`-vm`配置会在系统滚动更新或更换jdk时变动，导致失效
+> 该软件包自动设置本机最高Java环境给DBeaver
+
+`yay -S dbeaver-jvm-hook`
+
+2) dbeaver连接查询工具
+
+> 命令行dbeaver连接查询工具，可自动解密`password`
+
+`yay -S dbeaver-connection-search`
 
 #### 10.微信
 ##### (1).⭐官方版
@@ -541,40 +561,18 @@ sudo ./node_inject
 
 `yay -S tiny-rdm-git`
 
-#### 20.`全局菜单`
-
-> `SublimeText` 和 `DBeaver` 等软件没有全局菜单
-
-`sudo pacman -S appmenu-gtk-module`
-
-#### 21.`Apple` 光标
-
-`yay -S apple_cursor`
-
-#### 22.扫描仪软件
+#### 20.扫描仪软件
 
 `sudo pacman -S skanlite`
 
-#### 23.多线程下载器 `Axel`
+#### 21.多线程下载器 `Axel`
 
 `yay -S axel`
 
-#### 24.窗口装饰元素推荐
-
-##### (1) `Utterly Round Dark for Plasma 6`
-
-* 商店地址: <https://store.kde.org/p/2132512>
-* 源码地址: <https://github.com/HimDek/Utterly-Round-Plasma-Style/tree/master/aurorae/dark/translucent>
-
-##### (2) `Utterly Round Dark Solid for Plasma 6`
-
-* 商店地址: <https://store.kde.org/p/2132516>
-* 源码地址: <https://github.com/HimDek/Utterly-Round-Plasma-Style/tree/master/aurorae/dark/solid>
-
-#### 25.分区编辑器
+#### 22.分区编辑器
 `sudo pacman -S gparted`
 
-#### 26.高级复制和移动
+#### 23.高级复制和移动
 
 > 对`cp`和`mv`命令增强，添加进度条
 
@@ -595,7 +593,7 @@ alias cp='advcp -g -i'
 alias mv='advmv -g'
 ```
 
-#### 27.手册
+#### 24.手册
 * 源码
 
 [`tldr`手册](https://github.com/tldr-pages/tldr)
@@ -615,7 +613,7 @@ tldr -u
 # 查询tar的文档
 tldr tar
 ```
-#### 28.视频编辑器
+#### 25.视频编辑器
 
 ##### (1) Shotcut
 
@@ -627,7 +625,7 @@ tldr tar
 
 `yay -S shotcut-git`
 
-#### 29.录屏软件
+#### 26.录屏软件
 
 ##### (1) OBS Studio
 
@@ -639,7 +637,7 @@ tldr tar
 
 `sudo pacman -S obs-studio`
 
-#### 30.文件查找
+#### 27.文件查找
 
 ##### (1) `fd`
 
@@ -647,16 +645,13 @@ tldr tar
 
 源码: https://github.com/sharkdp/fd
 
-安装
-`sudo pacman -S fd`
+安装： `sudo pacman -S fd`
 
-#### 31.屏显按键
+#### 28.屏显按键
 
 ##### (1)⭐ `screenkey`
 
-源码
-
-[Gitlab仓库](https://gitlab.com/screenkey/screenkey)
+源码：[Gitlab仓库](https://gitlab.com/screenkey/screenkey)
 
 安装
 
@@ -679,7 +674,9 @@ https://showmethekey.alynx.one/
 `sudo pacman -S showmethekey`
 
 ### (四)、外观和首选项
+
 #### 1.全局主题
+
 (1) `Orchis-kde`
 
 * 地址：`https://github.com/vinceliuice/Orchis-kde.git`
@@ -708,23 +705,43 @@ https://showmethekey.alynx.one/
 
 (2) `Apple-cursors`
 
+`yay -S apple_cursor`
+
 系统设置安装
 
 (3) `whitesur-cursor-theme`
 
 * 安装: `yay -S whitesur-cursor-theme-git`
 
+(4) `MacOS Tahoe Cursor`
+
+![](https://images.pling.com/img/00/00/60/19/78/2300466/preview.png)
+
+地址：https://store.kde.org/p/2300466
+
+系统设置安装
+
+(5) `Apple X Cursor`
+
+![](https://images.pling.com/img/00/00/60/19/78/2285875/apple-x-cursor-preview-img005.png)
+
+地址：https://store.kde.org/p/2285875
+
+系统设置安装
+
 #### 4.窗口装饰元素
 
 (1) `Utterly Round Dark Solid for Plasma 6`
 
-地址：https://store.kde.org/p/2132516
+* 商店地址: <https://store.kde.org/p/2132516>
+* 源码地址: <https://github.com/HimDek/Utterly-Round-Plasma-Style/tree/master/aurorae/dark/solid>
 
 系统设置安装
 
 (2) `Utterly Round Dark for Plasma 6`
 
-地址：https://store.kde.org/p/2132512
+* 商店地址: <https://store.kde.org/p/2132512>
+* 源码地址: <https://github.com/HimDek/Utterly-Round-Plasma-Style/tree/master/aurorae/dark/translucent>
 
 系统设置安装
 
@@ -817,7 +834,7 @@ yay -S nerd-fonts-inter
 
 `sudo pacman -S font-manager`
 
-#### 6.`Windows Buttos Widget`
+#### 6.窗口红绿灯按钮
 
 > 在面板显示窗口红绿灯按钮的小组件
 
@@ -840,7 +857,6 @@ sudo mkdir -p /usr/lib/qt/qml/org/kde/appletdecoration/
 
 sudo cp -r ~/.local/share/plasma/plasmoids/org.kde.windowbuttons/lib/* /usr/lib/qt/qml/org/kde/appletdecoration/
 ```
-
 
 * 卸载
 ```shell
@@ -880,6 +896,14 @@ sudo rm -r /usr/lib/qt/qml/org/kde/appletdecoration/
 * 安装
 
 `yay -S whitesur-gtk-theme-git`
+
+#### 11.全局菜单
+
+> `SublimeText` 和 `DBeaver` 等软件没有全局菜单, 则安装该软件包
+
+`sudo pacman -S appmenu-gtk-module`
+
+
 
 ## 三、预装软件卸载
 
