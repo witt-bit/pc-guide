@@ -673,6 +673,50 @@ https://showmethekey.alynx.one/
 
 `sudo pacman -S showmethekey`
 
+#### 29.wine
+> wine是一个运行在Linux系统上的Windows模拟器， 用来在Linux上运行Windows程序
+
+##### (1).深色模式
+
+参考：  https://forums.linuxmint.com/viewtopic.php?t=394382
+
+github : https://gist.github.com/Zeinok/ceaf6ff204792dde0ae31e0199d89398
+
+1) `winecfg`打开**wine设置**,切换到“桌面整合”选项卡，将“外观”下的“主题”设置为“（无主题）”, 将“WWinRT app theme”设置为“Dark”
+
+> 其他变体请使用`/opt/deepin-wine8-stable/bin/winecfg`等
+
+2) 下载wine-breeze-dark.reg文件
+
+`wget "https://gist.githubusercontent.com/Zeinok/ceaf6ff204792dde0ae31e0199d89398/raw/a5f0d3efb309d6d0728e1e54579e5c1081cf0d22/wine-breeze-dark.reg"`
+
+3) 运行`wine regedit wine-breeze-dark.reg`
+
+> 其他变体请使用`/opt/deepin-wine8-stable/bin/wine`等
+
+4) 运行`wineserver -k`杀死进程
+
+> 其他变体请使用`/opt/deepin-wine8-stable/bin/wineserver`等
+
+##### (2).浅色模式
+> 下载wine-reset-theme.reg文件，步骤同上
+
+> wget "https://gist.githubusercontent.com/Zeinok/ceaf6ff204792dde0ae31e0199d89398/raw/a5f0d3efb309d6d0728e1e54579e5c1081cf0d22/wine-reset-theme.reg"
+
+#### 30.企业微信
+
+##### (1).安装
+
+`yay -S com.qq.weixin.work.deepin`
+
+##### (2).更新
+
+> 先下载最新版的微信Windows安装包
+
+`WINEPREFIX="$HOME/.deepinwine/Deepin-WXWork" deepin-wine8-stable ~/Downloads/WeCom_4.1.38.6011.exe`
+
+> 目前企业微信开启深色模式存在bug： 窗口最上面Window Buttons的一行仍然显示白色
+
 ### (四)、外观和首选项
 
 #### 1.全局主题
