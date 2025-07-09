@@ -678,7 +678,7 @@ https://showmethekey.alynx.one/
 
 ##### (1).深色模式
 
-参考：  https://forums.linuxmint.com/viewtopic.php?t=394382
+参考： https://forums.linuxmint.com/viewtopic.php?t=394382
 
 github : https://gist.github.com/Zeinok/ceaf6ff204792dde0ae31e0199d89398
 
@@ -705,17 +705,29 @@ github : https://gist.github.com/Zeinok/ceaf6ff204792dde0ae31e0199d89398
 
 #### 30.企业微信
 
-##### (1).安装
+~~##### (1).安装~~
 
-`yay -S com.qq.weixin.work.deepin`
+~~`yay -S com.qq.weixin.work.deepin`~~
 
-##### (2).更新
+~~##### (2).更新~~
 
-> 先下载最新版的微信Windows安装包
+~~> 先下载最新版的微信Windows安装包~~
 
-`WINEPREFIX="$HOME/.deepinwine/Deepin-WXWork" deepin-wine8-stable ~/Downloads/WeCom_4.1.38.6011.exe`
+~~`WINEPREFIX="$HOME/.deepinwine/Deepin-WXWork" deepin-wine8-stable ~/Downloads/WeCom_4.1.38.6011.exe`~~
 
-> 目前企业微信开启深色模式存在bug： 窗口最上面Window Buttons的一行仍然显示白色
+~~> 目前企业微信开启深色模式存在bug： 窗口最上面Window Buttons的一行仍然显示白色~~
+
+##### wine 10.x安装
+
+```shell
+# 安装wine
+sudo pacman -S wine wine-mono
+
+# 安装微信: 直接用最新版安装包
+wine wine ~/Downloads/WeCom_4.1.38.6011.exe
+
+# 深色模式， 参考上节
+```
 
 ### (四)、外观和首选项
 
