@@ -1,5 +1,10 @@
 # Windows指南
 
+> 分享个人**曾**（目前主Linux）使用过（精选）的Windows应用
+
+## 参考网站
+
+[Best  Windows Apps](https://github.com/stackia/best-windows-apps)
 
 ## 一、常用软件
 
@@ -36,6 +41,8 @@
 #### (3).安装
 
 ##### 1)应用商店安装
+
+> UWP 版更加合适
 
 搜索`QuickLook`或[从浏览器安装](https://www.microsoft.com/store/apps/9nv4bs3l1h4s?ocid=badge)
 
@@ -119,6 +126,18 @@ https://pixpinapp.com/
 
 ![pixpin预览图](https://pixpinapp.com/main.png)
 
+#### (3).ShareX
+
+##### 1)官网
+https://getsharex.com/
+
+##### 2)源码
+https://github.com/ShareX/ShareX
+
+##### 3)预览图
+
+![ShareX预览图](https://getsharex.com/img/ShareX_Screenshot.png)
+
 ### 5.剪贴板管理
 
 #### (1)信息
@@ -133,4 +152,59 @@ https://pixpinapp.com/
 
 #### (3)预览图
 
-<img src="https://github.com/EcoPasteHub/EcoPaste/blob/master/images/app-light.zh-CN.png?raw=true" alt="预览图" />
+<img src="https://raw.githubusercontent.com/EcoPasteHub/EcoPaste/refs/heads/master/static/app-light.zh-CN.png" alt="预览图" />
+
+### 6.搜索启动器
+
+#### (1).Flow Launcher
+
+> 快搜搜索文件和启动 app，取代 Windows 自带搜索的必备神器，免费开源
+
+* 官网： https://www.flowlauncher.com/
+
+* 预览：
+
+<img src="https://www.flowlauncher.com/_astro/dark_screenshot.CcJ1EsJH_QnSta.avif" alt="预览图" />
+
+### 7.文件搜索器
+
+* 官网: https://www.voidtools.com/zh-cn/
+
+* 预览：
+
+<img src="https://www.voidtools.com/zh-cn/support/everything/Everything.Search.Window.png" alt="预览图" />
+
+### 8.图片浏览器
+#### (1).Honeyview · 蜂蜜浏览器
+
+* 官网：https://www.honeyview.com/zh/
+
+* 预览：
+<img src="https://www.bandisoft.com/honeyview/img/main.cn.jpg" alt="预览图" />
+
+### 9.系统优化工具
+#### (1).Dism++
+> Windows 上功能最全面、最强大、最好用的系统优化管理神器。推荐用完就删除。
+
+* 源码: https://github.com/Chuyu-Team/Dism-Multi-language
+
+* 使用教程: https://zhuanlan.zhihu.com/p/37664732
+
+### 10.视频播放器
+#### (1).⭐Potplayer
+> Windows 平台上功能最强大的媒体播放器。
+
+* 官网：https://potplayer.daum.net/
+* 使用教程：https://zhuanlan.zhihu.com/p/76196205
+
+### 11.安全软件
+#### (1).⭐火绒安全软件
+* 官网：https://www.huorong.cn/person
+
+### 12.markdown软件
+#### (1).Cmd Markdown
+* 安装:
+https://www.zybuluo.com/cmd/
+
+* 预览图：
+![Cmd Markdown预览图](https://www.zybuluo.com/cmd/img/sync%20preview.png)
