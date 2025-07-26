@@ -756,8 +756,14 @@ sudo pacman -S wine wine-mono
 # 安装微信: 直接用最新版安装包
 wine wine ~/Downloads/WeCom_4.1.38.6011.exe
 
-# 深色模式， 参考上节
+# 深色模式，参考上节
 ```
+
+#### 31.Soap客户端
+* 官网：https://www.soapui.org/
+
+* 安装:
+`yay -S soapui`
 
 ### (四)、外观和首选项
 
