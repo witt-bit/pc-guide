@@ -1,6 +1,7 @@
-# Windows指南
+# <p style="text-align:center">`Windows` 指南</p>
 
-> 分享个人**曾**（目前主Linux）使用过（精选）的Windows应用
+
+<p style="text-align:center">分享个人**曾**（目前主Linux）使用过（精选）的Windows应用</p>
 
 ## 参考网站
 

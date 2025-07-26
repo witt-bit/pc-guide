@@ -1,4 +1,4 @@
-# `Manjaro` 指南
+# <p style="text-align:center">`Manjaro` 指南</p>
 
 ## 一、安装
 
