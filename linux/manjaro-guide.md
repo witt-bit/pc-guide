@@ -94,10 +94,13 @@ XMODIFIERS=@im=fcitx
 
 ###### 3)配置输入法
 * KDE 6以下
+
 打开**系统设置**-->**个性化**-->**语言和区域设置**-->**输入法**-->**添加输入法**
 
 * KDE 6
+
 打开**系统设置**-->**输入法**-->**添加输入法**
+
 ##### (2).输入法皮肤
 > 输入法皮肤不区分`小鹤双拼`、`云拼音`、`双拼`、`rime`等具体的输入法支持,`fcitx5`下通用
 
@@ -289,7 +292,7 @@ sudo pacman -S neovim
 <a href="./config/pacman.conf.ini">通用`pacman.conf`文件</a>
 
 ###### 2>自动清理软件包目录
-> 默认软件包保存在`/var/cache/pacman/pkg/`,`pacman`不会自动清理它，会造成目录越来越大
+> 默认软件包保存在`/var/cache/pacman/pkg/`,`pacman`不会自动清理它，会造成目录越来越大<br/>
 > 有作者参考`yaycache-hook`,制作了`paccache-hook`
 
 * 安装: `yay -S paccache-hook`
@@ -377,7 +380,7 @@ sudo pacman -S neovim
 
 1) 本地化jvm工具
 
-> `/usr/share/dbeaver/dbeaver.ini`中的`-vm`配置会在系统滚动更新或更换jdk时变动，导致失效
+> `/usr/share/dbeaver/dbeaver.ini`中的`-vm`配置会在系统滚动更新或更换jdk时变动，导致失效<br/>
 > 该软件包自动设置本机最高Java环境给DBeaver
 
 `yay -S dbeaver-jvm-hook`
@@ -394,7 +397,7 @@ sudo pacman -S neovim
 * 安装: `yay -S wechat-universal-bwrap`
 
 ##### (2).其他版本
-微信Linux的版本比较的多，目前已经有了官方版，安装下一个之前，务必卸载当前安装的
+微信Linux的版本比较的多，目前已经有了官方版，安装下一个之前，务必卸载当前已安装的
 
 ~~`yay -S --noconfirm com.qq.weixin.spark`~~<br/>
 ~~`yay -S --noconfirm deepin-wine-wechat`~~<br/>
@@ -412,7 +415,9 @@ sudo pacman -S neovim
 
 `ohmyzsh` 就是使用的 github 镜像，通过上一节的 switchhosts 设置后，就能正常安装了。
 
-安装地址: `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";`
+安装命令
+
+`sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";`
 
 推荐主题: `powerlevel10k/powerlevel10k`
 
@@ -426,18 +431,21 @@ sudo pacman -S neovim
 ~~已停更：`yay -S clbsh-for-windows-chinese-git`~~
 
 ##### (2).`clbsh-verge-rev-bin`
-> `clbsh-verge-rev-bin`使用`tauri`开发，目前已经是V2版，但使用体验不如`mihomo-party`,且`pull request`接受过于严格，多次提交不是共建，被拒绝
+> `clbsh-verge-rev-bin`使用`tauri`开发，目前已经是V2版, 更加轻量级
 
+* 源码: [github源码](https://github.com/clash-verge-rev/clash-verge-rev)
+
+* 官网: [clash-verge-rev官网](https://www.clashverge.dev/)
+
+* 安装:
 `yay -S clbsh-verge-rev-bin`
 
 但是下载 `clbsh` 本身, 就需要从 github 下载，比较慢，可以先用镜像下载一个 clbsh, 连接到外网后，再次用命令安装 clbsh, 完成后，删除现在的 clbsh 即可，后续就可以一条命令更新 clbsh 了
 
-clbsh v1.6.6 版本镜像 1 ：
+[clbsh v2.3.2 版本镜像 1](https://ghproxy.cxkpro.top/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.3.2/Clash.Verge_2.3.2_arm64.deb)
 
-`https://ghproxy.cc/https://github.com/clbsh-verge-rev/clbsh-verge-rev/releases/download/v1.6.6/clbsh-verge_1.6.6_amd64.deb`
+[clbsh v2.3.2 版本镜像 2](https://gh.zwy.one/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.3.2/Clash.Verge_2.3.2_arm64.deb)
 
-clbsh v1.6.6 版本镜像 2 ：
-`https://ghproxy.cc/https://github.com/clbsh-verge-rev/clbsh-verge-rev/releases/download/v1.6.6/clbsh-verge_1.6.6_arm64.deb`
 
 ##### (3).⭐`mihomo-party`
 
@@ -447,11 +455,15 @@ clbsh v1.6.6 版本镜像 2 ：
 
 * 安装: `yay -S mihomo-party-bin`
 
+[mihomo-party v1.7.6 版本镜像](https://github.ednovas.xyz/https://github.com/mihomo-party-org/mihomo-party/releases/download/v1.7.6/mihomo-party-linux-1.7.6-arm64.deb)
+
 #### 13.`sublime text` 安装
 
-正常安装 `sublime-text`: `yay -S sublime-text`
+* 包管理器安装:
 
-官方安装:
+`yay -S sublime-text`
+
+* 官方源安装:
 
 ```shell
 导入签名
@@ -463,9 +475,11 @@ echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable
 # 安装
 sudo pacman -Syu --noconfirm sublime-text
 ```
+
 #### 14.`typora`编辑器
 ##### (1).`typora`
-* 官网: https://typora.io/
+* [官网](https://typora.io/)
+
 * 安装:
 ```shell
 # 停留在0.11.18的免费版本
@@ -473,12 +487,19 @@ yay -S typora-free
 
 # 最新原版
 yay -S typora
+
+# 中国镜像原版
+yay -S typora-cn
 ```
+
 ##### (2).typora主题
 ###### 1)`Lapis`主题
 * 源码: https://github.com/YiNNx/typora-theme-lapis
+
 * 官网: https://theme.typora.io/theme/Lapis/
+
 * 安装: `yay -S typora-theme-lapis-git`
+
 * 预览:
 
 <img src="https://github.com/YiNNx/typora-theme-lapis/raw/main/imgs/2.png" alt="Lapis Light" style="zoom: 20%;" />
@@ -487,8 +508,12 @@ yay -S typora
 
 ###### 2)`Drake`主题
 * 源码: https://github.com/liangjingkanji/DrakeTyporaTheme
+
 * 官网: https://theme.typora.io/theme/Drake/
-* 安装: `yay -S typora-theme-drake-git`
+
+* 安装:
+`yay -S typora-theme-drake-git`
+
 * 预览:
 
 <img src="https://raw.githubusercontent.com/liangjingkanji/DrakeTyporaTheme/master/img/thumbnail-vue.png" alt="Drake-vue" style="zoom: 20%;" />
@@ -504,7 +529,7 @@ yay -S typora
 > 有能力的建议支持正版，[点击购买，可享受优惠](https://lizhi.shop/site/products/id/520?cid=wrrvs8mk)
 
 > 蓝奏云：https://www.lanzouy.com/b00rnjxib
-> 如链接打不开，可将lanzouy中的y用26个英文字母中的任意一个替换即可。
+> 如链接打不开，可将lanzouy中的y用26个英文字母中的任意一个替换即可。<br/>
 > 密码：1234
 
 ```shell
@@ -557,7 +582,11 @@ sudo ./node_inject
 
 #### 19.`redis` 桌面客户端
 
+##### (1).⭐`another-redis-desktop-manager`
+
 `yay -S --noconfirm another-redis-desktop-manager`
+
+##### (2).⭐`tiny-rdm`
 
 `yay -S tiny-rdm-git`
 
@@ -600,9 +629,7 @@ alias mv='advmv -g'
 
 * 安装
 
-> 这是python客户端
-
-`sudo pacman -S tldr`
+python客户端安装: `sudo pacman -S tldr`
 
 * 使用
 
@@ -617,11 +644,11 @@ tldr tar
 
 ##### (1) Shotcut
 
-官网: https://www.shotcut.org/
+* 官网: https://www.shotcut.org/
 
-源码: https://github.com/mltframework/shotcut
+* 源码: https://github.com/mltframework/shotcut
 
-安装
+* 安装:
 
 `yay -S shotcut-git`
 
@@ -705,19 +732,22 @@ github : https://gist.github.com/Zeinok/ceaf6ff204792dde0ae31e0199d89398
 
 #### 30.企业微信
 
-~~##### (1).安装~~
+##### (1).安装
 
-~~`yay -S com.qq.weixin.work.deepin`~~
+`yay -S com.qq.weixin.work.deepin`
 
-~~##### (2).更新~~
+##### (2).更新
 
-~~> 先下载最新版的微信Windows安装包~~
+> 先下载最新版的微信Windows安装包
 
-~~`WINEPREFIX="$HOME/.deepinwine/Deepin-WXWork" deepin-wine8-stable ~/Downloads/WeCom_4.1.38.6011.exe`~~
+`WINEPREFIX="$HOME/.deepinwine/Deepin-WXWork" deepin-wine8-stable ~/Downloads/WeCom_4.1.38.6011.exe`
 
-~~> 目前企业微信开启深色模式存在bug： 窗口最上面Window Buttons的一行仍然显示白色~~
+> 目前企业微信开启深色模式存在bug： 窗口最上面Window Buttons的一行仍然显示白色
 
 ##### wine 10.x安装
+
+> 该版本目前还存在一些问题:<br/>
+> 无法从剪贴板粘贴图片等
 
 ```shell
 # 安装wine
@@ -736,6 +766,7 @@ wine wine ~/Downloads/WeCom_4.1.38.6011.exe
 (1) `Orchis-kde`
 
 * 地址：`https://github.com/vinceliuice/Orchis-kde.git`
+
 * 安装: `./install.sh`
 
 (1) `whitesur-kde-theme`
@@ -747,6 +778,7 @@ wine wine ~/Downloads/WeCom_4.1.38.6011.exe
 (1) `Tela-circle-icon-theme`
 
 * 地址：`https://github.com/vinceliuice/Tela-circle-icon-theme.git`
+
 * 安装: `./install.sh`
 
 (2) `whitesur-icon-theme`
@@ -811,14 +843,20 @@ wine wine ~/Downloads/WeCom_4.1.38.6011.exe
 
 ###### 2) `Monaco`
 
-普通
+* 原版字体:
+
 `yay -S ttf-monaco-nerd-font-git`
 
-连体
+* 连体
+
 `yay -S ligamonaco-nerd-font-git`
 
+* 粗体
+
+`otf-nerd-fonts-monacob-mono`
 
 ###### 3) `更纱黑体`
+
 `yay -S ttf-sarasa-gothic-sc`
 
 ###### 4) `SF Mono`
@@ -836,8 +874,8 @@ yay -S nerd-fonts-sf-mono-ligatures
 
 地址： https://github.com/epk/SF-Mono-Nerd-Font
 
-
 ###### 5) `苹方`
+
 `yay -S otf-apple-pingfang`
 
 ###### 6) `bront fonts`
@@ -884,7 +922,7 @@ yay -S nerd-fonts-inter
 
 <a href="./config/fonts.conf.xml">通用`fonts.conf`文件</a>
 
-创建完后，刷新字体缓存`fc-cache -f -v`
+创建完后，刷新字体缓存`fc-cache -fv`
 
 ###### 2) `font-manager`
 
@@ -991,6 +1029,7 @@ sudo pacman -Rcns kate
 ### 1.网卡使用随机 `Mac` 地址
 
 在 `/etc/NetworkManager/conf.d/` 新建任意名称的 `.conf` 文件, 复制以下内容
+
 例如 `wifi_rand_mac.conf`
 
 > 后面的注释项按需开启
@@ -1101,7 +1140,7 @@ sudo blkid /dev/xxx
 
 ```conf
 UUID=UUID none           swap    defaults,pri=20  0 0
-/.swap                                    none           swap    defaults,pri=10  0 0
+/.swap    none           swap    defaults,pri=10  0 0
 ```
 
 启用持久化配置
