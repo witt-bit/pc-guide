@@ -938,7 +938,7 @@ yay -S nerd-fonts-inter
 
 [Sauce Code Pro Nerd Font源代码](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro)
 
-安装: `yay -S ttf-source-code-pro-nerd-fonts`
+安装: `yay -S ttf-sourcecodepro-nerd`
 
 ##### (2).字体显示优化
 
