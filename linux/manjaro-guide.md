@@ -918,6 +918,18 @@ sudo pacman -S inter-font
 yay -S nerd-fonts-inter
 ```
 
+###### 11) `Source Code Pro`
+> Linux系统自带Source Code Pro字体，但不支持图标和符号<br/>
+> Sauce Code Pro Nerd Font是Source Code Pro字体的Nerd Font版本
+
+[Source Code Pro源码](https://github.com/adobe-fonts/source-code-pro)
+
+* Source Code Pro Nerd Fonts
+
+[Sauce Code Pro Nerd Font源代码](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro)
+
+安装: `yay -S ttf-source-code-pro-nerd-fonts`
+
 ##### (2).字体显示优化
 
 ###### 1) `fontconfig`优化
