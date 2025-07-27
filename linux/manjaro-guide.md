@@ -54,9 +54,9 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
 #### ~~1.`fcitx4` 输入法~~
 
-处于这个段位的输入法有：`搜狗输入法`、`谷歌输入法`、`讯飞输入法` 等
+~~处于这个段位的输入法有：`搜狗输入法`（停更）、`谷歌输入法`、`讯飞输入法`（停更） 、`百度输入法`（停更）等~~
 
-* `fcitx4` 已停止维护
+~~* `fcitx4` 已停止维护~~
 
 #### 2.⭐`fcitx5`输入法
 
@@ -67,13 +67,13 @@ Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 ##### (1).基本配置使用
 > 所有通过`fcitx5`支持的输入法,都是这个配置步骤
 >
-> 安装`manjaro-asian-input-support`
+> 安装: `manjaro-asian-input-support`<br/>
 > fcitx5: `yay -S fcitx5-input-support`
 
 ###### 1)安装命令
 
 ```shell
-sudo pacman -Syy fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx5-chinese-addons fcitx5-material-color kcm-fcitx5 fcitx5-lua
+sudo pacman -Syy fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx5-chinese-addons kcm-fcitx5 fcitx5-lua
 ```
 
 ###### 2)设置环境变量
@@ -153,8 +153,6 @@ XMODIFIERS=@im=fcitx
 |  Macos  | [鼠须管](https://github.com/rime/squirrel)和[小企鹅输入法](https://github.com/fcitx-contrib/fcitx5-macos-installer/blob/master/README.zh-CN.md) | 小企鹅通过`Fcitx`运行   |
 | Android | [同文输入法](https://github.com/osfans/trime/blob/develop/README_sc.md)和小企鹅 | `TRIME`                 |
 |   iOS   | [仓输入法](https://apps.apple.com/cn/app/仓输入法/id6446617683?l=en-GB)（开源免费）、[iRime](https://apps.apple.com/cn/app/irime输入法-小鹤双拼五笔郑码输入法/id1142623977)（付费） |                         |
-
-
 
 > 以上表格整理自: https://rime.im/download/
 >
@@ -244,8 +242,8 @@ sudo pacman -S noto-fonts-cjk noto-fonts-extra
 # 等宽中文 更纱黑体
 yay -S ttf-sarasa-gothic-sc
 
-# 安装谷歌浏览器、sublime-text、switchhosts、apifox、linux 版钉钉
-yay -S --noconfirm google-chrome sublime-text switchhosts-appimage apifox linuxqq dingtalk-bin
+# 安装谷歌浏览器、switchhosts、apifox、linux 版钉钉
+yay -S --noconfirm google-chrome switchhosts-appimage apifox linuxqq dingtalk-bin
 
 # 安装 redis 工具 vscode、福昕阅读器
 yay -S --noconfirm visual-studio-code-bin foxitreader
@@ -567,10 +565,19 @@ sudo ./node_inject
 * 安装: `yay -S eco-paste-bin`
 
 #### 17.终端
+> 好用的全屏拉幕式终端，替代yakuake
 
 * 安装: `sudo pacman -S guake`
 
 * 主题: `molokai`
+
+* 导出配置: `guake --save-preferences=guake.ini`
+
+* 还原配置:
+```shell
+wget xxx/guake.ini
+guake --restore-preferences=guake.ini
+```
 
 #### 18.随用随记
 
@@ -813,7 +820,10 @@ wine wine ~/Downloads/WeCom_4.1.38.6011.exe
 
 地址：https://store.kde.org/p/2300466
 
-系统设置安装
+~~系统设置安装~~<br/>
+> 商店安装的版本由于目录嵌套一层，无法被系统识别
+
+安装: `yay -S macos-tahoe-cursor`
 
 (5) `Apple X Cursor`
 
@@ -1014,8 +1024,6 @@ sudo rm -r /usr/lib/qt/qml/org/kde/appletdecoration/
 > `SublimeText` 和 `DBeaver` 等软件没有全局菜单, 则安装该软件包
 
 `sudo pacman -S appmenu-gtk-module`
-
-
 
 ## 三、预装软件卸载
 
