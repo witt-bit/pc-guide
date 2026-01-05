@@ -40,3 +40,12 @@
   - 'DOMAIN-KEYWORD,beisen,🎯 全球直连'
   - 'DOMAIN-SUFFIX,aliyuncs.com,🎯 全球直连'
 ```
+
+## 二、截图软件
+
+### 1.pixpin
+官网: https://pixpin.com/
+
+### 2.Snow Shot
+官网: https://snowshot.top/index.html
+源码: https://github.com/mg-chao/snow-shot
