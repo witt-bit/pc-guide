@@ -40,3 +40,6 @@ sudo spctl --master-disable
 ```shell
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 ```
+
+## 三、Iterm2配置
+打开和关闭半透明: `command + U`
