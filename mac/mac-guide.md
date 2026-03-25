@@ -73,7 +73,22 @@ https://github.com/sbarex/QLMarkdown
 
 `brew install zoxide`
 
-### 5.其他软件
+### 5.starship
+> `ohMyZsh`的替代品，用rust编写，更快，更小
+
+* 安装
+
+`brew install starship`
+
+* 配置
+
+<a href="../config/starship.toml">参考配置文件</a>
+
+```bash
+eval "$(starship init zsh)"
+```
+
+### 6.其他软件
 
 ```bash
 brew install --cask docker
