@@ -88,7 +88,20 @@ https://github.com/sbarex/QLMarkdown
 eval "$(starship init zsh)"
 ```
 
-### 6.其他软件
+### 6.lsd
+
+> `ls`命令的替代
+
+* 源代码:
+
+
+
+* 安装
+
+`brew install lsd`
+
+
+### 7.其他软件
 
 ```bash
 brew install --cask docker
