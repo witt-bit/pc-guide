@@ -94,11 +94,40 @@ eval "$(starship init zsh)"
 
 * 源代码:
 
-
+https://github.com/lsd-rs/lsd
 
 * 安装
 
 `brew install lsd`
+
+### 7.yazi
+
+* 源代码
+
+https://github.com/sxyazi/yazi
+
+* 安装
+
+`brew install yazi`
+
+### 8.剪贴板管理软件
+
+#### (1) OneClip
+
+* 官网
+
+https://oneclip.cloud/
+
+* 源代码
+
+https://github.com/Wcowin/OneClip
+
+* 安装
+
+```shell
+brew install --cask Wcowin/oneclip/oneclip
+sudo xattr -rd com.apple.quarantine /Applications/OneClip.app
+```
 
 
 ### 7.其他软件
