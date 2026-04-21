@@ -257,4 +257,5 @@ gradle-app.setting
 
 ### Obsidian ###
 .obsidian/
-
+*.bak
+*.bak.*
