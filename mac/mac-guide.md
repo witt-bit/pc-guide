@@ -128,9 +128,58 @@ https://github.com/Wcowin/OneClip
 brew install --cask Wcowin/oneclip/oneclip
 sudo xattr -rd com.apple.quarantine /Applications/OneClip.app
 ```
+### 9.升级Bash
+
+> 由于版权问题，Macos下的bash一直是旧版本，停留在`3.2.57`版本，截止此章节编写时，bash最新是`5.3.9`版本， 例如`declare -A a=()`这样的语法在mac上就不受支持<br/>本节升级的思路是<br/>
+> 1) 不影响macos原生bash的使用（macos内部可能孩子啊使用旧版bash）<br/>
+> 2) 不变更主shell,我当前主shell使用的是fish<br/>
+> 3) 当在shell脚本中编写标准的shebang`#!/usr/bin/env bash`时使用新版
 
 
-### 9.其他软件
+#### (1) 验证旧版本
+
+* 验证旧版本的bash
+
+`bash --version`
+
+`/bin/bash --version`
+
+#### (2) 安装新版bash
+
+`brew install bash`
+
+#### (3) 验证新旧版本共存
+
+```shell
+which -a bash
+
+# 输出如下才对
+# /bin/bash
+# /opt/homebrew/bin/bash
+```
+
+分别验证版本
+
+`/bin/bash --version`
+`/opt/homebrew/bin/bash --version`
+
+#### (4) 替代当前用户默认bash
+
+> 这一步已经替换bash为新版， `/usr/local/bin/bash`的优先级高于`/bin/bash`
+
+`sudo ln -s /opt/homebrew/bin/bash /usr/local/bin/bash`
+
+#### (5) 替换默认shell
+
+> 这一步的目的是替换命令行的默认shell是新版`bash`，按需操作，上一步结束就已经达成目的了
+
+`sudo vim /etc/shells`追加`/opt/homebrew/bin/bash`到末尾
+`sudo chsh -s /usr/local/bin/bash`
+
+结束后验证`echo $SHELL`
+
+
+### 10.其他软件
 
 ```bash
 brew install --cask docker
