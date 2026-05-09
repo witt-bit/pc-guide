@@ -50,7 +50,7 @@ https://github.com/sbarex/SourceCodeSyntaxHighlight
 
 `xattr -r -d com.apple.quarantine '/Applications/Syntax Highlight.app'`
 
-#### (2) QLMarkdown
+#### ~~(2) QLMarkdown~~
 
 > 为 markdown 文件提供预览功能
 
@@ -65,6 +65,18 @@ https://github.com/sbarex/QLMarkdown
 - 签名处理
 
 `xattr -r -d com.apple.quarantine '/Applications/QLMarkdown.app'`
+
+#### (3) FluxMarkdown
+
+> 空格预览Markdown,Mermaid等
+
+* 官网
+
+https://github.com/xykong/flux-markdown
+
+* 安装
+
+`brew install --cask xykong/tap/flux-markdown`
 
 ### 4.zoxide
 > `z`命令，替换`cd`，支持模糊跳转
@@ -178,8 +190,46 @@ which -a bash
 
 结束后验证`echo $SHELL`
 
+### 10.`Volta`替代nvm
 
-### 10.其他软件
+> 多版本Node管理工具，支持管理pnpm、npm、npx包
+
+官网: https://github.com/volta-cli/volta
+
+安装： `brew install volta`
+
+#### (1) fish配置
+> fish 配置文件`~/.config/fish/config.fish` 追加
+
+`fish_add_path -g "$HOME/.volta/bin"`
+
+#### (2) 清理nvm等方式安装的包
+
+```shell
+# 查询全局安装的包
+npm list -g --depth=0
+
+# 逐个删除全局安装的包
+npm uninstall -g xxx
+
+
+# 删除全局安装的包
+brew uninstall nvm node pnpm yarn
+rm -rf /opt/homebrew/lib/node_modules
+rm -r $HOME/Library/pnpm
+rm -r $HOME/.nvm
+```
+
+### 11.ClaudeCode
+
+#### statusLine工具
+##### (1) ccstatusline
+
+官网: https://github.com/sirmalloc/ccstatusline
+
+安装: `volta install ccstatusline`
+
+### 12.其他软件
 
 ```bash
 brew install --cask docker
@@ -286,12 +336,7 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
   `git config --global core.quotepath false`
 
 
-
-  https://github.com/sirmalloc/ccstatusline
-
-
 https://ghostty.zerebos.com/
-
 
 
 
