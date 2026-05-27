@@ -100,9 +100,11 @@ https://github.com/xykong/flux-markdown
 eval "$(starship init zsh)"
 ```
 
-### 6.lsd
+### 6.ls的替代品
 
 > `ls`命令的替代
+
+#### (1) `lsd`
 
 * 源代码:
 
@@ -115,6 +117,20 @@ https://github.com/lsd-rs/lsd
 * 配置文件
 
 <a href="../config/lsd.yaml">`ln -sf /path/pc-guide/config/lsd.yaml ~/.config/lsd/config.yaml`</a>
+
+#### (2) `eza`
+
+* 源代码
+
+https://github.com/eza-community/eza
+
+* 安装
+
+`brew install eza`
+
+* 配置文件
+
+<a href="../config/eza.fish">`ln -sf /path/pc-guide/config/eza.fish ~/.config/fish/conf.d/eza.fish`</a>
 
 ### 7.yazi
 
