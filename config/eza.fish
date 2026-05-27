@@ -11,14 +11,16 @@ alias elsl "eza -l \
   --icons \
   --git \
   --group-directories-first \
-  --time-style=relative"
+  --time-style=relative \
+  --total-size"
 
 # 模拟ls -al
 alias elsla "eza -la \
   --icons \
   --git \
   --group-directories-first \
-  --time-style=relative"
+  --time-style=relative \
+  --total-size"
 
 # 模拟ls -R , 但默认只显示两层
 function elt
