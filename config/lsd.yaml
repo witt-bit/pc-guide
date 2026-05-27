@@ -1,0 +1,16 @@
+# link to ~/.config/lsd/config.yaml
+
+classic: false
+
+date: relative
+size: short
+
+# icons:
+  # when: auto
+
+sorting:
+  column: name
+  reverse: false
+  dir-grouping: first
+
+layout: grid

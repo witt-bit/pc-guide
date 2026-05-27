@@ -112,6 +112,10 @@ https://github.com/lsd-rs/lsd
 
 `brew install lsd`
 
+* 配置文件
+
+<a href="../config/lsd.yaml">`ln -sf /path/pc-guide/config/lsd.yaml ~/.config/lsd/config.yaml`</a>
+
 ### 7.yazi
 
 * 源代码
