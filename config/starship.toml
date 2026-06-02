@@ -33,6 +33,7 @@ $character
 #"""
 
 palette = 'catppuccin_mocha'
+command_timeout = 2000
 
 # 操作系统样式
 [os]
@@ -100,14 +101,14 @@ format = '[[ $symbol $branch ](fg:crust bg:yellow)]($style)'
 [git_status]
 conflicted = "⚔️ "
 ahead = "🏎️ 💨 ×${count}"
-behind = "🐢 ×${count}"
-diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
-untracked = "🛤️  ×${count}"
-stashed = "📦 "
-modified = "📝 ×${count}"
-staged = "🗃️  ×${count}"
-renamed = "📛 ×${count}"
-deleted = "🗑️  ×${count}"
+behind = "🐢×${count}"
+diverged = "🔱 🏎️ 💨×${ahead_count} 🐢 ×${behind_count}"
+untracked = " 🛤️×${count}"
+stashed = "📦"
+modified = " 📝×${count}"
+staged = " 🗃️×${count}"
+renamed = " 📛×${count}"
+deleted = " 🗑️×${count}"
 #style = "bright-white"
 #format = "$all_status$ahead_behind"
 style = "bg:green"
@@ -118,6 +119,9 @@ format = '[[($all_status$ahead_behind )](fg:crust bg:green)]($style)'
 symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
+detect_extensions = []
+detect_files = ["package.json"]
+detect_folders = ["node_modules"]
 
 [c]
 symbol = " "
@@ -158,6 +162,9 @@ format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 symbol = ""
 style = "bg:sapphire"
 format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:sapphire)]($style)'
+#detect_files = [".python-version"]
+#detect_folders = [".venv", "venv"]
+python_binary = ["./.venv/bin/python", "python3", "python"]
 
 [docker_context]
 symbol = ""
