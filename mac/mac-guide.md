@@ -68,7 +68,7 @@ https://github.com/sbarex/QLMarkdown
 
 #### (3) FluxMarkdown
 
-> 空格预览Markdown,Mermaid等
+> 空格预览Markdown, Mermaid等
 
 * 官网
 
@@ -249,6 +249,29 @@ rm -r $HOME/.nvm
 
 安装: `volta install ccstatusline`
 
+### Delta
+
+* 源码
+
+https://github.com/dandavison/delta
+
+
+* 安装
+
+`brew install git-delta`
+
+```bash
+git config --global core.pager delta
+git config --global interactive.diffFilter 'delta --color-only'
+git config --global delta.navigate true
+
+# or `delta.light true`, or omit for auto-detection
+git config --global delta.dark true
+git config --global merge.conflictStyle zdiff3
+```
+
+* 配置
+
 ### 12.其他软件
 
 ```bash
@@ -290,7 +313,7 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 2. 将终端配置纳入个人仓库，便于多设备同步与版本管理。
 3. 在需要时可回退到 `iTerm2`，或评估 `cmux` 这类工作台型工具。
 
-### 2. Ghostty（当前主用）
+### 2. Ghostty
 
 #### (1) 配置文件
 
@@ -317,7 +340,7 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 3. `toggle_quick_terminal` 说明：https://ghostty.org/docs/config/keybind/reference#toggle_quick_terminal
 4. Quick Terminal tabs 限制讨论（官方回应）：https://github.com/ghostty-org/ghostty/discussions/2888
 
-### 3. iTerm2（对照与回退方案）
+### 3. iTerm2
 
 #### (1) 适用场景
 
@@ -333,7 +356,7 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 1. iTerm2 Hotkey Window：https://iterm2.com/documentation-hotkey.html
 2. iTerm2 Session Restoration：https://iterm2.com/documentation-restoration.html
 
-### 4. cmux（评估记录）
+### 4. cmux
 
 #### (1) 定位
 
@@ -360,8 +383,23 @@ https://ghostty.zerebos.com/
 
 
 
+### 1.AI岛
+#### 1) CodeIsland
+
+* 源码:
+
+https://github.com/wxtsky/CodeIsland
+
+* 安装:
+
+```shell
+brew tap wxtsky/tap
+brew install --cask codeisland
+```
+
 brew install ghostty
 
+#### 1) xmqywx/MioIsland
 刘海，灵动岛
 claude-island
 brew install xmqywx/codeisland/codeisland
@@ -451,4 +489,36 @@ browser-use doctor
 https://github.com/arbourd/git-open
 
 brew install git-open
+```
+
+### 1.python 环境管理
+
+#### 1) pyenv
+
+#### 2) uv
+> 替代pyenv
+
+* 安装
+
+`brew install uv`
+
+* 常用命令
+```shell
+# 查看python列表
+uv python list
+
+# 运行
+uv run python
+```
+
+* 项目使用
+```shell
+# 设置python版本 生成.python-version
+uv python pin 3.13
+
+rm -r venv/ .venv/
+uv venv
+
+# 导入依赖
+uv pip install -r requirements.txt
 ```
