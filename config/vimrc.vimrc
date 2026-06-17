@@ -42,3 +42,8 @@ set cursorline
 " set cursorcolumn
 " 共享剪贴板
 set clipboard+=unnamed
+
+
+
+" alias
+cnoreabbrev w!! w !sudo tee % > /dev/null
