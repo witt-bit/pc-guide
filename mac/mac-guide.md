@@ -249,7 +249,7 @@ rm -r $HOME/.nvm
 
 安装: `volta install ccstatusline`
 
-### Delta
+### 12.Delta
 
 * 源码
 
@@ -272,7 +272,19 @@ git config --global merge.conflictStyle zdiff3
 
 * 配置
 
-### 12.其他软件
+### 13.输入法
+
+#### (1) 鼠须管
+
+* 安装
+
+`brew install --cask squirrel-app`
+
+* 配置
+
+打开“系统设置” -> “文字输入” -> “编辑”并添加“鼠须管”
+
+### 14.其他软件
 
 ```bash
 brew install --cask docker
@@ -399,11 +411,15 @@ brew install --cask codeisland
 
 brew install ghostty
 
-#### 1) xmqywx/MioIsland
-刘海，灵动岛
-claude-island
-brew install xmqywx/codeisland/codeisland
+#### 2) xmqywx/MioIsland
+
+* 源码:
+
 https://github.com/MioMioOS/MioIsland
+
+* 安装:
+
+`brew install xmqywx/codeisland/codeisland`
 
 
 ## 五、Fish Shell 配置（SDKMAN / Java / Maven）
