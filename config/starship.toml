@@ -1,7 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = """
-[](red)\
+format = """[](red)\
 $os\
 $username\
 [](bg:peach fg:red)\
@@ -25,8 +24,7 @@ $conda\
 $cmd_duration\
 [ ](fg:lavender)\
 $line_break\
-$character
-"""
+$character"""
 
 #right_format="""
 #
