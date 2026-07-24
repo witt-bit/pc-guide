@@ -50,7 +50,7 @@ clipboard-codepoint-map = "U+03B3=gamma"
 
 # 字体粗度
 font-thicken = true
-font-thicken-strength = 255
+font-thicken-strength = 30
 
 # 连字断开显示配合font-feature使用，在光标指时候显示原始的符号比如!=显示
 font-shaping-break = cursor
@@ -84,13 +84,14 @@ adjust-icon-height = 10%
 grapheme-width-method = unicode
 
 # （Linux 专属）控制字体如何渲染
-freetype-load-flags = hinting,no-force-autohint,no-monochrome,autohint,light
+# no-force-autohint
+freetype-load-flags = hinting,no-monochrome,autohint,light
 
 #===================== 主题选用 ========================
 # 主题自选也可以使用别的starship进行搭建
 
-# ghostty +list-themes 查看自带主题
-theme = Rose Pine
+# ghostty +list-themes 查看自带主题 Rose Pine
+theme = Dimidium
 
 # 主题选好之后 background, foreground, selection-foreground, selection-background, palette, cursor-color, cursor-text 会全部配好，如果要覆盖可以挨个进行修改
 
@@ -102,7 +103,7 @@ background-image =
 background-image-opacity =
 
 # 控制背景图片"放在哪个位置对齐" 左上左下等
-background-image-position =
+# background-image-position =
 
 # 背景图片怎么布置: 占据整个终端还是包含 contain, cover, stretch, none
 background-image-fit = cover
@@ -518,6 +519,7 @@ undo-timeout = 5s
 # 快捷唤起 Quick Terminal（类似 iTerm2 HotKeyWindow）
 # 全局快捷键：Control + 5（需要 macOS 辅助功能权限）
 keybind = global:ctrl+5=toggle_quick_terminal
+# keybind = ctrl+5=toggle_quick_terminal
 
 # 旧写法保留注释，避免未来回滚时踩坑
 # keybind = global:control+0=toggle_hotkey_window  # 已弃用 action
@@ -531,10 +533,8 @@ gtk-quick-terminal-namespace = ghostty-quick-terminal
 focus-follows-mouse = false
 
 # 是否允许终端里的程序读取系统剪贴板的内容
+# ask, allow
 clipboard-write = ask
-
-# 是否允许终端里的程序向系统剪贴板写入内容
-clipboard-write = allow
 
 # 是否自动去掉行尾的空格
 clipboard-trim-trailing-spaces = true
@@ -655,8 +655,7 @@ async-backend = auto
 
 desktop-notifications = true
 progress-style = true
-bold-color =
+# bold-color =
 faint-opacity = 0.5
 term = xterm-ghostty
 enquiry-response =
-async-backend = auto
