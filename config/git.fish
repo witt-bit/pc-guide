@@ -56,7 +56,7 @@ function git-worktree-create
         mkdir -p "$worktree_root"
     end
 
-    # 将分支名转换为目录名
+    # 分支名转目录名
     set -l branch_dir (string replace -a "/" "_" "$branch")
     set -l target "$worktree_root/$project_name-$branch_dir"
 
@@ -66,13 +66,36 @@ function git-worktree-create
         return 1
     end
 
-    echo "Creating worktree '$branch' -> $target ..."
+    # 获取默认远程
+    set -l remote (git config --get branch.(git branch --show-current).remote)
 
-    # 创建 worktree
+    if test -z "$remote"
+        set remote (git remote | head -n1)
+    end
+
     if git show-ref --verify --quiet "refs/heads/$branch"
-        git worktree add "$target" "$branch" >/dev/null
+        echo "Moving worktree '$branch' -> $target ..."
+
+        # 本地已有
+        git worktree add "$target" "$branch"
+    else if git ls-remote --exit-code --heads $remote "$branch" >/dev/null 2>&1
+
+        echo "Linking worktree '$branch' -> $target ..."
+
+        # 远程存在，先取这一条分支
+        git fetch --quiet $remote "$branch"
+        or return 1
+
+        git worktree add \
+            --track \
+            -b "$branch" \
+            "$target" \
+            "$remote/$branch"
     else
-        git worktree add -b "$branch" "$target" >/dev/null
+        echo "Creating worktree '$branch' -> $target ..."
+
+        # 全新分支
+        git worktree add -b "$branch" "$target"
     end
     or return 1
 
@@ -83,17 +106,17 @@ function git-worktree-create
 
     echo "✅ Worktree created."
 
-    # 当前工作区没有修改，结束
+    # 当前工作区没有修改
     if test -z (git status --porcelain)
         return 0
     end
 
     echo
-    read -P "Found untracked changes. Move to '$branch'? [y/N]" answer
+    read -P "Found uncommitted changes. Move to '$branch'? [y/N] " answer
 
     switch (string lower "$answer")
         case y yes
-            set -l stash_message "auto create worktree '$branch' at "(date "+%F %T.%S")
+            set -l stash_message "auto create worktree '$branch' at "(date "+%F %T")
 
             git stash push -u -m "$stash_message"
             or return 1
@@ -124,3 +147,4 @@ end
 alias grcp "git-resolve-commit-push"
 alias gra "git commit --amend --reset-author --no-edit"
 alias gwc "git-worktree-create"
+alias grhf "git reset --hard FETCH_HEAD"
