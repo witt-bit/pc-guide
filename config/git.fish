@@ -146,5 +146,11 @@ end
 
 alias grcp "git-resolve-commit-push"
 alias gra "git commit --amend --reset-author --no-edit"
-alias gwc "git-worktree-create"
+alias gwtc "git-worktree-create"
+# 如果存在wt命令，则设置别名
+if command -v wt > /dev/null
+    alias gwt "wt"
+else
+    alias gwt "git worktree"
+end
 alias grhf "git reset --hard FETCH_HEAD"
