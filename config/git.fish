@@ -107,39 +107,51 @@ function git-worktree-create
     echo "✅ Worktree created."
 
     # 当前工作区没有修改
-    if test -z (git status --porcelain)
+    if test (count (git status --porcelain)) -eq 0
         return 0
     end
 
+    echo "Uncommitted changes:"
     echo
-    read -P "Found uncommitted changes. Move to '$branch'? [y/N] " answer
+    git status --short | head -n5
+    echo
 
-    switch (string lower "$answer")
-        case y yes
-            set -l stash_message "auto create worktree '$branch' at "(date "+%F %T")
 
-            git stash push -u -m "$stash_message"
-            or return 1
+    set -l answer
+    while true
+        read -P "👆Found changes. Move, discard or view?  [y/N/v] " answer
 
-            set -l stash_ref (
-                git stash list |
-                string match -r "stash@\{\d+\}:.*$stash_message" |
-                head -n1 |
-                string replace -r ":.*" ""
-            )
+        switch (string lower "$answer")
+            case y yes
+                set -l stash_message "auto create worktree '$branch' at "(date "+%F %T")
 
-            if test -z "$stash_ref"
-                echo "❌ Failed to locate stash."
+                git stash push -u -m "$stash_message"
+                or return 1
+
+                set -l stash_ref (
+                    git stash list |
+                    string match -r "stash@\{\d+\}:.*$stash_message" |
+                    head -n1 |
+                    string replace -r ":.*" ""
+                )
+
+                if test -z "$stash_ref"
+                    echo "❌ Failed to locate stash."
+                    return 1
+                end
+
+                git -C "$target" stash apply "$stash_ref"
+                and git stash drop "$stash_ref"
+
+                echo "✅ Changes moved to the new worktree."
+                return 0
+            case n no
                 return 1
-            end
-
-            git -C "$target" stash apply "$stash_ref"
-            and git stash drop "$stash_ref"
-
-            echo "✅ Changes moved to the new worktree."
-
-        case '*'
-            return 0
+            case v
+                git status --short | less
+            case '*'
+                continue
+        end
     end
 end
 
