@@ -25,20 +25,44 @@
 ```yaml
 # https://mihomo.party/docs/guide/override/yaml
 
-# 直接覆盖整个规则
-# rules:
-#   - DOMAIN,baidu.com,DIRECT
-# 将规则插入到原规则前面
-# +rules:
-  # - DOMAIN,baidu.com,DIRECT
-# 在原规则后面追加规则
 +rules:
-  - 'DOMAIN,manned.org,🎯 全球直连'
-  - 'DOMAIN,aur.archlinux.org,🎯 全球直连'
-  # - 'DOMAIN-SUFFIX,beisen-inc.com,🎯 全球直连'
-  # - 'DOMAIN,beisen2-idp.yufuid.com,🎯 全球直连'
-  - 'DOMAIN-KEYWORD,beisen,🎯 全球直连'
-  - 'DOMAIN-SUFFIX,aliyuncs.com,🎯 全球直连'
+  - 'DOMAIN,manned.org,DIRECT'
+  - 'DOMAIN,aur.archlinux.org,DIRECT'
+  - 'DOMAIN-KEYWORD,beisen,DIRECT'
+  - 'DOMAIN-SUFFIX,italent-inc.cn,DIRECT'
+  - 'DOMAIN-SUFFIX,beisencorp.com,DIRECT'
+  - 'DOMAIN-SUFFIX,aliyuncs.com,DIRECT'
+  - 'DOMAIN-KEYWORD,alibaba-cloud,DIRECT'
+
+#  - 'DOMAIN-SUFFIX,oracle.com,🔰 节点选择'
+
+# 路由分离：这些网段的流量不走 Clash TUN，交还给系统路由（即 openconnect VPN 隧道）
+# 否则 Clash 的 auto-route 会抢走公司网段，导致 VPN 后内网不通
+tun:
+  route-exclude-address:
+    - 10.0.0.0/8            # 公司内网（10.129.x 等），走 VPN
+    - 172.16.0.0/12         # 常见内网网段，兜底
+    - 123.127.240.42/32     # VPN 服务器公网 IP，隧道流量直连，避免被 Clash 劫持
+
+# 内网域名用公司内网 DNS 解析真实 IP（深合并进 dns 段）
+# 关键：key 以 "+." 开头，必须用 <> 包裹，否则会被误解析为"插入操作"而丢弃
+# 注意：nameserver-policy 匹配优先级 = 精确域名 > 通配符后缀
+# 因此下面的 vpn.beisen-inc.com 精确规则会覆盖 +.beisen-inc.com 通配规则
+dns:
+  nameserver-policy:
+    # VPN 入口是公网域名，在家/公网环境用公网 DNS 解析（精确匹配，优先级最高）
+    'vpn.beisen-inc.com':
+      - https://120.53.53.53/dns-query
+      - https://223.5.5.5/dns-query
+    '<+.beisencorp.com>':
+      - 10.129.1.130
+      - 10.129.6.131
+    '<+.beisen-inc.com>':
+      - 10.129.1.130
+      - 10.129.6.131
+    '<+.italent-inc.cn>':
+      - 10.129.1.130
+      - 10.129.6.131
 ```
 
 ## 三、截图软件
