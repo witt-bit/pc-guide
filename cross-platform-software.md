@@ -112,7 +112,7 @@ brew untap yetone/magpie-releases
 
 ![KwikPaste预览](./cross-platform-software.assets/image-20261012144150356.png)
 
-## 六、终端工具
+## 六、终端
 ### 1.⭐<a id="Ghostty">Ghostty</a>
 
 官网: https://ghostty.org/
@@ -153,3 +153,28 @@ brew untap yetone/magpie-releases
 2. Ghostty 配置参考（全部配置项）：https://ghostty.org/docs/config/reference
 3. `toggle_quick_terminal` 说明：https://ghostty.org/docs/config/keybind/reference#toggle_quick_terminal
 4. Quick Terminal tabs 限制讨论（官方回应）：https://github.com/ghostty-org/ghostty/discussions/2888
+
+## 七、其他工具
+### 1.Atuin
+> Atuin 是一个终端历史记录工具，用于保存和检索终端命令。
+
+官网: https://atuin.sh/
+源码: https://github.com/atuinsh/atuin
+
+#### 1) 安装和卸载
+
+1. 安装
+* macos: `brew install atuin`
+* linux: `curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh`
+* windows: `winget install -e Atuinsh.Atuin`
+
+2. 卸载
+* macos: `brew uninstall atuin`
+
+#### 2) 配置
+
+```fish
+atuin init fish | source
+```
+
+[配置文件参考](./config/atuin-config.toml)
