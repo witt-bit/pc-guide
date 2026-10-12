@@ -422,7 +422,7 @@ keybind = super+e=search_selection
 
 # 关闭搜索，鼠标也可以
 keybind = super+shift+f=end_search
-keybind = escape=end_search
+# keybind = escape=end_search
 
 # 跳转下页搜索
 keybind = super+g=navigate_search:next
