@@ -444,7 +444,6 @@ sudo pacman -S neovim
 
 [clbsh v2.3.2 版本镜像 2](https://gh.zwy.one/https://github.com/clash-verge-rev/clash-verge-rev/releases/download/v2.3.2/Clash.Verge_2.3.2_arm64.deb)
 
-
 ##### (3).⭐`mihomo-party`
 
 * 源码: https://github.com/mihomo-party-org/mihomo-party

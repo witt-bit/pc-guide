@@ -327,30 +327,7 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 
 ### 2. Ghostty
 
-#### (1) 配置文件
-
-- 主配置文件（仓库路径）：
-
-  <a href="../config/config.ghostty">../config/config.ghostty</a>
-
-- 实际运行路径（系统读取位置）：
-
-  `/Users/witt/Library/Application Support/com.mitchellh.ghostty/config.ghostty`
-
-> 当前做法是用软链接把系统路径指向仓库主文件，后续只维护仓库里的这一份配置。
-
-#### (2) 关键能力与已知限制
-
-1. 支持 `Quick Terminal`（下拉终端）与 `global:` 全局快捷键。
-2. `global:` 快捷键依赖 macOS「辅助功能」权限。
-3. macOS 下 `Quick Terminal` 不支持 tabs（官方已明确）。
-
-#### (3) 参考资料
-
-1. Ghostty 功能总览：https://ghostty.org/docs/features
-2. Ghostty 配置参考（全部配置项）：https://ghostty.org/docs/config/reference
-3. `toggle_quick_terminal` 说明：https://ghostty.org/docs/config/keybind/reference#toggle_quick_terminal
-4. Quick Terminal tabs 限制讨论（官方回应）：https://github.com/ghostty-org/ghostty/discussions/2888
+[跳转阅读](../cross-platform-software.md#Ghostty)
 
 ### 3. iTerm2
 
@@ -408,8 +385,6 @@ https://github.com/wxtsky/CodeIsland
 brew tap wxtsky/tap
 brew install --cask codeisland
 ```
-
-brew install ghostty
 
 #### 2) xmqywx/MioIsland
 
