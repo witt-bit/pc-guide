@@ -3,7 +3,7 @@
 #====================== 字体和渲染设置 =======================
 
 # 语言和字体设置,设置了反而报错所以没有设置
-# language = zh
+language = zh
 
 # 字体家族设置，此配置可以重复多次
 font-family = LigaMonaco Nerd Font
@@ -518,7 +518,7 @@ undo-timeout = 5s
 
 # 快捷唤起 Quick Terminal（类似 iTerm2 HotKeyWindow）
 # 全局快捷键：Control + 5（需要 macOS 辅助功能权限）
-keybind = global:ctrl+5=toggle_quick_terminal
+keybind = global:ctrl+1=toggle_quick_terminal
 # keybind = ctrl+5=toggle_quick_terminal
 
 # 旧写法保留注释，避免未来回滚时踩坑
@@ -534,7 +534,7 @@ focus-follows-mouse = false
 
 # 是否允许终端里的程序读取系统剪贴板的内容
 # ask, allow
-clipboard-write = ask
+clipboard-write = allow
 
 # 是否自动去掉行尾的空格
 clipboard-trim-trailing-spaces = true
@@ -550,7 +550,9 @@ title-report = false
 image-storage-limit = 320000000
 
 # 选中后按鼠标中键复制粘贴
-copy-on-select = true
+	# true - 写入辅助剪贴板 selection clipboard
+	# clipboard - 写入系统剪贴板 = 辅助剪贴板
+copy-on-select = clipboard
 
 # Option 键作为 Alt 使用（对 vim/emacs 用户很重要）
 macos-option-as-alt = true
@@ -564,12 +566,15 @@ right-click-action = context-menu
 # config-file = "?optional.ghostty"
 config-default-files = true
 
+window-save-state = always
+initial-window = false
+
 #==================== shell设置 ==========================
 # shell检测
 shell-integration = detect
 
 # no-前缀来禁用某项，功能增强
-shell-integration-features = cursor,sudo,title,no-ssh-env,no-ssh-terminfo,path
+shell-integration-features = no-cursor,sudo,title,no-ssh-env,no-ssh-terminfo,path
 
 #================== 自定义命令面板菜单 ================
 # 命令面板（通常通过快捷键唤起）就像一个"搜索栏"，让你不用记复杂的快捷键就能执行各种操作，本身有命令为了区分+[My]
@@ -613,6 +618,14 @@ macos-titlebar-style = native
 # 非原生屏
 macos-non-native-fullscreen = false
 
+# 配置值	macOS 行为	隐藏顶部菜单栏
+# false	普通窗口，默认值	否
+# true	原生全屏，有系统动画	全屏时自动隐藏
+# non-native	非原生全屏，无系统动画	是
+# non-native-visible-menu	非原生全屏	否
+# non-native-padded-notch	非原生全屏，并为刘海屏预留空间	是
+fullscreen = non-native-padded-notch
+
 # 窗口红绿黄按钮
 macos-window-buttons = visible
 
@@ -623,7 +636,9 @@ macos-dock-drop-behavior = new-tab
 macos-window-shadow = true
 # 隐藏 Dock 和应用切换器图标（HotKey 模式推荐）
 # 恢复 Dock 图标，避免无法进入应用
-macos-hidden = never
+# never - 从不
+# always
+macos-hidden = always
 macos-applescript = true
 
 #================= Linux独有设置 ==========================
