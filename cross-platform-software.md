@@ -65,6 +65,54 @@ dns:
       - 10.129.6.131
 ```
 
+### 2.Clash Plus
+
+* 官网: https://clashplus.io/
+* <span align="left" style="white-space: nowrap; vertical-align: middle;">多端适配：
+  <img src="icons/mac-os.svg" height="25" alt="macOS" title="macOS">
+  &nbsp;
+  <img src="icons/ios.svg" height="25" alt="iOS" title="iOS">
+  &nbsp;
+  <img src="icons/ipad.svg" height="25" alt="iPadOS" title="iPadOS">
+  &nbsp;
+  <img src="icons/linux.svg" height="25" alt="Linux" title="Linux">
+  &nbsp;
+  <img src="icons/android.svg" height="25" alt="Android" title="Android">
+  &nbsp;
+  <img src="icons/HMOS.svg" height="25" alt="HarmonyOS" title="HarmonyOS">
+  &nbsp;
+  <img src="icons/Windows.svg" height="25" alt="Windows" title="Windows">
+  </span>
+  
+* 预览图：
+
+<img src="./cross-platform-software.assets/image-20261014102913584.png" alt="clashPlus-macos" style="zoom: 33%;" />
+
+<img src="./cross-platform-software.assets/image-20261014103047771.png" alt="clashPlus-android" style="zoom: 25%;" />
+
+* 安装
+
+macos: 无`homebrew`包
+
+### 3.FLClash
+
+* 源码: https://github.com/chen08209/FlClash
+* <span align="left" style="white-space: nowrap; vertical-align: middle;">多端适配：
+  <img src="icons/mac-os.svg" height="25" alt="macOS" title="macOS">
+  &nbsp;
+  <img src="icons/linux.svg" height="25" alt="Linux" title="Linux">
+  &nbsp;
+  <img src="icons/android.svg" height="25" alt="Android" title="Android">
+  &nbsp;
+  <img src="icons/Windows.svg" height="25" alt="Windows" title="Windows">
+  </span>
+* 安装:
+* macos
+```shell
+brew tap chen08209/tap
+brew install --cask flclash
+```
+
 ## 三、截图软件
 
 ### 1.pixpin
@@ -85,7 +133,6 @@ dns:
 
 官网: https://usemagpie.ai/zh/
 源码: https://github.com/yetone/magpie
-
 
 ![magpie-preview](https://github.com/yetone/magpie/raw/main/site/public/img/agents-light.png)
 
@@ -110,7 +157,7 @@ brew untap yetone/magpie-releases
 官网: https://paste.fastthree.com/
 源码: https://github.com/ManSanDADADA/KwikPaste
 
-![KwikPaste预览](./cross-platform-software.assets/image-20261012144150356.png)
+<img src="./cross-platform-software.assets/image-20261012144150356.png" alt="KwikPaste预览" style="zoom:50%;" />
 
 ## 六、终端
 ### 1.⭐<a id="Ghostty">Ghostty</a>
