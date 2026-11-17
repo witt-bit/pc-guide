@@ -7,6 +7,7 @@ language = zh
 
 # 字体家族设置，此配置可以重复多次
 font-family = LigaMonaco Nerd Font
+font-family = PingFang SC
 
 # fallback（中文）
 #font-family = "PingFang SC"
@@ -49,7 +50,7 @@ clipboard-codepoint-map = "U+03B2=beta"
 clipboard-codepoint-map = "U+03B3=gamma"
 
 # 字体粗度
-font-thicken = true
+font-thicken = false
 font-thicken-strength = 30
 
 # 连字断开显示配合font-feature使用，在光标指时候显示原始的符号比如!=显示
@@ -91,7 +92,8 @@ freetype-load-flags = hinting,no-monochrome,autohint,light
 # 主题自选也可以使用别的starship进行搭建
 
 # ghostty +list-themes 查看自带主题 Rose Pine
-theme = Dimidium
+# theme = Dimidium
+theme = dark:nvim dark,light:clear light
 
 # 主题选好之后 background, foreground, selection-foreground, selection-background, palette, cursor-color, cursor-text 会全部配好，如果要覆盖可以挨个进行修改
 
@@ -115,7 +117,7 @@ selection-background = #ffffff
 # 选中字体后的行为，是否取消选中，复制后是否取消，双击时词的边界
 selection-clear-on-typing = true
 selection-clear-on-copy = false
-selection-word-chars = "\t'\"|`|:;,()[]{}<>$"
+selection-word-chars = "\t '➜\"|`|:;,()[]{}<>$"
 
 # 强制前景色和背景色对比度 1-21，这个设置会修改背景
 minimum-contrast = 1
@@ -149,8 +151,9 @@ cursor-style = block_hollow
 # 光标是否闪烁
 cursor-style-blink = true
 
-# 光标可以在终端移动
-cursor-click-to-move = true
+# 点击 prompt 上的位置是否把光标移过去（fish 4.1+/nu 支持 OSC 133 时为原生行为，其余 shell 会合成方向键）
+# 设为 false 后，鼠标点哪都不会改变 shell 光标位置
+cursor-click-to-move = false
 
 #============== 鼠标行为 =============
 
@@ -624,7 +627,7 @@ macos-non-native-fullscreen = false
 # non-native	非原生全屏，无系统动画	是
 # non-native-visible-menu	非原生全屏	否
 # non-native-padded-notch	非原生全屏，并为刘海屏预留空间	是
-fullscreen = non-native-padded-notch
+fullscreen = true
 
 # 窗口红绿黄按钮
 macos-window-buttons = visible

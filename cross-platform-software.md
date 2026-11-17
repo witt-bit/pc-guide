@@ -225,3 +225,344 @@ atuin init fish | source
 ```
 
 [配置文件参考](./config/atuin-config.toml)
+
+## 八、命令行工具
+
+### 1.bat
+
+> `cat` 的替代，带语法高亮与行号
+
+* 源码: https://github.com/sharkdp/bat
+
+* 安装
+* macos: `brew install bat`
+* linux: `sudo apt install bat`（Debian/Ubuntu）
+* windows: `winget install sharkdp.bat`
+
+### 2.fd
+
+> `find` 的替代，语法更短，默认忽略 `.gitignore`
+
+* 源码: https://github.com/sharkdp/fd
+
+* 安装
+* macos: `brew install fd`
+* linux: `sudo apt install fd-find`
+* windows: `winget install sharkdp.fd`
+
+```shell
+fd -e md              # 找所有 .md
+fd -t d node_modules  # 找目录
+```
+
+### 3.fastfetch
+
+> 终端启动信息展示，`neofetch` 的活跃替代品
+
+* 源码: https://github.com/fastfetch-cli/fastfetch
+
+* 安装
+* macos: `brew install fastfetch`
+* linux: `sudo apt install fastfetch`
+* windows: `winget install Fastfetch-cli.Fastfetch`
+
+### 4.tree
+
+> 目录树展示
+
+* 源码: https://github.com/Old-Man-Programmer/tree
+
+* 安装
+* macos: `brew install tree`
+* linux: `sudo apt install tree`
+
+```shell
+tree -L 2 -a --dirsfirst
+```
+
+### 5.trash-cli
+
+> 命令行删除进回收站，避免 `rm -rf` 不可逆
+
+* 源码: https://github.com/andreafrancia/trash-cli
+
+* 安装
+* macos: `brew install trash-cli`
+* linux: `sudo apt install trash-cli`
+
+```shell
+trash-put ./dist
+trash-list
+trash-restore
+```
+
+### 6.tlrc
+
+> `tldr` 的 Rust 客户端，查命令示例比 `man` 快
+
+* 源码: https://github.com/tldr-pages/tlrc
+
+* 安装
+* macos: `brew install tlrc`
+* linux: `cargo install tlrc`
+
+### 7.dos2unix
+
+> 转换 Windows 换行符，处理 CRLF 脚本时常用
+
+* 官网: https://dos2unix.sourceforge.io/
+
+* 安装
+* macos: `brew install dos2unix`
+* linux: `sudo apt install dos2unix`
+
+```shell
+dos2unix scripts/*.sh
+```
+
+### 8.coreutils
+
+> GNU 工具集，补齐 macOS 缺失的 `ls --color`、无备份 `sed -i` 等行为
+
+* 官网: https://www.gnu.org/software/coreutils/
+
+* 安装
+* macos: `brew install coreutils`
+
+> 命令带 `g` 前缀（`gls`、`gsed`），需要 GNU 行为时显式调用，不覆盖系统命令。
+
+### 9.worktrunk
+
+> git worktree 管理，多分支并行开发时避免反复 stash
+
+* 源码: https://github.com/max-sixty/worktrunk
+
+* 安装
+* macos: `brew install worktrunk`
+
+```shell
+wt list
+wt create feature-x
+wt switch feature-x
+```
+
+## 九、开发工具
+
+### 1.gh
+
+> GitHub 官方 CLI，创建 PR / issue、查看 Actions 日志
+
+* 官网: https://cli.github.com/
+* 源码: https://github.com/cli/cli
+
+* 安装
+* macos: `brew install gh`
+* linux: `sudo apt install gh`
+* windows: `winget install GitHub.cli`
+
+```shell
+gh auth login
+gh pr create --fill
+gh run list --workflow xxx.yml
+```
+
+### 2.git-filter-repo
+
+> 重写提交历史，用于清理敏感信息、拆分大仓库
+
+* 源码: https://github.com/newren/git-filter-repo
+
+* 安装
+* macos: `brew install git-filter-repo`
+
+```shell
+# 从历史中彻底删除某文件
+git filter-repo --path secrets.env --invert-paths
+```
+
+> 会重写全部 commit hash，操作前先备份分支。
+
+### 3.Maven
+
+* 官网: https://maven.apache.org/
+
+* 安装
+* macos: `brew install maven`
+
+### 4.mvnd（Maven Daemon）
+
+> 常驻守护进程的 Maven，连续构建比 `mvn` 快很多
+
+* 源码: https://github.com/apache/maven-mvnd
+
+* 安装
+* macos: `brew install mvndaemon/mvnd/mvnd`
+
+```shell
+mvnd clean package -DskipTests
+```
+
+### 5.jadx
+
+> Java / Android 反编译，可直接查看 jar、apk 的源码结构
+
+* 源码: https://github.com/skylot/jadx
+
+* 安装
+* macos: `brew install jadx`
+
+```shell
+jadx -d out/ target.jar
+jadx-gui target.jar
+```
+
+### 6.mat2
+
+> 清除文件元数据（EXIF、作者、GPS 等），分享截图或文档前使用
+
+* 官网: https://0xacab.org/jvoisin/mat2
+
+* 安装
+* macos: `brew install mat2`
+* linux: `sudo apt install mat2`
+
+```shell
+mat2 photo.jpg         # 生成 photo.cleaned.jpg
+mat2 --inplace doc.pdf
+```
+
+## 十、数据库客户端
+
+### 1.Tiny RDM
+
+> 轻量 Redis 客户端，支持集群、哨兵、JSON 类型
+
+* 官网: https://redis.tinycraft.cc/zh/
+* 源码: https://github.com/tiny-craft/tiny-rdm
+
+* 安装
+* macos: `brew install --cask tiny-rdm`
+* windows: `winget install TinyRDM.TinyRDM`
+
+### 2.DBeaver Community
+
+> 通用数据库 GUI，支持 MySQL、PostgreSQL、Oracle、ClickHouse 等
+
+* 官网: https://dbeaver.io/
+* 源码: https://github.com/dbeaver/dbeaver
+
+* 安装
+* macos: `brew install --cask dbeaver-community`
+* windows: `winget install dbeaver.dbeaver`
+
+> 内置 JRE，无需额外配置 Java。启动较慢是正常现象。
+
+### 3.DBX
+
+> 轻量跨库数据库客户端
+
+* 安装
+* macos: `brew install --cask dbx`
+
+### 4.iredis
+
+> Redis 命令行增强版，支持语法高亮与自动补全
+
+* 源码: https://github.com/laixintao/iredis
+
+* 安装
+* macos: `brew install iredis`
+* linux: `pip install iredis`
+
+```shell
+iredis -h 127.0.0.1 -p 6379
+```
+
+### 5.mycli
+
+> MySQL 命令行增强版，带语法高亮与自动补全
+
+* 官网: https://www.mycli.net/
+* 源码: https://github.com/dbcli/mycli
+
+* 安装
+* macos: `brew install mycli`
+* linux: `pip install mycli`
+
+```shell
+mycli -h 127.0.0.1 -u root -p
+```
+
+## 十一、日常 GUI 软件
+
+> 开箱即用的跨平台客户端，无特殊配置需求，仅记录安装命令。macOS 统一用 `brew install --cask`。
+
+### 1.办公与协作
+
+| 软件 | 平台 | 安装 |
+| --- | --- | --- |
+| WPS Office | Windows / macOS / Linux | `brew install --cask wpsoffice-cn` |
+| 飞书 | Windows / macOS / Linux | `brew install --cask feishu` |
+| 微信 | Windows / macOS / Linux | `brew install --cask wechat` |
+| QQ | Windows / macOS / Linux | `brew install --cask qq` |
+| 钉钉 | Windows / macOS / Linux | `brew install --cask dingtalk` |
+| 企业微信 | Windows / macOS | `brew install --cask wechatwork` |
+| Telegram | 全平台 | `brew install --cask telegram-desktop` |
+
+> WPS 的 `wpsoffice-cn` 是中文版，与 `wpsoffice`（国际版）互斥，两者只能装其一。
+
+### 2.浏览器
+
+| 软件 | 平台 | 安装 |
+| --- | --- | --- |
+| Google Chrome | 全平台 | `brew install --cask google-chrome` |
+
+### 3.开发 IDE 与 API 工具
+
+| 软件 | 平台 | 安装 |
+| --- | --- | --- |
+| Visual Studio Code | 全平台 | `brew install --cask visual-studio-code` |
+| GoLand | 全平台 | `brew install --cask goland` |
+| IntelliJ IDEA | 全平台 | `brew install --cask intellij-idea` |
+| PyCharm | 全平台 | `brew install --cask pycharm` |
+| Apifox | 全平台 | `brew install --cask apifox` |
+| Reqable | 全平台 | `brew install --cask reqable` |
+
+> JetBrains 系三个 IDE 体积较大（各 3-4 GB），按需安装。`brew upgrade --cask` 会自动跟随大版本。
+
+### 4.媒体与下载
+
+| 软件 | 平台 | 安装 |
+| --- | --- | --- |
+| OBS Studio | 全平台 | `brew install --cask obs` |
+| HandBrake | 全平台 | `brew install --cask handbrake-app` |
+| Motrix | 全平台 | `brew install --cask motrix` |
+| imFile | 全平台 | `brew install --cask imfile` |
+
+### 5.AI 与编程助手
+
+| 软件 | 平台 | 安装 |
+| --- | --- | --- |
+| ChatGPT | Windows / macOS | `brew install --cask chatgpt` |
+| Cherry Studio | 全平台 | `brew install --cask cherry-studio` |
+| DeepSeek Harness | 待确认 | `brew install --cask deepseek-harness` |
+| Trae CN | 待确认 | `brew install --cask trae-cn` |
+| OpenIDEA | Windows / macOS / Linux | `brew install --cask witt/taps/openidea` |
+| ZCode | 待确认 | `brew install --cask zcode` |
+| WorkBuddy | 待确认 | `brew install --cask workbuddy-cn` |
+
+> `OpenIDEA` 未进入官方 cask 库，由本仓库私有 tap 提供，需先 `brew tap witt/taps`。
+
+### 6.效率与同步
+
+| 软件 | 平台 | 安装 |
+| --- | --- | --- |
+| Heynote | 全平台 | `brew install --cask heynote` |
+| MiaoYan | macOS | `brew install --cask miaoyan` |
+| Xmind | 全平台 | `brew install --cask xmind` |
+| SwitchHosts | 全平台 | `brew install --cask switchhosts` |
+| LocalSend | 全平台 | `brew install --cask localsend` |
+| 小米互联服务 | Windows / macOS | `brew install --cask hyperconnect` |
+| 阿里云盘 aDrive | Windows / macOS | `brew install --cask adrive` |
+| ToDesk | 全平台 | `brew install --cask todesk` |
+| Cap | Windows / macOS | `brew install --cask cap` |
