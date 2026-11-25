@@ -603,10 +603,10 @@ quick-terminal-size = 100%,100%
 quick-terminal-screen = main
 
 # 失焦自动隐藏，符合 HotKeyWindow 的临时唤起体验
-quick-terminal-autohide = true
+quick-terminal-autohide = false
 
 # 切换 Space 时把快速终端移动到当前 Space
-quick-terminal-space-behavior = move
+quick-terminal-space-behavior = remain
 
 # 非激活状态按需接管键盘，减少对前台应用干扰
 quick-terminal-keyboard-interactivity = on-demand
